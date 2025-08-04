@@ -25,7 +25,7 @@ To identify mutations exclusively present in *P. falciparum* isolates from treat
 
 ---
 
-## ⚠Disclaimer
+## Disclaimer
 
 This project was developed as part of a research internship. The VCF and metadata files were provided by the hosting laboratory. This pipeline is released for educational and reproducibility purposes, but does not include raw sequencing data due to privacy and size constraints.
 
