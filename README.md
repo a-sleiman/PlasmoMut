@@ -70,6 +70,7 @@ if (!requireNamespace("BiocManager", quietly = TRUE))
 BiocManager::install(c("VariantAnnotation", "vcfR", "rtracklayer", "Rsamtools", "GenomicAlignments"))
 install.packages("openxlsx")
 install.packages(c("openxlsx", "networkD3", "htmlwidgets", "webshot2", "tidyr", "tibble", "ggplot2", "dplyr", "SankeyDiagram", "stringr"))
+```
 
 ---
 
