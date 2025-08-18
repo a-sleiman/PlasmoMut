@@ -3,7 +3,7 @@ A bioinformatics pipeline to identify candidate variants associated with treatme
 
 ## Project Goal
 
-To identify mutations exclusively present in *P. falciparum* isolates from treatment failure cases, but absent in treatment success cases. The ultimate aim is to generate a list of candidate variants potentially linked to resistance against antimalarial drugs (e.g., lumefantrine).
+To identify mutations exclusively present in *P. falciparum* isolates from treatment failure cases, but absent in treatment success cases. The ultimate aim is to generate a list of candidate variants potentially linked to resistance against antimalarial drugs.
 
 ---
 
@@ -11,18 +11,20 @@ To identify mutations exclusively present in *P. falciparum* isolates from treat
 
 | Folder         | Description |
 |----------------|-------------|
-| `input_data/`  | Raw FASTQ, reference genome, sample metadata |
-| `bash_pipeline/` | Bash scripts for read mapping & VCF generation |
 | `R_scripts/`   | R scripts for filtering and visualization |
+| `annotations/` | Gene coordinates and annotations |
+| `bash_scripts/` | Bash scripts for read mapping & VCF generation |
+| `input_data/`  | Raw FASTQ, reference genome, sample metadata |
+| `known_sites/` | VCF files of known variants used in variant recalibration |
 | `output_data/` | Merged VCFs, filtered candidate variants, plots |
 
 ---
 
 ## Steps Overview
 
-- Process raw FASTQ files to produce a merged VCF (ASEQ1.sh): fastq -> .bam + .vcf + .vcf_merged.vcf
-- Identify candidate variants exclusive to treatment failure samples (PlasmoMutFinder.R): .vcf_merged.vcf -> candidate variants
-- Visualize read mapping quality and variant distributions (SeqQualPlot15.R): .bam -> plot.html + plot.jpg
+- Process raw FASTQ files to produce a merged VCF (ASEQ1.sh)
+- Identify candidate variants exclusive to treatment failure samples (PlasmoMutFinder.R)
+- Visualize read mapping quality and variant distributions (SeqQualPlot15.R)
 
 ---
 
@@ -33,10 +35,9 @@ To identify mutations exclusively present in *P. falciparum* isolates from treat
 
 2. **Read Mapping & Variant Calling** (`ASEQ1.sh`)  
    - Align reads to *P. falciparum* reference genome  
-   - Generate merged VCF of all samples
+   - Generate BAM and merged VCF files of all samples
 
 3. **Variant Filtering** (`Mutfind.R`)  
-   - Separate samples into Success vs. Failure groups  
    - Identify variants exclusive to the failure group  
    - Output filtered VCF and candidate table
 
@@ -52,6 +53,8 @@ To identify mutations exclusively present in *P. falciparum* isolates from treat
 - `input_data/*.fastq/`: Raw sequencing reads  
 - `input_data/Pfalciparum.genome.fasta/`: Reference genome FASTA + index files  
 - `input_data/labels.xlsx`: Sample metadata with `Sample` and `Group` columns
+- `input_data/annotations/`: gene annotation reference files (e.g., GFF3) used to map variants to genes and funtional regions
+- - `input_data/known_sites/`: reference variant databases (e.g., dbSNP) used for base quality score recalibration (BQSR) and variant filtering
 
 ---
 
@@ -66,16 +69,31 @@ To identify mutations exclusively present in *P. falciparum* isolates from treat
 ```r
 if (!requireNamespace("BiocManager", quietly = TRUE))
     install.packages("BiocManager")
-BiocManager::install(c("VariantAnnotation", "vcfR", "rtracklayer", "Rsamtools", "GenomicAlignments"))
-install.packages("openxlsx")
-install.packages(c("openxlsx", "networkD3", "htmlwidgets", "webshot2", "tidyr", "tibble", "ggplot2", "dplyr", "SankeyDiagram", "stringr"))
-```
+BiocManager::install(c(
+    "VariantAnnotation", 
+    "vcfR", 
+    "rtracklayer", 
+    "Rsamtools", 
+    "GenomicAlignments"
+))
+install.packages(c(
+    "openxlsx", 
+    "networkD3", 
+    "htmlwidgets", 
+    "webshot2", 
+    "tidyr", 
+    "tibble", 
+    "ggplot2", 
+    "dplyr", 
+    "SankeyDiagram", 
+    "stringr"
+))
 
 ---
 
 ## Disclaimer
 
-This project was developed as part of a research internship. The VCF and metadata files were provided by the hosting laboratory. This pipeline is released for educational and reproducibility purposes, but does not include raw sequencing data due to privacy and size constraints.
+This project was developed as part of a research internship. The VCF and metadata files were provided by the hosting lab `ESCAPE – EpidémioSurveillance et circulation des parasites dans les environnements – UR 7510`. This pipeline is released for educational and reproducibility purposes, but does not include raw sequencing data due to privacy and size constraints.
 
 ---
 
