@@ -7,21 +7,69 @@ To identify mutations exclusively present in *P. falciparum* isolates from treat
 
 ---
 
-## Pipeline Overview
+## Folder Structure
+
+| Folder         | Description |
+|----------------|-------------|
+| `input_data/`  | Raw FASTQ, reference genome, sample metadata |
+| `bash_pipeline/` | Bash scripts for read mapping & VCF generation |
+| `R_scripts/`   | R scripts for filtering and visualization |
+| `output_data/` | Merged VCFs, filtered candidate variants, plots |
+| `reference_data/` | Necessary data, reference genome, project design, workflow diagrams, notes |
+
+---
+
+## Steps Overview
+
+- Process raw FASTQ files to produce a merged VCF (ASEQ1.sh): fastq -> .bam + .vcf + .vcf_merged.vcf
+- Identify candidate variants exclusive to treatment failure samples (PlasmoMutFinder.R): .vcf_merged.vcf -> candidate variants
+- Visualize read mapping quality and variant distributions (SeqQualPlot15.R): .bam -> plot.html + plot.jpg
+
+---
+
+##  Pipeline Overview
 
 1. **Sequencing Output**  
-   - Illumina paired-end FASTQ files from 200+ isolates
+   - Illumina paired-end FASTQ files
 
-2. **Read Mapping & Variant Calling**  
-   - Align reads to the *P. falciparum* reference genome  
-   - GATK best practices to call variants (VCFs)
+2. **Read Mapping & Variant Calling** (`ASEQ1.sh`)  
+   - Align reads to *P. falciparum* reference genome  
+   - Generate merged VCF of all samples
 
-3. **Sample Labeling**  
-   - Metadata table assigning each sample as `Success` or `Failure`
+3. **Variant Filtering** (`Mutfind.R`)  
+   - Separate samples into Success vs. Failure groups  
+   - Identify variants exclusive to the failure group  
+   - Output filtered VCF and candidate table
 
-4. **Variant Filtering (R)**  
-   - Identify variants exclusively present in the `Failure` group  
-   - Export candidate list and modified VCF
+4. **Quality Visualization** (`SeqQualPlot15.R`)  
+   - Sankey diagram of read processing  
+   - Mapping proportions per sample  
+   - Distribution of reads over target genes
+
+---
+
+## Required Files
+
+- `input_data/*.fastq/`: Raw sequencing reads  
+- `input_data/Pfalciparum.genome.fasta/`: Reference genome FASTA + index files  
+- `input_data/labels.xlsx`: Sample metadata with `Sample` and `Group` columns
+
+---
+
+##  Dependencies
+
+### Bash & Bioinformatics Tools
+
+- `bwa`, `samtools`, `GATK`, `bcftools` (for ASEQ1.sh)
+
+### R Packages
+
+```r
+if (!requireNamespace("BiocManager", quietly = TRUE))
+    install.packages("BiocManager")
+BiocManager::install(c("VariantAnnotation", "vcfR", "rtracklayer", "Rsamtools", "GenomicAlignments"))
+install.packages("openxlsx")
+install.packages(c("openxlsx", "networkD3", "htmlwidgets", "webshot2", "tidyr", "tibble", "ggplot2", "dplyr", "SankeyDiagram", "stringr"))
 
 ---
 
