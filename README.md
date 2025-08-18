@@ -50,11 +50,17 @@ To identify mutations exclusively present in *P. falciparum* isolates from treat
 
 ## Required Files
 
-- `input_data/*.fastq/`: Raw sequencing reads  
-- `input_data/Pfalciparum.genome.fasta/`: Reference genome FASTA + index files  
-- `input_data/labels.xlsx`: Sample metadata with `Sample` and `Group` columns
-- `input_data/annotations/`: gene annotation reference files (e.g., GFF3) used to map variants to genes and funtional regions
-- - `input_data/known_sites/`: reference variant databases (e.g., dbSNP) used for base quality score recalibration (BQSR) and variant filtering
+Before running the pipeline, make sure you have the following files organized in your project directory and your scripts:
+- `input_data/*.fastq/`: Raw sequencing reads (ILLUMINA pared-end)
+- `input_data/Pfalciparum.genome.fasta/`: Plasmodium falciparum reference genome in FASTA format
+- - `input_data/annotations/`: gene annotation reference files (e.g., GFF3) used to map variants to genes and funtional regions
+- `input_data/known_sites/`: reference variant databases (e.g., dbSNP) used for base quality score recalibration (BQSR) and variant filtering
+- `input_data/labels.xlsx` – Excel file with sample information:  
+  - `Sample` column: sample names matching .BAM bash-output files.  
+  - `Group` column: `Succes` or `Failure` (treatment outcome labels).  
+- `input_data/Newtargets15/`: BED file containing genomic target regions for on-target read analysis
+- Any index files generated during preprocessing (`.bai`, `.vcf`, `.bam`).  
+- Any intermediate files needed for mapping, filtering, or plotting steps.  
 
 ---
 
