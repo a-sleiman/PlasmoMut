@@ -1,0 +1,945 @@
+##fileformat=VCFv4.2
+##ALT=<ID=NON_REF,Description="Represents any possible alternative allele not already represented at this location by REF and ALT">
+##FILTER=<ID=LowQual,Description="Low quality">
+##FORMAT=<ID=AD,Number=R,Type=Integer,Description="Allelic depths for the ref and alt alleles in the order listed">
+##FORMAT=<ID=DP,Number=1,Type=Integer,Description="Approximate read depth (reads with MQ=255 or with bad mates are filtered)">
+##FORMAT=<ID=GQ,Number=1,Type=Integer,Description="Genotype Quality">
+##FORMAT=<ID=GT,Number=1,Type=String,Description="Genotype">
+##FORMAT=<ID=MIN_DP,Number=1,Type=Integer,Description="Minimum DP observed within the GVCF block">
+##FORMAT=<ID=PGT,Number=1,Type=String,Description="Physical phasing haplotype information, describing how the alternate alleles are phased in relation to one another; will always be heterozygous and is not intended to describe called alleles">
+##FORMAT=<ID=PID,Number=1,Type=String,Description="Physical phasing ID information, where each unique ID within a given sample (but not across samples) connects records within a phasing group">
+##FORMAT=<ID=PL,Number=G,Type=Integer,Description="Normalized, Phred-scaled likelihoods for genotypes as defined in the VCF specification">
+##FORMAT=<ID=PS,Number=1,Type=Integer,Description="Phasing set (typically the position of the first variant in the set)">
+##FORMAT=<ID=SB,Number=4,Type=Integer,Description="Per-sample component statistics which comprise the Fisher's Exact Test to detect strand bias.">
+##GATKCommandLine=<ID=HaplotypeCaller,CommandLine="HaplotypeCaller --max-alternate-alleles 6 --native-pair-hmm-threads 4 --emit-ref-confidence GVCF --output bam_files/112313357426_S2_L001.sorted.bam.bam.g.vcf --input bam_files/112313357426_S2_L001.sorted.bam.bam --reference /mnt/c/Stages/StageESCAPE/plasmodium_project/Pfalciparum.genome.fasta --use-posteriors-to-calculate-qual false --dont-use-dragstr-priors false --use-new-qual-calculator true --annotate-with-num-discovered-alleles false --heterozygosity 0.001 --indel-heterozygosity 1.25E-4 --heterozygosity-stdev 0.01 --standard-min-confidence-threshold-for-calling 30.0 --max-genotype-count 1024 --sample-ploidy 2 --num-reference-samples-if-no-call 0 --genotype-assignment-method USE_PLS_TO_ASSIGN --contamination-fraction-to-filter 0.0 --output-mode EMIT_VARIANTS_ONLY --all-site-pls false --flow-likelihood-parallel-threads 0 --flow-likelihood-optimized-comp false --flow-use-t0-tag false --flow-probability-threshold 0.003 --flow-remove-non-single-base-pair-indels false --flow-remove-one-zero-probs false --flow-quantization-bins 121 --flow-fill-empty-bins-value 0.001 --flow-symmetric-indel-probs false --flow-report-insertion-or-deletion false --flow-disallow-probs-larger-than-call false --flow-lump-probs false --flow-retain-max-n-probs-base-format false --flow-probability-scaling-factor 10 --flow-order-cycle-length 4 --flow-number-of-uncertain-flows-to-clip 0 --flow-nucleotide-of-first-uncertain-flow T --keep-boundary-flows false --gvcf-gq-bands 1 --gvcf-gq-bands 2 --gvcf-gq-bands 3 --gvcf-gq-bands 4 --gvcf-gq-bands 5 --gvcf-gq-bands 6 --gvcf-gq-bands 7 --gvcf-gq-bands 8 --gvcf-gq-bands 9 --gvcf-gq-bands 10 --gvcf-gq-bands 11 --gvcf-gq-bands 12 --gvcf-gq-bands 13 --gvcf-gq-bands 14 --gvcf-gq-bands 15 --gvcf-gq-bands 16 --gvcf-gq-bands 17 --gvcf-gq-bands 18 --gvcf-gq-bands 19 --gvcf-gq-bands 20 --gvcf-gq-bands 21 --gvcf-gq-bands 22 --gvcf-gq-bands 23 --gvcf-gq-bands 24 --gvcf-gq-bands 25 --gvcf-gq-bands 26 --gvcf-gq-bands 27 --gvcf-gq-bands 28 --gvcf-gq-bands 29 --gvcf-gq-bands 30 --gvcf-gq-bands 31 --gvcf-gq-bands 32 --gvcf-gq-bands 33 --gvcf-gq-bands 34 --gvcf-gq-bands 35 --gvcf-gq-bands 36 --gvcf-gq-bands 37 --gvcf-gq-bands 38 --gvcf-gq-bands 39 --gvcf-gq-bands 40 --gvcf-gq-bands 41 --gvcf-gq-bands 42 --gvcf-gq-bands 43 --gvcf-gq-bands 44 --gvcf-gq-bands 45 --gvcf-gq-bands 46 --gvcf-gq-bands 47 --gvcf-gq-bands 48 --gvcf-gq-bands 49 --gvcf-gq-bands 50 --gvcf-gq-bands 51 --gvcf-gq-bands 52 --gvcf-gq-bands 53 --gvcf-gq-bands 54 --gvcf-gq-bands 55 --gvcf-gq-bands 56 --gvcf-gq-bands 57 --gvcf-gq-bands 58 --gvcf-gq-bands 59 --gvcf-gq-bands 60 --gvcf-gq-bands 70 --gvcf-gq-bands 80 --gvcf-gq-bands 90 --gvcf-gq-bands 99 --floor-blocks false --indel-size-to-eliminate-in-ref-model 10 --disable-optimizations false --dragen-mode false --flow-mode NONE --apply-bqd false --apply-frd false --disable-spanning-event-genotyping false --transform-dragen-mapping-quality false --mapping-quality-threshold-for-genotyping 20 --max-effective-depth-adjustment-for-frd 0 --just-determine-active-regions false --dont-genotype false --do-not-run-physical-phasing false --do-not-correct-overlapping-quality false --use-filtered-reads-for-annotations false --use-flow-aligner-for-stepwise-hc-filtering false --adaptive-pruning false --do-not-recover-dangling-branches false --recover-dangling-heads false --kmer-size 10 --kmer-size 25 --dont-increase-kmer-sizes-for-cycles false --allow-non-unique-kmers-in-ref false --num-pruning-samples 1 --min-dangling-branch-length 4 --recover-all-dangling-branches false --max-num-haplotypes-in-population 128 --min-pruning 2 --adaptive-pruning-initial-error-rate 0.001 --pruning-lod-threshold 2.302585092994046 --pruning-seeding-lod-threshold 9.210340371976184 --max-unpruned-variants 100 --linked-de-bruijn-graph false --disable-artificial-haplotype-recovery false --enable-legacy-graph-cycle-detection false --debug-assembly false --debug-graph-transformations false --capture-assembly-failure-bam false --num-matching-bases-in-dangling-end-to-recover -1 --error-correction-log-odds -Infinity --error-correct-reads false --kmer-length-for-read-error-correction 25 --min-observations-for-kmer-to-be-solid 20 --likelihood-calculation-engine PairHMM --base-quality-score-threshold 18 --dragstr-het-hom-ratio 2 --dont-use-dragstr-pair-hmm-scores false --pair-hmm-gap-continuation-penalty 10 --expected-mismatch-rate-for-read-disqualification 0.02 --pair-hmm-implementation FASTEST_AVAILABLE --pcr-indel-model CONSERVATIVE --phred-scaled-global-read-mismapping-rate 45 --disable-symmetric-hmm-normalizing false --disable-cap-base-qualities-to-map-quality false --enable-dynamic-read-disqualification-for-genotyping false --dynamic-read-disqualification-threshold 1.0 --native-pair-hmm-use-double-precision false --flow-hmm-engine-min-indel-adjust 6 --flow-hmm-engine-flat-insertion-penatly 45 --flow-hmm-engine-flat-deletion-penatly 45 --pileup-detection false --pileup-detection-enable-indel-pileup-calling false --num-artificial-haplotypes-to-add-per-allele 5 --artifical-haplotype-filtering-kmer-size 10 --pileup-detection-snp-alt-threshold 0.1 --pileup-detection-indel-alt-threshold 0.5 --pileup-detection-absolute-alt-depth 0.0 --pileup-detection-snp-adjacent-to-assembled-indel-range 5 --pileup-detection-bad-read-tolerance 0.0 --pileup-detection-proper-pair-read-badness true --pileup-detection-edit-distance-read-badness-threshold 0.08 --pileup-detection-chimeric-read-badness true --pileup-detection-template-mean-badness-threshold 0.0 --pileup-detection-template-std-badness-threshold 0.0 --bam-writer-type CALLED_HAPLOTYPES --dont-use-soft-clipped-bases false --override-fragment-softclip-check false --min-base-quality-score 10 --smith-waterman JAVA --max-mnp-distance 0 --force-call-filtered-alleles false --reference-model-deletion-quality 30 --soft-clip-low-quality-ends false --allele-informative-reads-overlap-margin 2 --smith-waterman-dangling-end-match-value 25 --smith-waterman-dangling-end-mismatch-penalty -50 --smith-waterman-dangling-end-gap-open-penalty -110 --smith-waterman-dangling-end-gap-extend-penalty -6 --smith-waterman-haplotype-to-reference-match-value 200 --smith-waterman-haplotype-to-reference-mismatch-penalty -150 --smith-waterman-haplotype-to-reference-gap-open-penalty -260 --smith-waterman-haplotype-to-reference-gap-extend-penalty -11 --smith-waterman-read-to-haplotype-match-value 10 --smith-waterman-read-to-haplotype-mismatch-penalty -15 --smith-waterman-read-to-haplotype-gap-open-penalty -30 --smith-waterman-read-to-haplotype-gap-extend-penalty -5 --flow-assembly-collapse-hmer-size 0 --flow-assembly-collapse-partial-mode false --flow-filter-alleles false --flow-filter-alleles-qual-threshold 30.0 --flow-filter-alleles-sor-threshold 3.0 --flow-filter-lone-alleles false --flow-filter-alleles-debug-graphs false --min-assembly-region-size 50 --max-assembly-region-size 300 --active-probability-threshold 0.002 --max-prob-propagation-distance 50 --force-active false --assembly-region-padding 100 --padding-around-indels 75 --padding-around-snps 20 --padding-around-strs 75 --max-extension-into-assembly-region-padding-legacy 25 --max-reads-per-alignment-start 50 --enable-legacy-assembly-region-trimming false --interval-set-rule UNION --interval-padding 0 --interval-exclusion-padding 0 --interval-merging-rule ALL --read-validation-stringency SILENT --seconds-between-progress-updates 10.0 --disable-sequence-dictionary-validation false --create-output-bam-index true --create-output-bam-md5 false --create-output-variant-index true --create-output-variant-md5 false --max-variants-per-shard 0 --lenient false --add-output-sam-program-record true --add-output-vcf-command-line true --cloud-prefetch-buffer 40 --cloud-index-prefetch-buffer -1 --disable-bam-index-caching false --sites-only-vcf-output false --help false --version false --showHidden false --verbosity INFO --QUIET false --use-jdk-deflater false --use-jdk-inflater false --gcs-max-retries 20 --gcs-project-for-requester-pays  --disable-tool-default-read-filters false --minimum-mapping-quality 20 --disable-tool-default-annotations false --enable-all-annotations false --allow-old-rms-mapping-quality-annotation-data false",Version="4.3.0.0",Date="August 18, 2025 at 4:40:33 PM EEST">
+##GVCFBlock0-1=minGQ=0(inclusive),maxGQ=1(exclusive)
+##GVCFBlock1-2=minGQ=1(inclusive),maxGQ=2(exclusive)
+##GVCFBlock10-11=minGQ=10(inclusive),maxGQ=11(exclusive)
+##GVCFBlock11-12=minGQ=11(inclusive),maxGQ=12(exclusive)
+##GVCFBlock12-13=minGQ=12(inclusive),maxGQ=13(exclusive)
+##GVCFBlock13-14=minGQ=13(inclusive),maxGQ=14(exclusive)
+##GVCFBlock14-15=minGQ=14(inclusive),maxGQ=15(exclusive)
+##GVCFBlock15-16=minGQ=15(inclusive),maxGQ=16(exclusive)
+##GVCFBlock16-17=minGQ=16(inclusive),maxGQ=17(exclusive)
+##GVCFBlock17-18=minGQ=17(inclusive),maxGQ=18(exclusive)
+##GVCFBlock18-19=minGQ=18(inclusive),maxGQ=19(exclusive)
+##GVCFBlock19-20=minGQ=19(inclusive),maxGQ=20(exclusive)
+##GVCFBlock2-3=minGQ=2(inclusive),maxGQ=3(exclusive)
+##GVCFBlock20-21=minGQ=20(inclusive),maxGQ=21(exclusive)
+##GVCFBlock21-22=minGQ=21(inclusive),maxGQ=22(exclusive)
+##GVCFBlock22-23=minGQ=22(inclusive),maxGQ=23(exclusive)
+##GVCFBlock23-24=minGQ=23(inclusive),maxGQ=24(exclusive)
+##GVCFBlock24-25=minGQ=24(inclusive),maxGQ=25(exclusive)
+##GVCFBlock25-26=minGQ=25(inclusive),maxGQ=26(exclusive)
+##GVCFBlock26-27=minGQ=26(inclusive),maxGQ=27(exclusive)
+##GVCFBlock27-28=minGQ=27(inclusive),maxGQ=28(exclusive)
+##GVCFBlock28-29=minGQ=28(inclusive),maxGQ=29(exclusive)
+##GVCFBlock29-30=minGQ=29(inclusive),maxGQ=30(exclusive)
+##GVCFBlock3-4=minGQ=3(inclusive),maxGQ=4(exclusive)
+##GVCFBlock30-31=minGQ=30(inclusive),maxGQ=31(exclusive)
+##GVCFBlock31-32=minGQ=31(inclusive),maxGQ=32(exclusive)
+##GVCFBlock32-33=minGQ=32(inclusive),maxGQ=33(exclusive)
+##GVCFBlock33-34=minGQ=33(inclusive),maxGQ=34(exclusive)
+##GVCFBlock34-35=minGQ=34(inclusive),maxGQ=35(exclusive)
+##GVCFBlock35-36=minGQ=35(inclusive),maxGQ=36(exclusive)
+##GVCFBlock36-37=minGQ=36(inclusive),maxGQ=37(exclusive)
+##GVCFBlock37-38=minGQ=37(inclusive),maxGQ=38(exclusive)
+##GVCFBlock38-39=minGQ=38(inclusive),maxGQ=39(exclusive)
+##GVCFBlock39-40=minGQ=39(inclusive),maxGQ=40(exclusive)
+##GVCFBlock4-5=minGQ=4(inclusive),maxGQ=5(exclusive)
+##GVCFBlock40-41=minGQ=40(inclusive),maxGQ=41(exclusive)
+##GVCFBlock41-42=minGQ=41(inclusive),maxGQ=42(exclusive)
+##GVCFBlock42-43=minGQ=42(inclusive),maxGQ=43(exclusive)
+##GVCFBlock43-44=minGQ=43(inclusive),maxGQ=44(exclusive)
+##GVCFBlock44-45=minGQ=44(inclusive),maxGQ=45(exclusive)
+##GVCFBlock45-46=minGQ=45(inclusive),maxGQ=46(exclusive)
+##GVCFBlock46-47=minGQ=46(inclusive),maxGQ=47(exclusive)
+##GVCFBlock47-48=minGQ=47(inclusive),maxGQ=48(exclusive)
+##GVCFBlock48-49=minGQ=48(inclusive),maxGQ=49(exclusive)
+##GVCFBlock49-50=minGQ=49(inclusive),maxGQ=50(exclusive)
+##GVCFBlock5-6=minGQ=5(inclusive),maxGQ=6(exclusive)
+##GVCFBlock50-51=minGQ=50(inclusive),maxGQ=51(exclusive)
+##GVCFBlock51-52=minGQ=51(inclusive),maxGQ=52(exclusive)
+##GVCFBlock52-53=minGQ=52(inclusive),maxGQ=53(exclusive)
+##GVCFBlock53-54=minGQ=53(inclusive),maxGQ=54(exclusive)
+##GVCFBlock54-55=minGQ=54(inclusive),maxGQ=55(exclusive)
+##GVCFBlock55-56=minGQ=55(inclusive),maxGQ=56(exclusive)
+##GVCFBlock56-57=minGQ=56(inclusive),maxGQ=57(exclusive)
+##GVCFBlock57-58=minGQ=57(inclusive),maxGQ=58(exclusive)
+##GVCFBlock58-59=minGQ=58(inclusive),maxGQ=59(exclusive)
+##GVCFBlock59-60=minGQ=59(inclusive),maxGQ=60(exclusive)
+##GVCFBlock6-7=minGQ=6(inclusive),maxGQ=7(exclusive)
+##GVCFBlock60-70=minGQ=60(inclusive),maxGQ=70(exclusive)
+##GVCFBlock7-8=minGQ=7(inclusive),maxGQ=8(exclusive)
+##GVCFBlock70-80=minGQ=70(inclusive),maxGQ=80(exclusive)
+##GVCFBlock8-9=minGQ=8(inclusive),maxGQ=9(exclusive)
+##GVCFBlock80-90=minGQ=80(inclusive),maxGQ=90(exclusive)
+##GVCFBlock9-10=minGQ=9(inclusive),maxGQ=10(exclusive)
+##GVCFBlock90-99=minGQ=90(inclusive),maxGQ=99(exclusive)
+##GVCFBlock99-100=minGQ=99(inclusive),maxGQ=100(exclusive)
+##INFO=<ID=BaseQRankSum,Number=1,Type=Float,Description="Z-score from Wilcoxon rank sum test of Alt Vs. Ref base qualities">
+##INFO=<ID=DP,Number=1,Type=Integer,Description="Approximate read depth; some reads may have been filtered">
+##INFO=<ID=END,Number=1,Type=Integer,Description="Stop position of the interval">
+##INFO=<ID=ExcessHet,Number=1,Type=Float,Description="Phred-scaled p-value for exact test of excess heterozygosity">
+##INFO=<ID=InbreedingCoeff,Number=1,Type=Float,Description="Inbreeding coefficient as estimated from the genotype likelihoods per-sample when compared against the Hardy-Weinberg expectation">
+##INFO=<ID=MLEAC,Number=A,Type=Integer,Description="Maximum likelihood expectation (MLE) for the allele counts (not necessarily the same as the AC), for each ALT allele, in the same order as listed">
+##INFO=<ID=MLEAF,Number=A,Type=Float,Description="Maximum likelihood expectation (MLE) for the allele frequency (not necessarily the same as the AF), for each ALT allele, in the same order as listed">
+##INFO=<ID=MQRankSum,Number=1,Type=Float,Description="Z-score From Wilcoxon rank sum test of Alt vs. Ref read mapping qualities">
+##INFO=<ID=RAW_MQandDP,Number=2,Type=Integer,Description="Raw data (sum of squared MQ and total depth) for improved RMS Mapping Quality calculation. Incompatible with deprecated RAW_MQ formulation.">
+##INFO=<ID=ReadPosRankSum,Number=1,Type=Float,Description="Z-score from Wilcoxon rank sum test of Alt vs. Ref read position bias">
+##contig=<ID=Pf3D7_01_v3,length=640851>
+##contig=<ID=Pf3D7_02_v3,length=947102>
+##contig=<ID=Pf3D7_03_v3,length=1067971>
+##contig=<ID=Pf3D7_04_v3,length=1200490>
+##contig=<ID=Pf3D7_05_v3,length=1343557>
+##contig=<ID=Pf3D7_06_v3,length=1418242>
+##contig=<ID=Pf3D7_07_v3,length=1445207>
+##contig=<ID=Pf3D7_08_v3,length=1472805>
+##contig=<ID=Pf3D7_09_v3,length=1541735>
+##contig=<ID=Pf3D7_10_v3,length=1687656>
+##contig=<ID=Pf3D7_11_v3,length=2038340>
+##contig=<ID=Pf3D7_12_v3,length=2271494>
+##contig=<ID=Pf3D7_13_v3,length=2925236>
+##contig=<ID=Pf3D7_14_v3,length=3291936>
+##contig=<ID=Pf3D7_API_v3,length=34250>
+##contig=<ID=Pf_M76611,length=5967>
+##source=HaplotypeCaller
+#CHROM	POS	ID	REF	ALT	QUAL	FILTER	INFO	FORMAT	112313357426_S2_L001
+Pf3D7_04_v3	748092	.	T	<NON_REF>	.	.	END=748238	GT:DP:GQ:MIN_DP:PL	0/0:929:99:134:0,109,1800
+Pf3D7_04_v3	748239	.	A	T,<NON_REF>	37622.1	.	DP=905;ExcessHet=0.0000;MLEAC=2,0;MLEAF=1.00,0.00;RAW_MQandDP=3252437,905	GT:AD:DP:GQ:PL:SB	1/1:0,894,0:894:99:37636,2685,0,37636,2685,37636:0,0,565,329
+Pf3D7_04_v3	748240	.	T	<NON_REF>	.	.	END=748261	GT:DP:GQ:MIN_DP:PL	0/0:841:99:810:0,120,1800
+Pf3D7_04_v3	748262	.	T	C,<NON_REF>	21301.1	.	BaseQRankSum=0.175;DP=817;ExcessHet=0.0000;MLEAC=2,0;MLEAF=1.00,0.00;MQRankSum=-0.025;RAW_MQandDP=2937301,817;ReadPosRankSum=-0.659	GT:AD:DP:GQ:PL:SB	1/1:2,801,0:803:99:21315,2354,0,21321,2398,21364:1,1,522,279
+Pf3D7_04_v3	748263	.	G	<NON_REF>	.	.	END=748281	GT:DP:GQ:MIN_DP:PL	0/0:758:99:560:0,120,1800
+Pf3D7_04_v3	748282	.	G	<NON_REF>	.	.	END=748286	GT:DP:GQ:MIN_DP:PL	0/0:511:12:475:0,12,180
+Pf3D7_04_v3	748287	.	A	<NON_REF>	.	.	END=748291	GT:DP:GQ:MIN_DP:PL	0/0:463:6:431:0,6,90
+Pf3D7_04_v3	748292	.	A	<NON_REF>	.	.	END=748292	GT:DP:GQ:MIN_DP:PL	0/0:21:0:21:0,0,0
+Pf3D7_04_v3	748381	.	A	<NON_REF>	.	.	END=748409	GT:DP:GQ:MIN_DP:PL	0/0:252:99:68:0,120,1689
+Pf3D7_04_v3	748410	.	G	A,<NON_REF>	9817.06	.	DP=376;ExcessHet=0.0000;MLEAC=2,0;MLEAF=1.00,0.00;MQRankSum=0.000;RAW_MQandDP=1353600,376	GT:AD:DP:GQ:PL:SB	1/1:2,352,0:354:99:9831,1011,0,9837,1054,9881:1,1,162,190
+Pf3D7_04_v3	748411	.	C	<NON_REF>	.	.	END=748597	GT:DP:GQ:MIN_DP:PL	0/0:721:99:373:0,102,1530
+Pf3D7_04_v3	748598	.	C	<NON_REF>	.	.	END=748599	GT:DP:GQ:MIN_DP:PL	0/0:581:93:575:0,93,1395
+Pf3D7_04_v3	748600	.	A	<NON_REF>	.	.	END=748600	GT:DP:GQ:MIN_DP:PL	0/0:571:6:571:0,6,90
+Pf3D7_05_v3	564648	.	T	<NON_REF>	.	.	END=564648	GT:DP:GQ:MIN_DP:PL	0/0:27:60:27:0,60,900
+Pf3D7_05_v3	564649	.	A	<NON_REF>	.	.	END=564649	GT:DP:GQ:MIN_DP:PL	0/0:27:51:27:0,51,765
+Pf3D7_05_v3	564650	.	A	<NON_REF>	.	.	END=564650	GT:DP:GQ:MIN_DP:PL	0/0:27:48:27:0,48,720
+Pf3D7_05_v3	564651	.	A	<NON_REF>	.	.	END=564651	GT:DP:GQ:MIN_DP:PL	0/0:27:45:27:0,45,675
+Pf3D7_05_v3	564652	.	A	<NON_REF>	.	.	END=564654	GT:DP:GQ:MIN_DP:PL	0/0:27:42:27:0,42,630
+Pf3D7_05_v3	564655	.	A	<NON_REF>	.	.	END=564655	GT:DP:GQ:MIN_DP:PL	0/0:26:30:26:0,30,450
+Pf3D7_05_v3	564656	.	C	<NON_REF>	.	.	END=564656	GT:DP:GQ:MIN_DP:PL	0/0:26:24:26:0,24,360
+Pf3D7_05_v3	564657	.	A	<NON_REF>	.	.	END=564657	GT:DP:GQ:MIN_DP:PL	0/0:26:12:26:0,12,180
+Pf3D7_05_v3	564658	.	A	<NON_REF>	.	.	END=564658	GT:DP:GQ:MIN_DP:PL	0/0:25:9:25:0,9,135
+Pf3D7_05_v3	564659	.	A	<NON_REF>	.	.	END=564659	GT:DP:GQ:MIN_DP:PL	0/0:25:3:25:0,3,45
+Pf3D7_05_v3	958056	.	T	<NON_REF>	.	.	END=958056	GT:DP:GQ:MIN_DP:PL	0/0:7:21:7:0,21,191
+Pf3D7_05_v3	958057	.	A	<NON_REF>	.	.	END=958059	GT:DP:GQ:MIN_DP:PL	0/0:7:0:7:0,0,0
+Pf3D7_05_v3	958060	.	A	<NON_REF>	.	.	END=958060	GT:DP:GQ:MIN_DP:PL	0/0:12:22:12:0,22,328
+Pf3D7_05_v3	958061	.	T	<NON_REF>	.	.	END=958061	GT:DP:GQ:MIN_DP:PL	0/0:12:16:12:0,16,345
+Pf3D7_05_v3	958062	.	T	<NON_REF>	.	.	END=958062	GT:DP:GQ:MIN_DP:PL	0/0:14:0:14:0,0,0
+Pf3D7_05_v3	958063	.	T	<NON_REF>	.	.	END=958063	GT:DP:GQ:MIN_DP:PL	0/0:13:39:13:0,39,401
+Pf3D7_05_v3	958064	.	A	<NON_REF>	.	.	END=958064	GT:DP:GQ:MIN_DP:PL	0/0:19:0:19:0,0,0
+Pf3D7_05_v3	958065	.	T	<NON_REF>	.	.	END=958065	GT:DP:GQ:MIN_DP:PL	0/0:20:24:20:0,24,528
+Pf3D7_05_v3	958066	.	A	<NON_REF>	.	.	END=958066	GT:DP:GQ:MIN_DP:PL	0/0:23:23:23:0,23,588
+Pf3D7_05_v3	958067	.	T	<NON_REF>	.	.	END=958067	GT:DP:GQ:MIN_DP:PL	0/0:22:9:22:0,9,605
+Pf3D7_05_v3	958068	.	C	<NON_REF>	.	.	END=958068	GT:DP:GQ:MIN_DP:PL	0/0:24:0:24:0,0,0
+Pf3D7_05_v3	958069	.	A	<NON_REF>	.	.	END=958069	GT:DP:GQ:MIN_DP:PL	0/0:23:69:23:0,69,707
+Pf3D7_05_v3	958070	.	T	<NON_REF>	.	.	END=958074	GT:DP:GQ:MIN_DP:PL	0/0:27:0:26:0,0,0
+Pf3D7_05_v3	958075	.	A	<NON_REF>	.	.	END=958075	GT:DP:GQ:MIN_DP:PL	0/0:28:8:28:0,8,720
+Pf3D7_05_v3	958076	.	T	<NON_REF>	.	.	END=958076	GT:DP:GQ:MIN_DP:PL	0/0:36:0:36:0,0,0
+Pf3D7_05_v3	958077	.	G	<NON_REF>	.	.	END=958077	GT:DP:GQ:MIN_DP:PL	0/0:102:99:102:0,120,1800
+Pf3D7_05_v3	958078	.	T	<NON_REF>	.	.	END=958078	GT:DP:GQ:MIN_DP:PL	0/0:109:50:109:0,50,2332
+Pf3D7_05_v3	958079	.	G	<NON_REF>	.	.	END=958079	GT:DP:GQ:MIN_DP:PL	0/0:111:99:111:0,120,1800
+Pf3D7_05_v3	958080	.	C	<NON_REF>	.	.	END=958080	GT:DP:GQ:MIN_DP:PL	0/0:120:0:120:0,0,2052
+Pf3D7_05_v3	958081	.	T	<NON_REF>	.	.	END=958083	GT:DP:GQ:MIN_DP:PL	0/0:171:99:128:0,120,1800
+Pf3D7_05_v3	958084	.	A	<NON_REF>	.	.	END=958084	GT:DP:GQ:MIN_DP:PL	0/0:190:0:190:0,0,3891
+Pf3D7_05_v3	958085	.	T	<NON_REF>	.	.	END=958086	GT:DP:GQ:MIN_DP:PL	0/0:203:99:201:0,120,1800
+Pf3D7_05_v3	958087	.	A	<NON_REF>	.	.	END=958087	GT:DP:GQ:MIN_DP:PL	0/0:200:21:200:0,21,4274
+Pf3D7_05_v3	958088	.	T	<NON_REF>	.	.	END=958322	GT:DP:GQ:MIN_DP:PL	0/0:617:99:203:0,102,1800
+Pf3D7_05_v3	958370	.	C	<NON_REF>	.	.	END=958371	GT:DP:GQ:MIN_DP:PL	0/0:13:39:13:0,39,304
+Pf3D7_05_v3	958372	.	A	G,<NON_REF>	573.06	.	DP=61;ExcessHet=0.0000;MLEAC=2,0;MLEAF=1.00,0.00;RAW_MQandDP=219600,61	GT:AD:DP:GQ:PL:SB	1/1:0,28,0:28:81:587,81,0,587,81,587:0,0,15,13
+Pf3D7_05_v3	958373	.	G	<NON_REF>	.	.	END=958482	GT:DP:GQ:MIN_DP:PL	0/0:199:99:61:0,108,1620
+Pf3D7_05_v3	958483	.	T	<NON_REF>	.	.	END=958483	GT:DP:GQ:MIN_DP:PL	0/0:194:57:194:0,57,855
+Pf3D7_05_v3	958484	.	A	<NON_REF>	.	.	END=958484	GT:DP:GQ:MIN_DP:PL	0/0:193:45:193:0,45,675
+Pf3D7_05_v3	958485	.	C	<NON_REF>	.	.	END=958485	GT:DP:GQ:MIN_DP:PL	0/0:192:24:192:0,24,360
+Pf3D7_05_v3	958486	.	T	<NON_REF>	.	.	END=958486	GT:DP:GQ:MIN_DP:PL	0/0:180:21:180:0,21,315
+Pf3D7_05_v3	958487	.	T	<NON_REF>	.	.	END=958488	GT:DP:GQ:MIN_DP:PL	0/0:177:15:176:0,15,225
+Pf3D7_05_v3	960948	.	A	<NON_REF>	.	.	END=960948	GT:DP:GQ:MIN_DP:PL	0/0:9:27:9:0,27,293
+Pf3D7_05_v3	960949	.	A	<NON_REF>	.	.	END=960955	GT:DP:GQ:MIN_DP:PL	0/0:21:0:10:0,0,0
+Pf3D7_05_v3	960956	.	A	<NON_REF>	.	.	END=960956	GT:DP:GQ:MIN_DP:PL	0/0:24:34:24:0,34,741
+Pf3D7_05_v3	960957	.	G	<NON_REF>	.	.	END=960958	GT:DP:GQ:MIN_DP:PL	0/0:25:0:25:0,0,0
+Pf3D7_05_v3	960959	.	A	<NON_REF>	.	.	END=960959	GT:DP:GQ:MIN_DP:PL	0/0:25:45:25:0,45,781
+Pf3D7_05_v3	960960	.	T	<NON_REF>	.	.	END=960964	GT:DP:GQ:MIN_DP:PL	0/0:25:0:25:0,0,0
+Pf3D7_05_v3	960965	.	G	<NON_REF>	.	.	END=961032	GT:DP:GQ:MIN_DP:PL	0/0:247:99:89:0,120,1800
+Pf3D7_05_v3	961033	.	T	<NON_REF>	.	.	END=961033	GT:DP:GQ:MIN_DP:PL	0/0:241:51:241:0,51,765
+Pf3D7_05_v3	961525	.	A	<NON_REF>	.	.	END=961525	GT:DP:GQ:MIN_DP:PL	0/0:12:33:12:0,33,495
+Pf3D7_05_v3	961526	.	T	<NON_REF>	.	.	END=961531	GT:DP:GQ:MIN_DP:PL	0/0:14:0:13:0,0,0
+Pf3D7_05_v3	961532	.	A	<NON_REF>	.	.	END=961532	GT:DP:GQ:MIN_DP:PL	0/0:17:21:17:0,21,516
+Pf3D7_05_v3	961533	.	A	<NON_REF>	.	.	END=961533	GT:DP:GQ:MIN_DP:PL	0/0:25:0:25:0,0,0
+Pf3D7_05_v3	961534	.	C	<NON_REF>	.	.	END=961657	GT:DP:GQ:MIN_DP:PL	0/0:224:99:63:0,120,1800
+Pf3D7_05_v3	961658	.	G	<NON_REF>	.	.	END=961658	GT:DP:GQ:MIN_DP:PL	0/0:211:18:211:0,18,270
+Pf3D7_05_v3	1035372	.	T	<NON_REF>	.	.	END=1035379	GT:DP:GQ:MIN_DP:PL	0/0:6:9:6:0,9,135
+Pf3D7_05_v3	1035380	.	A	<NON_REF>	.	.	END=1035380	GT:DP:GQ:MIN_DP:PL	0/0:6:6:6:0,6,90
+Pf3D7_05_v3	1035381	.	T	<NON_REF>	.	.	END=1035386	GT:DP:GQ:MIN_DP:PL	0/0:6:3:6:0,3,45
+Pf3D7_07_v3	403504	.	G	<NON_REF>	.	.	END=403688	GT:DP:GQ:MIN_DP:PL	0/0:495:99:112:0,120,1800
+Pf3D7_07_v3	403689	.	C	<NON_REF>	.	.	END=403689	GT:DP:GQ:MIN_DP:PL	0/0:381:90:381:0,90,1350
+Pf3D7_07_v3	403690	.	A	<NON_REF>	.	.	END=403690	GT:DP:GQ:MIN_DP:PL	0/0:379:24:379:0,24,360
+Pf3D7_07_v3	403691	.	A	<NON_REF>	.	.	END=403693	GT:DP:GQ:MIN_DP:PL	0/0:373:18:359:0,18,270
+Pf3D7_07_v3	403694	.	T	<NON_REF>	.	.	END=403696	GT:DP:GQ:MIN_DP:PL	0/0:347:21:344:0,21,315
+Pf3D7_07_v3	403697	.	T	<NON_REF>	.	.	END=403697	GT:DP:GQ:MIN_DP:PL	0/0:344:24:344:0,24,360
+Pf3D7_07_v3	403698	.	T	<NON_REF>	.	.	END=403698	GT:DP:GQ:MIN_DP:PL	0/0:60:0:60:0,0,0
+Pf3D7_07_v3	403699	.	T	<NON_REF>	.	.	END=403701	GT:DP:GQ:MIN_DP:PL	0/0:31:24:9:0,24,360
+Pf3D7_07_v3	403702	.	A	<NON_REF>	.	.	END=403702	GT:DP:GQ:MIN_DP:PL	0/0:8:3:8:0,3,199
+Pf3D7_07_v3	403703	.	T	<NON_REF>	.	.	END=403703	GT:DP:GQ:MIN_DP:PL	0/0:8:24:8:0,24,243
+Pf3D7_07_v3	403704	.	G	<NON_REF>	.	.	END=403704	GT:DP:GQ:MIN_DP:PL	0/0:7:5:7:0,5,158
+Pf3D7_07_v3	403705	.	A	<NON_REF>	.	.	END=403705	GT:DP:GQ:MIN_DP:PL	0/0:8:24:8:0,24,237
+Pf3D7_07_v3	403706	.	T	<NON_REF>	.	.	END=403710	GT:DP:GQ:MIN_DP:PL	0/0:10:30:10:0,30,261
+Pf3D7_07_v3	403711	.	T	<NON_REF>	.	.	END=403711	GT:DP:GQ:MIN_DP:PL	0/0:9:27:9:0,27,262
+Pf3D7_07_v3	403712	.	T	<NON_REF>	.	.	END=403718	GT:DP:GQ:MIN_DP:PL	0/0:10:30:10:0,30,256
+Pf3D7_07_v3	403719	.	T	<NON_REF>	.	.	END=403729	GT:DP:GQ:MIN_DP:PL	0/0:10:27:9:0,27,257
+Pf3D7_07_v3	403730	.	T	<NON_REF>	.	.	END=403733	GT:DP:GQ:MIN_DP:PL	0/0:9:21:7:0,21,171
+Pf3D7_07_v3	403734	.	T	C,<NON_REF>	0.01	.	BaseQRankSum=-0.589;DP=9;ExcessHet=0.0000;MLEAC=0,0;MLEAF=0.00,0.00;MQRankSum=0.000;RAW_MQandDP=32400,9;ReadPosRankSum=1.593	GT:AD:DP:GQ:PL:SB	0/0:8,1,0:9:2:0,2,205,24,208,230:2,6,0,1
+Pf3D7_07_v3	403735	.	G	<NON_REF>	.	.	END=403736	GT:DP:GQ:MIN_DP:PL	0/0:18:0:18:0,0,257
+Pf3D7_07_v3	403737	.	A	<NON_REF>	.	.	END=403737	GT:DP:GQ:MIN_DP:PL	0/0:17:13:17:0,13,403
+Pf3D7_07_v3	403738	.	A	<NON_REF>	.	.	END=403739	GT:DP:GQ:MIN_DP:PL	0/0:18:0:18:0,0,279
+Pf3D7_07_v3	403740	.	T	<NON_REF>	.	.	END=403740	GT:DP:GQ:MIN_DP:PL	0/0:16:11:16:0,11,389
+Pf3D7_07_v3	403741	.	A	<NON_REF>	.	.	END=403741	GT:DP:GQ:MIN_DP:PL	0/0:16:34:16:0,34,455
+Pf3D7_07_v3	403742	.	A	<NON_REF>	.	.	END=403765	GT:DP:GQ:MIN_DP:PL	0/0:16:0:14:0,0,160
+Pf3D7_07_v3	403766	.	A	<NON_REF>	.	.	END=403767	GT:DP:GQ:MIN_DP:PL	0/0:16:39:15:0,39,585
+Pf3D7_07_v3	403768	.	A	<NON_REF>	.	.	END=403768	GT:DP:GQ:MIN_DP:PL	0/0:16:20:16:0,20,408
+Pf3D7_07_v3	403769	.	T	<NON_REF>	.	.	END=403770	GT:DP:GQ:MIN_DP:PL	0/0:17:0:16:0,0,213
+Pf3D7_07_v3	403771	.	A	<NON_REF>	.	.	END=403771	GT:DP:GQ:MIN_DP:PL	0/0:18:24:18:0,24,462
+Pf3D7_07_v3	403772	.	A	<NON_REF>	.	.	END=403772	GT:DP:GQ:MIN_DP:PL	0/0:18:43:18:0,43,479
+Pf3D7_07_v3	403773	.	T	<NON_REF>	.	.	END=403773	GT:DP:GQ:MIN_DP:PL	0/0:18:0:18:0,0,324
+Pf3D7_07_v3	403774	.	A	<NON_REF>	.	.	END=403774	GT:DP:GQ:MIN_DP:PL	0/0:18:45:18:0,45,675
+Pf3D7_07_v3	403775	.	T	<NON_REF>	.	.	END=403775	GT:DP:GQ:MIN_DP:PL	0/0:18:0:18:0,0,379
+Pf3D7_07_v3	403776	.	A	<NON_REF>	.	.	END=403776	GT:DP:GQ:MIN_DP:PL	0/0:17:37:17:0,37,421
+Pf3D7_07_v3	403777	.	T	<NON_REF>	.	.	END=403777	GT:DP:GQ:MIN_DP:PL	0/0:17:29:17:0,29,413
+Pf3D7_07_v3	403778	.	T	<NON_REF>	.	.	END=403778	GT:DP:GQ:MIN_DP:PL	0/0:18:24:18:0,24,425
+Pf3D7_07_v3	403779	.	A	<NON_REF>	.	.	END=403779	GT:DP:GQ:MIN_DP:PL	0/0:18:27:18:0,27,434
+Pf3D7_07_v3	403780	.	A	<NON_REF>	.	.	END=403780	GT:DP:GQ:MIN_DP:PL	0/0:18:0:18:0,0,387
+Pf3D7_07_v3	403781	.	A	<NON_REF>	.	.	END=403781	GT:DP:GQ:MIN_DP:PL	0/0:18:39:18:0,39,461
+Pf3D7_07_v3	403782	.	A	<NON_REF>	.	.	END=403782	GT:DP:GQ:MIN_DP:PL	0/0:18:24:18:0,24,428
+Pf3D7_07_v3	403783	.	T	<NON_REF>	.	.	END=403783	GT:DP:GQ:MIN_DP:PL	0/0:18:5:18:0,5,377
+Pf3D7_07_v3	403784	.	G	<NON_REF>	.	.	END=403784	GT:DP:GQ:MIN_DP:PL	0/0:16:0:16:0,0,238
+Pf3D7_07_v3	403785	.	A	<NON_REF>	.	.	END=403785	GT:DP:GQ:MIN_DP:PL	0/0:17:7:17:0,7,357
+Pf3D7_07_v3	403786	.	T	<NON_REF>	.	.	END=403786	GT:DP:GQ:MIN_DP:PL	0/0:16:32:16:0,32,382
+Pf3D7_07_v3	403787	.	G	<NON_REF>	.	.	END=403787	GT:DP:GQ:MIN_DP:PL	0/0:16:11:16:0,11,310
+Pf3D7_07_v3	403788	.	G	<NON_REF>	.	.	END=403788	GT:DP:GQ:MIN_DP:PL	0/0:17:5:17:0,5,318
+Pf3D7_07_v3	403789	.	A	<NON_REF>	.	.	END=403789	GT:DP:GQ:MIN_DP:PL	0/0:17:36:17:0,36,414
+Pf3D7_07_v3	403790	.	T	<NON_REF>	.	.	END=403790	GT:DP:GQ:MIN_DP:PL	0/0:19:0:19:0,0,368
+Pf3D7_07_v3	403791	.	T	<NON_REF>	.	.	END=403791	GT:DP:GQ:MIN_DP:PL	0/0:17:35:17:0,35,396
+Pf3D7_07_v3	403792	.	T	<NON_REF>	.	.	END=403792	GT:DP:GQ:MIN_DP:PL	0/0:19:15:19:0,15,429
+Pf3D7_07_v3	403793	.	A	<NON_REF>	.	.	END=403793	GT:DP:GQ:MIN_DP:PL	0/0:18:41:18:0,41,456
+Pf3D7_07_v3	403794	.	T	<NON_REF>	.	.	END=403794	GT:DP:GQ:MIN_DP:PL	0/0:19:34:19:0,34,476
+Pf3D7_07_v3	403795	.	A	<NON_REF>	.	.	END=403797	GT:DP:GQ:MIN_DP:PL	0/0:20:0:19:0,0,366
+Pf3D7_07_v3	403798	.	A	<NON_REF>	.	.	END=403798	GT:DP:GQ:MIN_DP:PL	0/0:20:5:20:0,5,416
+Pf3D7_07_v3	403799	.	G	<NON_REF>	.	.	END=403799	GT:DP:GQ:MIN_DP:PL	0/0:20:0:20:0,0,255
+Pf3D7_07_v3	403800	.	A	<NON_REF>	.	.	END=403800	GT:DP:GQ:MIN_DP:PL	0/0:18:16:18:0,16,393
+Pf3D7_07_v3	403801	.	A	<NON_REF>	.	.	END=403801	GT:DP:GQ:MIN_DP:PL	0/0:18:0:18:0,0,314
+Pf3D7_07_v3	403802	.	T	<NON_REF>	.	.	END=403802	GT:DP:GQ:MIN_DP:PL	0/0:18:38:18:0,38,424
+Pf3D7_07_v3	403803	.	C	<NON_REF>	.	.	END=403803	GT:DP:GQ:MIN_DP:PL	0/0:19:0:19:0,0,286
+Pf3D7_07_v3	403804	.	T	<NON_REF>	.	.	END=403804	GT:DP:GQ:MIN_DP:PL	0/0:19:17:19:0,17,428
+Pf3D7_07_v3	403805	.	A	<NON_REF>	.	.	END=403806	GT:DP:GQ:MIN_DP:PL	0/0:17:0:16:0,0,255
+Pf3D7_07_v3	403807	.	T	<NON_REF>	.	.	END=403807	GT:DP:GQ:MIN_DP:PL	0/0:19:6:19:0,6,390
+Pf3D7_07_v3	403808	.	C	<NON_REF>	.	.	END=403815	GT:DP:GQ:MIN_DP:PL	0/0:19:0:18:0,0,257
+Pf3D7_07_v3	403816	.	C	<NON_REF>	.	.	END=403816	GT:DP:GQ:MIN_DP:PL	0/0:18:11:18:0,11,325
+Pf3D7_07_v3	403817	.	A	<NON_REF>	.	.	END=403819	GT:DP:GQ:MIN_DP:PL	0/0:17:0:16:0,0,223
+Pf3D7_07_v3	403820	.	A	<NON_REF>	.	.	END=403820	GT:DP:GQ:MIN_DP:PL	0/0:18:7:18:0,7,374
+Pf3D7_07_v3	403821	.	T	<NON_REF>	.	.	END=403821	GT:DP:GQ:MIN_DP:PL	0/0:16:0:16:0,0,318
+Pf3D7_07_v3	403822	.	A	<NON_REF>	.	.	END=403822	GT:DP:GQ:MIN_DP:PL	0/0:16:20:16:0,20,361
+Pf3D7_07_v3	403823	.	A	<NON_REF>	.	.	END=403823	GT:DP:GQ:MIN_DP:PL	0/0:18:0:18:0,0,285
+Pf3D7_07_v3	403824	.	A	<NON_REF>	.	.	END=403824	GT:DP:GQ:MIN_DP:PL	0/0:17:25:17:0,25,393
+Pf3D7_07_v3	403825	.	A	<NON_REF>	.	.	END=403827	GT:DP:GQ:MIN_DP:PL	0/0:16:0:15:0,0,231
+Pf3D7_07_v3	403828	.	T	<NON_REF>	.	.	END=403828	GT:DP:GQ:MIN_DP:PL	0/0:14:30:14:0,30,450
+Pf3D7_07_v3	403829	.	T	<NON_REF>	.	.	END=403832	GT:DP:GQ:MIN_DP:PL	0/0:15:0:12:0,0,146
+Pf3D7_07_v3	403833	.	CATATATATATAT	C,CATAT,<NON_REF>	193.02	.	DP=5;ExcessHet=0.0000;MLEAC=1,1,0;MLEAF=0.500,0.500,0.00;RAW_MQandDP=18000,5	GT:AD:DP:GQ:PL:SB	1/2:0,3,2,0:5:75:210,84,75,126,0,120,210,84,126,210:0,0,2,3
+Pf3D7_07_v3	403846	.	A	<NON_REF>	.	.	END=403849	GT:DP:GQ:MIN_DP:PL	0/0:5:15:5:0,15,156
+Pf3D7_07_v3	403850	.	A	<NON_REF>	.	.	END=403857	GT:DP:GQ:MIN_DP:PL	0/0:7:21:7:0,21,194
+Pf3D7_07_v3	403858	.	A	<NON_REF>	.	.	END=403871	GT:DP:GQ:MIN_DP:PL	0/0:9:27:9:0,27,236
+Pf3D7_07_v3	403872	.	A	<NON_REF>	.	.	END=403888	GT:DP:GQ:MIN_DP:PL	0/0:11:33:11:0,33,275
+Pf3D7_07_v3	403889	.	T	<NON_REF>	.	.	END=403889	GT:DP:GQ:MIN_DP:PL	0/0:10:30:10:0,30,270
+Pf3D7_07_v3	403890	.	T	<NON_REF>	.	.	END=403891	GT:DP:GQ:MIN_DP:PL	0/0:11:33:11:0,33,286
+Pf3D7_07_v3	403892	.	A	G,<NON_REF>	8.6	.	BaseQRankSum=-0.577;DP=11;ExcessHet=0.0000;MLEAC=1,0;MLEAF=0.500,0.00;MQRankSum=0.000;RAW_MQandDP=39600,11;ReadPosRankSum=1.139	GT:AD:DP:GQ:PL:SB	0/1:9,2,0:11:16:16,0,192,42,198,241:4,5,1,1
+Pf3D7_07_v3	403893	.	T	<NON_REF>	.	.	END=403925	GT:DP:GQ:MIN_DP:PL	0/0:29:0:19:0,0,0
+Pf3D7_07_v3	403926	.	T	<NON_REF>	.	.	END=403926	GT:DP:GQ:MIN_DP:PL	0/0:80:81:80:0,81,2039
+Pf3D7_07_v3	403927	.	G	<NON_REF>	.	.	END=403927	GT:DP:GQ:MIN_DP:PL	0/0:88:98:88:0,98,2051
+Pf3D7_07_v3	403928	.	A	<NON_REF>	.	.	END=404038	GT:DP:GQ:MIN_DP:PL	0/0:279:99:92:0,114,1710
+Pf3D7_07_v3	404039	.	T	<NON_REF>	.	.	END=404039	GT:DP:GQ:MIN_DP:PL	0/0:266:12:266:0,12,180
+Pf3D7_07_v3	404040	.	A	<NON_REF>	.	.	END=404042	GT:DP:GQ:MIN_DP:PL	0/0:263:6:258:0,6,90
+Pf3D7_07_v3	404761	.	T	<NON_REF>	.	.	END=404761	GT:DP:GQ:MIN_DP:PL	0/0:13:12:13:0,12,258
+Pf3D7_07_v3	404762	.	A	<NON_REF>	.	.	END=404769	GT:DP:GQ:MIN_DP:PL	0/0:14:39:13:0,39,302
+Pf3D7_07_v3	404770	.	G	<NON_REF>	.	.	END=404773	GT:DP:GQ:MIN_DP:PL	0/0:14:42:14:0,42,337
+Pf3D7_07_v3	404774	.	C	<NON_REF>	.	.	END=404774	GT:DP:GQ:MIN_DP:PL	0/0:12:36:12:0,36,285
+Pf3D7_07_v3	404775	.	C	<NON_REF>	.	.	END=404775	GT:DP:GQ:MIN_DP:PL	0/0:16:39:16:0,39,585
+Pf3D7_07_v3	404776	.	T	<NON_REF>	.	.	END=404784	GT:DP:GQ:MIN_DP:PL	0/0:15:30:14:0,30,450
+Pf3D7_07_v3	404785	.	T	<NON_REF>	.	.	END=404785	GT:DP:GQ:MIN_DP:PL	0/0:15:12:15:0,12,304
+Pf3D7_07_v3	404786	.	T	<NON_REF>	.	.	END=404788	GT:DP:GQ:MIN_DP:PL	0/0:11:0:11:0,0,113
+Pf3D7_07_v3	404789	.	T	<NON_REF>	.	.	END=404789	GT:DP:GQ:MIN_DP:PL	0/0:13:6:13:0,6,270
+Pf3D7_07_v3	404790	.	C	<NON_REF>	.	.	END=404790	GT:DP:GQ:MIN_DP:PL	0/0:11:3:11:0,3,210
+Pf3D7_07_v3	404791	.	A	<NON_REF>	.	.	END=404796	GT:DP:GQ:MIN_DP:PL	0/0:13:0:9:0,0,49
+Pf3D7_07_v3	404797	.	T	<NON_REF>	.	.	END=404797	GT:DP:GQ:MIN_DP:PL	0/0:15:15:15:0,15,325
+Pf3D7_07_v3	404798	.	G	<NON_REF>	.	.	END=404799	GT:DP:GQ:MIN_DP:PL	0/0:15:0:14:0,0,207
+Pf3D7_07_v3	404800	.	C	<NON_REF>	.	.	END=404800	GT:DP:GQ:MIN_DP:PL	0/0:15:15:15:0,15,284
+Pf3D7_07_v3	404801	.	T	<NON_REF>	.	.	END=404801	GT:DP:GQ:MIN_DP:PL	0/0:14:0:14:0,0,232
+Pf3D7_07_v3	404802	.	T	<NON_REF>	.	.	END=404802	GT:DP:GQ:MIN_DP:PL	0/0:12:6:12:0,6,244
+Pf3D7_07_v3	404803	.	A	<NON_REF>	.	.	END=404803	GT:DP:GQ:MIN_DP:PL	0/0:14:5:14:0,5,278
+Pf3D7_07_v3	404804	.	T	<NON_REF>	.	.	END=404804	GT:DP:GQ:MIN_DP:PL	0/0:14:14:14:0,14,278
+Pf3D7_07_v3	404805	.	A	<NON_REF>	.	.	END=404805	GT:DP:GQ:MIN_DP:PL	0/0:14:0:14:0,0,221
+Pf3D7_07_v3	404806	.	T	<NON_REF>	.	.	END=404807	GT:DP:GQ:MIN_DP:PL	0/0:12:8:12:0,8,214
+Pf3D7_07_v3	404808	.	A	<NON_REF>	.	.	END=404812	GT:DP:GQ:MIN_DP:PL	0/0:14:0:12:0,0,144
+Pf3D7_07_v3	404813	.	T	<NON_REF>	.	.	END=404813	GT:DP:GQ:MIN_DP:PL	0/0:13:12:13:0,12,286
+Pf3D7_07_v3	404814	.	A	<NON_REF>	.	.	END=404814	GT:DP:GQ:MIN_DP:PL	0/0:16:11:16:0,11,338
+Pf3D7_07_v3	404815	.	T	<NON_REF>	.	.	END=404815	GT:DP:GQ:MIN_DP:PL	0/0:14:0:14:0,0,248
+Pf3D7_07_v3	404816	.	A	<NON_REF>	.	.	END=404816	GT:DP:GQ:MIN_DP:PL	0/0:15:9:15:0,9,303
+Pf3D7_07_v3	404817	.	C	<NON_REF>	.	.	END=404817	GT:DP:GQ:MIN_DP:PL	0/0:14:6:14:0,6,254
+Pf3D7_07_v3	404818	.	A	<NON_REF>	.	.	END=404819	GT:DP:GQ:MIN_DP:PL	0/0:15:12:15:0,12,296
+Pf3D7_07_v3	404820	.	C	<NON_REF>	.	.	END=404820	GT:DP:GQ:MIN_DP:PL	0/0:13:9:13:0,9,238
+Pf3D7_07_v3	404821	.	C	<NON_REF>	.	.	END=404821	GT:DP:GQ:MIN_DP:PL	0/0:11:0:11:0,0,197
+Pf3D7_07_v3	404822	.	T	<NON_REF>	.	.	END=404823	GT:DP:GQ:MIN_DP:PL	0/0:11:33:11:0,33,274
+Pf3D7_07_v3	404824	.	C	<NON_REF>	.	.	END=404824	GT:DP:GQ:MIN_DP:PL	0/0:13:36:13:0,36,540
+Pf3D7_07_v3	404825	.	C	<NON_REF>	.	.	END=404825	GT:DP:GQ:MIN_DP:PL	0/0:11:0:11:0,0,191
+Pf3D7_07_v3	404826	.	A	<NON_REF>	.	.	END=404826	GT:DP:GQ:MIN_DP:PL	0/0:13:9:13:0,9,254
+Pf3D7_07_v3	404827	.	T	<NON_REF>	.	.	END=404827	GT:DP:GQ:MIN_DP:PL	0/0:13:36:13:0,36,540
+Pf3D7_07_v3	404828	.	T	<NON_REF>	.	.	END=404828	GT:DP:GQ:MIN_DP:PL	0/0:9:0:9:0,0,162
+Pf3D7_07_v3	404829	.	T	<NON_REF>	.	.	END=404832	GT:DP:GQ:MIN_DP:PL	0/0:13:36:13:0,36,540
+Pf3D7_07_v3	404833	.	A	<NON_REF>	.	.	END=404833	GT:DP:GQ:MIN_DP:PL	0/0:11:0:11:0,0,199
+Pf3D7_07_v3	404834	.	A	<NON_REF>	.	.	END=404834	GT:DP:GQ:MIN_DP:PL	0/0:13:11:13:0,11,267
+Pf3D7_07_v3	404835	.	A	<NON_REF>	.	.	END=404835	GT:DP:GQ:MIN_DP:PL	0/0:13:3:13:0,3,261
+Pf3D7_07_v3	404836	.	C	<NON_REF>	.	.	END=404836	GT:DP:GQ:MIN_DP:PL	0/0:10:0:10:0,0,176
+Pf3D7_07_v3	404837	.	A	<NON_REF>	.	.	END=404837	GT:DP:GQ:MIN_DP:PL	0/0:13:6:13:0,6,252
+Pf3D7_07_v3	404838	.	A	<NON_REF>	.	.	END=404838	GT:DP:GQ:MIN_DP:PL	0/0:15:42:15:0,42,630
+Pf3D7_07_v3	404839	.	C	<NON_REF>	.	.	END=404839	GT:DP:GQ:MIN_DP:PL	0/0:14:14:14:0,14,292
+Pf3D7_07_v3	404840	.	G	<NON_REF>	.	.	END=404840	GT:DP:GQ:MIN_DP:PL	0/0:12:0:12:0,0,228
+Pf3D7_07_v3	404841	.	T	<NON_REF>	.	.	END=404841	GT:DP:GQ:MIN_DP:PL	0/0:15:42:15:0,42,630
+Pf3D7_07_v3	404842	.	A	<NON_REF>	.	.	END=404843	GT:DP:GQ:MIN_DP:PL	0/0:15:15:15:0,15,292
+Pf3D7_07_v3	404844	.	G	<NON_REF>	.	.	END=404844	GT:DP:GQ:MIN_DP:PL	0/0:11:33:11:0,33,275
+Pf3D7_07_v3	404845	.	A	<NON_REF>	.	.	END=404846	GT:DP:GQ:MIN_DP:PL	0/0:15:42:15:0,42,630
+Pf3D7_07_v3	404847	.	T	<NON_REF>	.	.	END=404847	GT:DP:GQ:MIN_DP:PL	0/0:15:12:15:0,12,294
+Pf3D7_07_v3	404848	.	T	<NON_REF>	.	.	END=404848	GT:DP:GQ:MIN_DP:PL	0/0:13:1:13:0,1,221
+Pf3D7_07_v3	404849	.	A	<NON_REF>	.	.	END=404849	GT:DP:GQ:MIN_DP:PL	0/0:15:11:15:0,11,286
+Pf3D7_07_v3	404850	.	A	<NON_REF>	.	.	END=404850	GT:DP:GQ:MIN_DP:PL	0/0:15:12:15:0,12,309
+Pf3D7_07_v3	404851	.	T	<NON_REF>	.	.	END=404851	GT:DP:GQ:MIN_DP:PL	0/0:13:1:13:0,1,230
+Pf3D7_07_v3	404852	.	T	<NON_REF>	.	.	END=404852	GT:DP:GQ:MIN_DP:PL	0/0:15:42:15:0,42,630
+Pf3D7_07_v3	404853	.	A	<NON_REF>	.	.	END=404853	GT:DP:GQ:MIN_DP:PL	0/0:15:8:15:0,8,297
+Pf3D7_07_v3	404854	.	G	<NON_REF>	.	.	END=404854	GT:DP:GQ:MIN_DP:PL	0/0:12:35:12:0,35,274
+Pf3D7_07_v3	404855	.	G	<NON_REF>	.	.	END=404855	GT:DP:GQ:MIN_DP:PL	0/0:11:0:11:0,0,199
+Pf3D7_07_v3	404856	.	A	<NON_REF>	.	.	END=404856	GT:DP:GQ:MIN_DP:PL	0/0:15:9:15:0,9,291
+Pf3D7_07_v3	404857	.	A	<NON_REF>	.	.	END=404857	GT:DP:GQ:MIN_DP:PL	0/0:15:8:15:0,8,290
+Pf3D7_07_v3	404858	.	A	<NON_REF>	.	.	END=404858	GT:DP:GQ:MIN_DP:PL	0/0:15:15:15:0,15,308
+Pf3D7_07_v3	404859	.	G	<NON_REF>	.	.	END=404859	GT:DP:GQ:MIN_DP:PL	0/0:11:33:11:0,33,272
+Pf3D7_07_v3	404860	.	A	<NON_REF>	.	.	END=404860	GT:DP:GQ:MIN_DP:PL	0/0:15:15:15:0,15,304
+Pf3D7_07_v3	404861	.	A	<NON_REF>	.	.	END=404861	GT:DP:GQ:MIN_DP:PL	0/0:15:8:15:0,8,289
+Pf3D7_07_v3	404862	.	A	<NON_REF>	.	.	END=404863	GT:DP:GQ:MIN_DP:PL	0/0:15:15:15:0,15,303
+Pf3D7_07_v3	404864	.	A	<NON_REF>	.	.	END=404864	GT:DP:GQ:MIN_DP:PL	0/0:15:8:15:0,8,298
+Pf3D7_07_v3	404865	.	A	<NON_REF>	.	.	END=404865	GT:DP:GQ:MIN_DP:PL	0/0:15:15:15:0,15,307
+Pf3D7_07_v3	404866	.	T	<NON_REF>	.	.	END=404866	GT:DP:GQ:MIN_DP:PL	0/0:13:11:13:0,11,260
+Pf3D7_07_v3	404867	.	A	<NON_REF>	.	.	END=404867	GT:DP:GQ:MIN_DP:PL	0/0:13:2:13:0,2,260
+Pf3D7_07_v3	404868	.	A	<NON_REF>	.	.	END=404869	GT:DP:GQ:MIN_DP:PL	0/0:13:9:13:0,9,267
+Pf3D7_07_v3	404870	.	A	<NON_REF>	.	.	END=404870	GT:DP:GQ:MIN_DP:PL	0/0:15:15:15:0,15,316
+Pf3D7_07_v3	404871	.	T	<NON_REF>	.	.	END=404871	GT:DP:GQ:MIN_DP:PL	0/0:13:9:13:0,9,267
+Pf3D7_07_v3	404872	.	A	<NON_REF>	.	.	END=404872	GT:DP:GQ:MIN_DP:PL	0/0:15:15:15:0,15,305
+Pf3D7_07_v3	404873	.	A	<NON_REF>	.	.	END=404873	GT:DP:GQ:MIN_DP:PL	0/0:15:12:15:0,12,290
+Pf3D7_07_v3	404874	.	A	<NON_REF>	.	.	END=404874	GT:DP:GQ:MIN_DP:PL	0/0:15:42:15:0,42,630
+Pf3D7_07_v3	404875	.	A	<NON_REF>	.	.	END=404875	GT:DP:GQ:MIN_DP:PL	0/0:15:9:15:0,9,299
+Pf3D7_07_v3	404876	.	T	<NON_REF>	.	.	END=404876	GT:DP:GQ:MIN_DP:PL	0/0:12:14:12:0,14,251
+Pf3D7_07_v3	404877	.	G	<NON_REF>	.	.	END=404877	GT:DP:GQ:MIN_DP:PL	0/0:14:0:14:0,0,230
+Pf3D7_07_v3	404878	.	A	<NON_REF>	.	.	END=404878	GT:DP:GQ:MIN_DP:PL	0/0:16:12:16:0,12,318
+Pf3D7_07_v3	404879	.	A	<NON_REF>	.	.	END=404879	GT:DP:GQ:MIN_DP:PL	0/0:14:0:14:0,0,205
+Pf3D7_07_v3	404880	.	A	<NON_REF>	.	.	END=404880	GT:DP:GQ:MIN_DP:PL	0/0:14:36:14:0,36,540
+Pf3D7_07_v3	404881	.	T	<NON_REF>	.	.	END=404881	GT:DP:GQ:MIN_DP:PL	0/0:16:10:16:0,10,327
+Pf3D7_07_v3	404882	.	G	<NON_REF>	.	.	END=404882	GT:DP:GQ:MIN_DP:PL	0/0:14:0:14:0,0,213
+Pf3D7_07_v3	404883	.	T	<NON_REF>	.	.	END=404883	GT:DP:GQ:MIN_DP:PL	0/0:16:20:16:0,20,352
+Pf3D7_07_v3	404884	.	G	<NON_REF>	.	.	END=404885	GT:DP:GQ:MIN_DP:PL	0/0:15:0:14:0,0,204
+Pf3D7_07_v3	404886	.	C	<NON_REF>	.	.	END=404886	GT:DP:GQ:MIN_DP:PL	0/0:14:5:14:0,5,267
+Pf3D7_07_v3	404888	.	A	<NON_REF>	.	.	END=404889	GT:DP:GQ:MIN_DP:PL	0/0:9:6:9:0,6,90
+Pf3D7_07_v3	404890	.	A	<NON_REF>	.	.	END=404891	GT:DP:GQ:MIN_DP:PL	0/0:10:9:10:0,9,135
+Pf3D7_07_v3	404892	.	A	<NON_REF>	.	.	END=404898	GT:DP:GQ:MIN_DP:PL	0/0:11:12:7:0,12,180
+Pf3D7_07_v3	404899	.	T	<NON_REF>	.	.	END=404899	GT:DP:GQ:MIN_DP:PL	0/0:7:9:7:0,9,135
+Pf3D7_07_v3	404900	.	A	<NON_REF>	.	.	END=404903	GT:DP:GQ:MIN_DP:PL	0/0:9:15:6:0,15,225
+Pf3D7_07_v3	404905	.	T	<NON_REF>	.	.	END=404905	GT:DP:GQ:MIN_DP:PL	0/0:14:14:14:0,14,306
+Pf3D7_07_v3	404906	.	A	<NON_REF>	.	.	END=404906	GT:DP:GQ:MIN_DP:PL	0/0:16:11:16:0,11,346
+Pf3D7_07_v3	404907	.	T	<NON_REF>	.	.	END=404907	GT:DP:GQ:MIN_DP:PL	0/0:16:10:16:0,10,334
+Pf3D7_07_v3	404908	.	G	<NON_REF>	.	.	END=404908	GT:DP:GQ:MIN_DP:PL	0/0:14:0:14:0,0,76
+Pf3D7_07_v3	404909	.	T	<NON_REF>	.	.	END=404909	GT:DP:GQ:MIN_DP:PL	0/0:14:4:14:0,4,304
+Pf3D7_07_v3	404910	.	A	<NON_REF>	.	.	END=404911	GT:DP:GQ:MIN_DP:PL	0/0:13:30:12:0,30,450
+Pf3D7_07_v3	404912	.	G	<NON_REF>	.	.	END=404912	GT:DP:GQ:MIN_DP:PL	0/0:12:0:12:0,0,105
+Pf3D7_07_v3	404913	.	T	<NON_REF>	.	.	END=404913	GT:DP:GQ:MIN_DP:PL	0/0:14:9:14:0,9,321
+Pf3D7_07_v3	404914	.	A	<NON_REF>	.	.	END=404914	GT:DP:GQ:MIN_DP:PL	0/0:14:12:14:0,12,289
+Pf3D7_07_v3	404915	.	T	<NON_REF>	.	.	END=404915	GT:DP:GQ:MIN_DP:PL	0/0:14:9:14:0,9,304
+Pf3D7_07_v3	404916	.	G	<NON_REF>	.	.	END=404916	GT:DP:GQ:MIN_DP:PL	0/0:14:0:14:0,0,178
+Pf3D7_07_v3	404917	.	T	<NON_REF>	.	.	END=404917	GT:DP:GQ:MIN_DP:PL	0/0:14:12:14:0,12,315
+Pf3D7_07_v3	404918	.	A	<NON_REF>	.	.	END=404918	GT:DP:GQ:MIN_DP:PL	0/0:14:0:14:0,0,274
+Pf3D7_07_v3	404919	.	T	<NON_REF>	.	.	END=404919	GT:DP:GQ:MIN_DP:PL	0/0:14:12:14:0,12,290
+Pf3D7_07_v3	404920	.	A	<NON_REF>	.	.	END=404920	GT:DP:GQ:MIN_DP:PL	0/0:14:5:14:0,5,298
+Pf3D7_07_v3	404921	.	A	<NON_REF>	.	.	END=404922	GT:DP:GQ:MIN_DP:PL	0/0:13:0:12:0,0,172
+Pf3D7_07_v3	404923	.	T	<NON_REF>	.	.	END=404923	GT:DP:GQ:MIN_DP:PL	0/0:14:4:14:0,4,282
+Pf3D7_07_v3	404924	.	T	<NON_REF>	.	.	END=404924	GT:DP:GQ:MIN_DP:PL	0/0:12:0:12:0,0,235
+Pf3D7_07_v3	404925	.	T	<NON_REF>	.	.	END=404925	GT:DP:GQ:MIN_DP:PL	0/0:14:4:14:0,4,287
+Pf3D7_07_v3	404926	.	C	<NON_REF>	.	.	END=404928	GT:DP:GQ:MIN_DP:PL	0/0:14:0:10:0,0,128
+Pf3D7_07_v3	404929	.	T	<NON_REF>	.	.	END=404929	GT:DP:GQ:MIN_DP:PL	0/0:14:6:14:0,6,267
+Pf3D7_07_v3	404930	.	T	<NON_REF>	.	.	END=404930	GT:DP:GQ:MIN_DP:PL	0/0:12:0:12:0,0,180
+Pf3D7_07_v3	404931	.	T	<NON_REF>	.	.	END=404931	GT:DP:GQ:MIN_DP:PL	0/0:12:3:12:0,3,251
+Pf3D7_07_v3	404932	.	T	<NON_REF>	.	.	END=404932	GT:DP:GQ:MIN_DP:PL	0/0:14:0:14:0,0,231
+Pf3D7_07_v3	404933	.	T	<NON_REF>	.	.	END=404933	GT:DP:GQ:MIN_DP:PL	0/0:14:33:14:0,33,495
+Pf3D7_07_v3	404934	.	A	<NON_REF>	.	.	END=404935	GT:DP:GQ:MIN_DP:PL	0/0:14:12:14:0,12,256
+Pf3D7_07_v3	404936	.	T	<NON_REF>	.	.	END=404936	GT:DP:GQ:MIN_DP:PL	0/0:14:20:14:0,20,307
+Pf3D7_07_v3	404937	.	T	<NON_REF>	.	.	END=404937	GT:DP:GQ:MIN_DP:PL	0/0:13:33:13:0,33,495
+Pf3D7_07_v3	404938	.	C	<NON_REF>	.	.	END=404938	GT:DP:GQ:MIN_DP:PL	0/0:13:3:13:0,3,269
+Pf3D7_07_v3	404939	.	A	<NON_REF>	.	.	END=404939	GT:DP:GQ:MIN_DP:PL	0/0:14:13:14:0,13,303
+Pf3D7_07_v3	404940	.	T	<NON_REF>	.	.	END=404940	GT:DP:GQ:MIN_DP:PL	0/0:14:10:14:0,10,283
+Pf3D7_07_v3	404941	.	T	<NON_REF>	.	.	END=404941	GT:DP:GQ:MIN_DP:PL	0/0:12:5:12:0,5,222
+Pf3D7_07_v3	404942	.	T	<NON_REF>	.	.	END=404942	GT:DP:GQ:MIN_DP:PL	0/0:14:12:14:0,12,294
+Pf3D7_07_v3	404943	.	A	<NON_REF>	.	.	END=404943	GT:DP:GQ:MIN_DP:PL	0/0:10:9:10:0,9,213
+Pf3D7_07_v3	404944	.	C	<NON_REF>	.	.	END=404944	GT:DP:GQ:MIN_DP:PL	0/0:12:36:12:0,36,299
+Pf3D7_07_v3	404945	.	C	<NON_REF>	.	.	END=404950	GT:DP:GQ:MIN_DP:PL	0/0:15:39:13:0,39,327
+Pf3D7_07_v3	404951	.	A	<NON_REF>	.	.	END=404951	GT:DP:GQ:MIN_DP:PL	0/0:12:36:12:0,36,303
+Pf3D7_07_v3	404952	.	T	<NON_REF>	.	.	END=404959	GT:DP:GQ:MIN_DP:PL	0/0:13:39:13:0,39,308
+Pf3D7_07_v3	404960	.	G	<NON_REF>	.	.	END=404960	GT:DP:GQ:MIN_DP:PL	0/0:12:36:12:0,36,293
+Pf3D7_07_v3	404961	.	G	<NON_REF>	.	.	END=404961	GT:DP:GQ:MIN_DP:PL	0/0:11:33:11:0,33,268
+Pf3D7_07_v3	404962	.	A	<NON_REF>	.	.	END=404964	GT:DP:GQ:MIN_DP:PL	0/0:13:36:13:0,36,540
+Pf3D7_07_v3	404965	.	A	<NON_REF>	.	.	END=404965	GT:DP:GQ:MIN_DP:PL	0/0:13:20:13:0,20,278
+Pf3D7_07_v3	404966	.	A	<NON_REF>	.	.	END=404966	GT:DP:GQ:MIN_DP:PL	0/0:13:13:13:0,13,263
+Pf3D7_07_v3	404967	.	T	<NON_REF>	.	.	END=404967	GT:DP:GQ:MIN_DP:PL	0/0:13:36:13:0,36,540
+Pf3D7_07_v3	404968	.	A	<NON_REF>	.	.	END=404968	GT:DP:GQ:MIN_DP:PL	0/0:13:11:13:0,11,269
+Pf3D7_07_v3	404969	.	T	<NON_REF>	.	.	END=404969	GT:DP:GQ:MIN_DP:PL	0/0:13:36:13:0,36,540
+Pf3D7_07_v3	404970	.	A	<NON_REF>	.	.	END=404970	GT:DP:GQ:MIN_DP:PL	0/0:13:17:13:0,17,275
+Pf3D7_07_v3	404971	.	A	<NON_REF>	.	.	END=404971	GT:DP:GQ:MIN_DP:PL	0/0:13:12:13:0,12,262
+Pf3D7_07_v3	404972	.	A	<NON_REF>	.	.	END=404972	GT:DP:GQ:MIN_DP:PL	0/0:13:13:13:0,13,271
+Pf3D7_07_v3	404973	.	A	<NON_REF>	.	.	END=404973	GT:DP:GQ:MIN_DP:PL	0/0:13:23:13:0,23,273
+Pf3D7_07_v3	404974	.	A	<NON_REF>	.	.	END=404974	GT:DP:GQ:MIN_DP:PL	0/0:13:17:13:0,17,275
+Pf3D7_07_v3	404975	.	A	<NON_REF>	.	.	END=404975	GT:DP:GQ:MIN_DP:PL	0/0:13:23:13:0,23,281
+Pf3D7_07_v3	404976	.	T	<NON_REF>	.	.	END=404976	GT:DP:GQ:MIN_DP:PL	0/0:13:27:13:0,27,285
+Pf3D7_07_v3	404977	.	G	<NON_REF>	.	.	END=404978	GT:DP:GQ:MIN_DP:PL	0/0:13:36:13:0,36,540
+Pf3D7_07_v3	404979	.	T	<NON_REF>	.	.	END=404979	GT:DP:GQ:MIN_DP:PL	0/0:13:11:13:0,11,255
+Pf3D7_07_v3	404980	.	T	<NON_REF>	.	.	END=404981	GT:DP:GQ:MIN_DP:PL	0/0:13:18:13:0,18,265
+Pf3D7_07_v3	404982	.	C	<NON_REF>	.	.	END=404982	GT:DP:GQ:MIN_DP:PL	0/0:11:22:11:0,22,236
+Pf3D7_07_v3	404983	.	G	<NON_REF>	.	.	END=404983	GT:DP:GQ:MIN_DP:PL	0/0:12:36:12:0,36,285
+Pf3D7_07_v3	404984	.	C	<NON_REF>	.	.	END=404985	GT:DP:GQ:MIN_DP:PL	0/0:13:12:13:0,12,269
+Pf3D7_07_v3	404986	.	T	<NON_REF>	.	.	END=404986	GT:DP:GQ:MIN_DP:PL	0/0:13:11:13:0,11,259
+Pf3D7_07_v3	404987	.	G	<NON_REF>	.	.	END=404987	GT:DP:GQ:MIN_DP:PL	0/0:11:7:11:0,7,222
+Pf3D7_07_v3	404988	.	T	<NON_REF>	.	.	END=404989	GT:DP:GQ:MIN_DP:PL	0/0:13:11:13:0,11,255
+Pf3D7_07_v3	404990	.	T	<NON_REF>	.	.	END=404990	GT:DP:GQ:MIN_DP:PL	0/0:11:8:11:0,8,223
+Pf3D7_07_v3	404991	.	A	<NON_REF>	.	.	END=404992	GT:DP:GQ:MIN_DP:PL	0/0:13:36:13:0,36,540
+Pf3D7_07_v3	404993	.	T	<NON_REF>	.	.	END=404993	GT:DP:GQ:MIN_DP:PL	0/0:13:6:13:0,6,241
+Pf3D7_07_v3	404994	.	C	<NON_REF>	.	.	END=404994	GT:DP:GQ:MIN_DP:PL	0/0:12:36:12:0,36,303
+Pf3D7_07_v3	404995	.	T	<NON_REF>	.	.	END=404995	GT:DP:GQ:MIN_DP:PL	0/0:13:12:13:0,12,258
+Pf3D7_07_v3	404996	.	T	<NON_REF>	.	.	END=404996	GT:DP:GQ:MIN_DP:PL	0/0:13:13:13:0,13,271
+Pf3D7_07_v3	404997	.	G	<NON_REF>	.	.	END=404998	GT:DP:GQ:MIN_DP:PL	0/0:13:36:12:0,36,293
+Pf3D7_07_v3	404999	.	G	<NON_REF>	.	.	END=404999	GT:DP:GQ:MIN_DP:PL	0/0:13:11:13:0,11,266
+Pf3D7_07_v3	405000	.	A	<NON_REF>	.	.	END=405000	GT:DP:GQ:MIN_DP:PL	0/0:13:36:13:0,36,540
+Pf3D7_07_v3	405001	.	A	<NON_REF>	.	.	END=405001	GT:DP:GQ:MIN_DP:PL	0/0:13:8:13:0,8,258
+Pf3D7_07_v3	405002	.	G	<NON_REF>	.	.	END=405002	GT:DP:GQ:MIN_DP:PL	0/0:13:10:13:0,10,244
+Pf3D7_07_v3	405003	.	A	<NON_REF>	.	.	END=405003	GT:DP:GQ:MIN_DP:PL	0/0:13:13:13:0,13,271
+Pf3D7_07_v3	405004	.	A	<NON_REF>	.	.	END=405006	GT:DP:GQ:MIN_DP:PL	0/0:13:36:13:0,36,540
+Pf3D7_07_v3	405007	.	A	<NON_REF>	.	.	END=405008	GT:DP:GQ:MIN_DP:PL	0/0:13:8:13:0,8,266
+Pf3D7_07_v3	405009	.	A	<NON_REF>	.	.	END=405009	GT:DP:GQ:MIN_DP:PL	0/0:13:36:13:0,36,540
+Pf3D7_07_v3	405010	.	G	<NON_REF>	.	.	END=405012	GT:DP:GQ:MIN_DP:PL	0/0:12:33:11:0,33,272
+Pf3D7_07_v3	405013	.	G	<NON_REF>	.	.	END=405013	GT:DP:GQ:MIN_DP:PL	0/0:13:17:13:0,17,275
+Pf3D7_07_v3	405014	.	T	<NON_REF>	.	.	END=405014	GT:DP:GQ:MIN_DP:PL	0/0:12:33:12:0,33,495
+Pf3D7_07_v3	405015	.	A	<NON_REF>	.	.	END=405015	GT:DP:GQ:MIN_DP:PL	0/0:13:12:13:0,12,270
+Pf3D7_07_v3	405016	.	G	<NON_REF>	.	.	END=405016	GT:DP:GQ:MIN_DP:PL	0/0:13:10:13:0,10,268
+Pf3D7_07_v3	405017	.	A	<NON_REF>	.	.	END=405017	GT:DP:GQ:MIN_DP:PL	0/0:13:8:13:0,8,263
+Pf3D7_07_v3	405018	.	G	<NON_REF>	.	.	END=405019	GT:DP:GQ:MIN_DP:PL	0/0:13:33:13:0,33,495
+Pf3D7_07_v3	405020	.	T	<NON_REF>	.	.	END=405020	GT:DP:GQ:MIN_DP:PL	0/0:13:12:13:0,12,270
+Pf3D7_07_v3	405021	.	A	<NON_REF>	.	.	END=405021	GT:DP:GQ:MIN_DP:PL	0/0:12:7:12:0,7,256
+Pf3D7_07_v3	405022	.	A	<NON_REF>	.	.	END=405022	GT:DP:GQ:MIN_DP:PL	0/0:11:33:11:0,33,262
+Pf3D7_07_v3	405727	.	C	<NON_REF>	.	.	END=405730	GT:DP:GQ:MIN_DP:PL	0/0:15:0:14:0,0,0
+Pf3D7_07_v3	405731	.	A	<NON_REF>	.	.	END=405733	GT:DP:GQ:MIN_DP:PL	0/0:17:45:17:0,45,675
+Pf3D7_07_v3	405734	.	T	<NON_REF>	.	.	END=405741	GT:DP:GQ:MIN_DP:PL	0/0:19:0:17:0,0,0
+Pf3D7_07_v3	405742	.	A	<NON_REF>	.	.	END=405835	GT:DP:GQ:MIN_DP:PL	0/0:72:99:45:0,105,1241
+Pf3D7_07_v3	405836	.	A	<NON_REF>	.	.	END=405836	GT:DP:GQ:MIN_DP:PL	0/0:56:90:56:0,90,1216
+Pf3D7_07_v3	405837	.	A	<NON_REF>	.	.	END=405841	GT:DP:GQ:MIN_DP:PL	0/0:52:99:39:0,100,964
+Pf3D7_07_v3	405842	.	A	<NON_REF>	.	.	END=405842	GT:DP:GQ:MIN_DP:PL	0/0:43:68:43:0,68,942
+Pf3D7_07_v3	405843	.	C	<NON_REF>	.	.	END=405843	GT:DP:GQ:MIN_DP:PL	0/0:46:86:46:0,86,1009
+Pf3D7_07_v3	405844	.	C	<NON_REF>	.	.	END=405844	GT:DP:GQ:MIN_DP:PL	0/0:42:48:42:0,48,927
+Pf3D7_07_v3	405845	.	A	<NON_REF>	.	.	END=405845	GT:DP:GQ:MIN_DP:PL	0/0:45:75:45:0,75,1060
+Pf3D7_07_v3	405846	.	A	<NON_REF>	.	.	END=405846	GT:DP:GQ:MIN_DP:PL	0/0:48:84:48:0,84,1106
+Pf3D7_07_v3	405847	.	G	<NON_REF>	.	.	END=405847	GT:DP:GQ:MIN_DP:PL	0/0:38:40:38:0,40,833
+Pf3D7_07_v3	405848	.	A	<NON_REF>	.	.	END=405850	GT:DP:GQ:MIN_DP:PL	0/0:64:99:44:0,101,1088
+Pf3D7_07_v3	405851	.	A	<NON_REF>	.	.	END=405851	GT:DP:GQ:MIN_DP:PL	0/0:42:98:42:0,98,1047
+Pf3D7_07_v3	405852	.	T	<NON_REF>	.	.	END=405854	GT:DP:GQ:MIN_DP:PL	0/0:66:99:42:0,110,1018
+Pf3D7_07_v3	405855	.	G	<NON_REF>	.	.	END=405855	GT:DP:GQ:MIN_DP:PL	0/0:42:98:42:0,98,1005
+Pf3D7_07_v3	405856	.	A	<NON_REF>	.	.	END=405859	GT:DP:GQ:MIN_DP:PL	0/0:56:99:49:0,118,1146
+Pf3D7_07_v3	405860	.	C	<NON_REF>	.	.	END=405860	GT:DP:GQ:MIN_DP:PL	0/0:28:35:28:0,35,574
+Pf3D7_07_v3	405861	.	G	<NON_REF>	.	.	END=405861	GT:DP:GQ:MIN_DP:PL	0/0:40:90:40:0,90,905
+Pf3D7_07_v3	405862	.	T	<NON_REF>	.	.	END=405862	GT:DP:GQ:MIN_DP:PL	0/0:47:99:47:0,120,1800
+Pf3D7_07_v3	405863	.	A	<NON_REF>	.	.	END=405863	GT:DP:GQ:MIN_DP:PL	0/0:43:97:43:0,97,956
+Pf3D7_07_v3	405864	.	A	<NON_REF>	.	.	END=405864	GT:DP:GQ:MIN_DP:PL	0/0:42:75:42:0,75,909
+Pf3D7_07_v3	405865	.	C	<NON_REF>	.	.	END=405865	GT:DP:GQ:MIN_DP:PL	0/0:30:16:30:0,16,577
+Pf3D7_07_v3	405866	.	T	<NON_REF>	.	.	END=405869	GT:DP:GQ:MIN_DP:PL	0/0:51:99:45:0,110,1183
+Pf3D7_07_v3	405870	.	G	<NON_REF>	.	.	END=405870	GT:DP:GQ:MIN_DP:PL	0/0:43:85:43:0,85,971
+Pf3D7_07_v3	405871	.	T	<NON_REF>	.	.	END=405871	GT:DP:GQ:MIN_DP:PL	0/0:45:78:45:0,78,973
+Pf3D7_07_v3	405872	.	A	<NON_REF>	.	.	END=405873	GT:DP:GQ:MIN_DP:PL	0/0:55:99:54:0,101,1187
+Pf3D7_07_v3	405874	.	G	<NON_REF>	.	.	END=405874	GT:DP:GQ:MIN_DP:PL	0/0:38:25:38:0,25,763
+Pf3D7_07_v3	405875	.	T	<NON_REF>	.	.	END=405875	GT:DP:GQ:MIN_DP:PL	0/0:44:75:44:0,75,904
+Pf3D7_07_v3	405876	.	G	<NON_REF>	.	.	END=405876	GT:DP:GQ:MIN_DP:PL	0/0:26:14:26:0,14,536
+Pf3D7_07_v3	405877	.	T	<NON_REF>	.	.	END=405877	GT:DP:GQ:MIN_DP:PL	0/0:39:10:39:0,10,703
+Pf3D7_07_v3	405878	.	G	<NON_REF>	.	.	END=405878	GT:DP:GQ:MIN_DP:PL	0/0:27:0:27:0,0,500
+Pf3D7_07_v3	405879	.	A	<NON_REF>	.	.	END=405879	GT:DP:GQ:MIN_DP:PL	0/0:53:99:53:0,111,1665
+Pf3D7_07_v3	405880	.	A	<NON_REF>	.	.	END=405880	GT:DP:GQ:MIN_DP:PL	0/0:54:67:54:0,67,1165
+Pf3D7_07_v3	405881	.	A	<NON_REF>	.	.	END=405881	GT:DP:GQ:MIN_DP:PL	0/0:52:50:52:0,50,1066
+Pf3D7_07_v3	405882	.	T	<NON_REF>	.	.	END=405882	GT:DP:GQ:MIN_DP:PL	0/0:42:99:42:0,111,1665
+Pf3D7_07_v3	405883	.	T	<NON_REF>	.	.	END=405883	GT:DP:GQ:MIN_DP:PL	0/0:33:2:33:0,2,542
+Pf3D7_07_v3	405884	.	A	<NON_REF>	.	.	END=405884	GT:DP:GQ:MIN_DP:PL	0/0:38:32:38:0,32,743
+Pf3D7_07_v3	405885	.	A	<NON_REF>	.	.	END=405885	GT:DP:GQ:MIN_DP:PL	0/0:36:34:36:0,34,737
+Pf3D7_07_v3	405886	.	A	<NON_REF>	.	.	END=405886	GT:DP:GQ:MIN_DP:PL	0/0:36:46:36:0,46,754
+Pf3D7_07_v3	405887	.	A	<NON_REF>	.	.	END=405887	GT:DP:GQ:MIN_DP:PL	0/0:32:39:32:0,39,653
+Pf3D7_07_v3	405888	.	A	<NON_REF>	.	.	END=405888	GT:DP:GQ:MIN_DP:PL	0/0:30:30:30:0,30,644
+Pf3D7_07_v3	405889	.	A	<NON_REF>	.	.	END=405889	GT:DP:GQ:MIN_DP:PL	0/0:30:0:30:0,0,539
+Pf3D7_07_v3	405890	.	T	<NON_REF>	.	.	END=405890	GT:DP:GQ:MIN_DP:PL	0/0:44:99:44:0,108,1620
+Pf3D7_07_v3	405891	.	G	<NON_REF>	.	.	END=405891	GT:DP:GQ:MIN_DP:PL	0/0:20:0:20:0,0,274
+Pf3D7_07_v3	405892	.	A	<NON_REF>	.	.	END=405892	GT:DP:GQ:MIN_DP:PL	0/0:30:28:30:0,28,611
+Pf3D7_07_v3	405893	.	A	<NON_REF>	.	.	END=405893	GT:DP:GQ:MIN_DP:PL	0/0:30:26:30:0,26,585
+Pf3D7_07_v3	405894	.	T	<NON_REF>	.	.	END=405894	GT:DP:GQ:MIN_DP:PL	0/0:44:95:44:0,95,1040
+Pf3D7_07_v3	405895	.	T	<NON_REF>	.	.	END=405895	GT:DP:GQ:MIN_DP:PL	0/0:44:82:44:0,82,976
+Pf3D7_07_v3	405896	.	T	<NON_REF>	.	.	END=405896	GT:DP:GQ:MIN_DP:PL	0/0:42:67:42:0,67,947
+Pf3D7_07_v3	405897	.	T	<NON_REF>	.	.	END=405897	GT:DP:GQ:MIN_DP:PL	0/0:44:74:44:0,74,976
+Pf3D7_07_v3	405898	.	T	<NON_REF>	.	.	END=405898	GT:DP:GQ:MIN_DP:PL	0/0:42:66:42:0,66,929
+Pf3D7_07_v3	405899	.	T	<NON_REF>	.	.	END=405901	GT:DP:GQ:MIN_DP:PL	0/0:44:99:43:0,99,1007
+Pf3D7_07_v3	405902	.	T	<NON_REF>	.	.	END=405902	GT:DP:GQ:MIN_DP:PL	0/0:44:70:44:0,70,990
+Pf3D7_07_v3	405903	.	T	<NON_REF>	.	.	END=405903	GT:DP:GQ:MIN_DP:PL	0/0:43:65:43:0,65,963
+Pf3D7_07_v3	405904	.	T	<NON_REF>	.	.	END=405904	GT:DP:GQ:MIN_DP:PL	0/0:45:83:45:0,83,1003
+Pf3D7_07_v3	405905	.	T	<NON_REF>	.	.	END=405906	GT:DP:GQ:MIN_DP:PL	0/0:41:92:40:0,92,924
+Pf3D7_07_v3	405907	.	T	<NON_REF>	.	.	END=405907	GT:DP:GQ:MIN_DP:PL	0/0:40:58:40:0,58,868
+Pf3D7_07_v3	405908	.	T	<NON_REF>	.	.	END=405908	GT:DP:GQ:MIN_DP:PL	0/0:39:99:39:0,99,1485
+Pf3D7_07_v3	405909	.	T	<NON_REF>	.	.	END=405909	GT:DP:GQ:MIN_DP:PL	0/0:38:77:38:0,77,876
+Pf3D7_07_v3	405910	.	T	<NON_REF>	.	.	END=405911	GT:DP:GQ:MIN_DP:PL	0/0:38:86:38:0,86,864
+Pf3D7_07_v3	405912	.	A	<NON_REF>	.	.	END=405912	GT:DP:GQ:MIN_DP:PL	0/0:23:0:23:0,0,229
+Pf3D7_07_v3	405913	.	T	<NON_REF>	.	.	END=405913	GT:DP:GQ:MIN_DP:PL	0/0:39:80:39:0,80,889
+Pf3D7_07_v3	405914	.	G	<NON_REF>	.	.	END=405919	GT:DP:GQ:MIN_DP:PL	0/0:27:0:17:0,0,57
+Pf3D7_07_v3	405920	.	A	<NON_REF>	.	.	END=405920	GT:DP:GQ:MIN_DP:PL	0/0:26:2:26:0,2,480
+Pf3D7_07_v3	405921	.	A	<NON_REF>	.	.	END=405921	GT:DP:GQ:MIN_DP:PL	0/0:29:37:29:0,37,597
+Pf3D7_07_v3	405922	.	T	<NON_REF>	.	.	END=405922	GT:DP:GQ:MIN_DP:PL	0/0:33:0:33:0,0,574
+Pf3D7_07_v3	405923	.	A	<NON_REF>	.	.	END=405923	GT:DP:GQ:MIN_DP:PL	0/0:35:30:35:0,30,705
+Pf3D7_07_v3	405924	.	A	<NON_REF>	.	.	END=405924	GT:DP:GQ:MIN_DP:PL	0/0:30:53:30:0,53,612
+Pf3D7_07_v3	405925	.	T	<NON_REF>	.	.	END=405926	GT:DP:GQ:MIN_DP:PL	0/0:21:0:18:0,0,197
+Pf3D7_07_v3	405927	.	T	<NON_REF>	.	.	END=405927	GT:DP:GQ:MIN_DP:PL	0/0:26:30:26:0,30,557
+Pf3D7_07_v3	405928	.	G	<NON_REF>	.	.	END=405928	GT:DP:GQ:MIN_DP:PL	0/0:20:0:20:0,0,326
+Pf3D7_07_v3	405929	.	T	<NON_REF>	.	.	END=405929	GT:DP:GQ:MIN_DP:PL	0/0:32:15:32:0,15,620
+Pf3D7_07_v3	405930	.	A	<NON_REF>	.	.	END=405930	GT:DP:GQ:MIN_DP:PL	0/0:27:55:27:0,55,565
+Pf3D7_07_v3	405931	.	T	<NON_REF>	.	.	END=405931	GT:DP:GQ:MIN_DP:PL	0/0:29:57:29:0,57,855
+Pf3D7_07_v3	405932	.	A	<NON_REF>	.	.	END=405932	GT:DP:GQ:MIN_DP:PL	0/0:28:12:28:0,12,468
+Pf3D7_07_v3	405933	.	T	<NON_REF>	.	.	END=405933	GT:DP:GQ:MIN_DP:PL	0/0:28:44:28:0,44,559
+Pf3D7_07_v3	405934	.	A	<NON_REF>	.	.	END=405934	GT:DP:GQ:MIN_DP:PL	0/0:24:14:24:0,14,365
+Pf3D7_07_v3	405935	.	A	<NON_REF>	.	.	END=405938	GT:DP:GQ:MIN_DP:PL	0/0:27:42:20:0,42,630
+Pf3D7_07_v3	405939	.	G	<NON_REF>	.	.	END=405939	GT:DP:GQ:MIN_DP:PL	0/0:19:32:19:0,32,383
+Pf3D7_07_v3	405940	.	T	<NON_REF>	.	.	END=405940	GT:DP:GQ:MIN_DP:PL	0/0:20:26:20:0,26,396
+Pf3D7_07_v3	405941	.	G	<NON_REF>	.	.	END=405941	GT:DP:GQ:MIN_DP:PL	0/0:14:19:14:0,19,254
+Pf3D7_07_v3	405942	.	T	<NON_REF>	.	.	END=405942	GT:DP:GQ:MIN_DP:PL	0/0:20:30:20:0,30,450
+Pf3D7_07_v3	405943	.	G	<NON_REF>	.	.	END=405943	GT:DP:GQ:MIN_DP:PL	0/0:15:8:15:0,8,263
+Pf3D7_07_v3	405944	.	T	<NON_REF>	.	.	END=405944	GT:DP:GQ:MIN_DP:PL	0/0:15:24:15:0,24,360
+Pf3D7_07_v3	405945	.	A	<NON_REF>	.	.	END=405945	GT:DP:GQ:MIN_DP:PL	0/0:13:11:13:0,11,231
+Pf3D7_07_v3	405946	.	A	<NON_REF>	.	.	END=405947	GT:DP:GQ:MIN_DP:PL	0/0:13:15:11:0,15,225
+Pf3D7_07_v3	405948	.	A	<NON_REF>	.	.	END=405948	GT:DP:GQ:MIN_DP:PL	0/0:9:0:9:0,0,141
+Pf3D7_07_v3	405949	.	T	<NON_REF>	.	.	END=405949	GT:DP:GQ:MIN_DP:PL	0/0:17:15:17:0,15,225
+Pf3D7_07_v3	405950	.	C	<NON_REF>	.	.	END=405951	GT:DP:GQ:MIN_DP:PL	0/0:7:0:7:0,0,88
+Pf3D7_07_v3	405952	.	A	<NON_REF>	.	.	END=405952	GT:DP:GQ:MIN_DP:PL	0/0:7:15:7:0,15,225
+Pf3D7_07_v3	405953	.	A	<NON_REF>	.	.	END=405953	GT:DP:GQ:MIN_DP:PL	0/0:7:0:7:0,0,112
+Pf3D7_07_v3	405954	.	T	<NON_REF>	.	.	END=405954	GT:DP:GQ:MIN_DP:PL	0/0:11:1:11:0,1,202
+Pf3D7_07_v3	405966	.	T	<NON_REF>	.	.	END=405966	GT:DP:GQ:MIN_DP:PL	0/0:5:12:5:0,12,180
+Pf3D7_07_v3	405969	.	T	<NON_REF>	.	.	END=405969	GT:DP:GQ:MIN_DP:PL	0/0:5:12:5:0,12,180
+Pf3D7_07_v3	405971	.	A	<NON_REF>	.	.	END=405971	GT:DP:GQ:MIN_DP:PL	0/0:7:12:7:0,12,180
+Pf3D7_07_v3	406008	.	T	<NON_REF>	.	.	END=406009	GT:DP:GQ:MIN_DP:PL	0/0:7:18:6:0,18,182
+Pf3D7_07_v3	406010	.	T	<NON_REF>	.	.	END=406011	GT:DP:GQ:MIN_DP:PL	0/0:9:24:8:0,24,260
+Pf3D7_07_v3	406012	.	T	<NON_REF>	.	.	END=406012	GT:DP:GQ:MIN_DP:PL	0/0:11:27:11:0,27,405
+Pf3D7_07_v3	406013	.	A	<NON_REF>	.	.	END=406017	GT:DP:GQ:MIN_DP:PL	0/0:7:21:7:0,21,193
+Pf3D7_07_v3	406018	.	T	<NON_REF>	.	.	END=406020	GT:DP:GQ:MIN_DP:PL	0/0:9:24:9:0,24,360
+Pf3D7_07_v3	406021	.	G	<NON_REF>	.	.	END=406021	GT:DP:GQ:MIN_DP:PL	0/0:7:21:7:0,21,208
+Pf3D7_07_v3	406022	.	C	<NON_REF>	.	.	END=406022	GT:DP:GQ:MIN_DP:PL	0/0:9:24:9:0,24,360
+Pf3D7_08_v3	549633	.	G	<NON_REF>	.	.	END=549633	GT:DP:GQ:MIN_DP:PL	0/0:14:11:14:0,11,333
+Pf3D7_08_v3	549634	.	A	<NON_REF>	.	.	END=549641	GT:DP:GQ:MIN_DP:PL	0/0:22:0:17:0,0,0
+Pf3D7_08_v3	549642	.	A	<NON_REF>	.	.	END=549642	GT:DP:GQ:MIN_DP:PL	0/0:24:17:24:0,17,690
+Pf3D7_08_v3	549643	.	A	<NON_REF>	.	.	END=549646	GT:DP:GQ:MIN_DP:PL	0/0:26:0:26:0,0,0
+Pf3D7_08_v3	549647	.	A	G,<NON_REF>	310.3	.	BaseQRankSum=-1.210;DP=80;ExcessHet=0.0000;MLEAC=1,0;MLEAF=0.500,0.00;MQRankSum=-0.246;RAW_MQandDP=277477,80;ReadPosRankSum=-4.133	GT:AD:DP:GQ:PL:SB	1/1:3,22,0:25:11:324,11,0,333,61,384:1,2,14,8
+Pf3D7_08_v3	549648	.	G	<NON_REF>	.	.	END=549730	GT:DP:GQ:MIN_DP:PL	0/0:260:99:44:0,111,1087
+Pf3D7_08_v3	549731	.	A	<NON_REF>	.	.	END=549731	GT:DP:GQ:MIN_DP:PL	0/0:365:69:365:0,69,1035
+Pf3D7_08_v3	549732	.	G	<NON_REF>	.	.	END=549734	GT:DP:GQ:MIN_DP:PL	0/0:347:21:346:0,21,315
+Pf3D7_08_v3	549735	.	C	<NON_REF>	.	.	END=549739	GT:DP:GQ:MIN_DP:PL	0/0:314:24:297:0,24,360
+Pf3D7_08_v3	549740	.	A	<NON_REF>	.	.	END=549740	GT:DP:GQ:MIN_DP:PL	0/0:127:0:127:0,0,0
+Pf3D7_08_v3	549741	.	T	<NON_REF>	.	.	END=549741	GT:DP:GQ:MIN_DP:PL	0/0:108:24:108:0,24,360
+Pf3D7_08_v3	549742	.	T	<NON_REF>	.	.	END=549743	GT:DP:GQ:MIN_DP:PL	0/0:106:0:105:0,0,0
+Pf3D7_08_v3	549744	.	C	<NON_REF>	.	.	END=549744	GT:DP:GQ:MIN_DP:PL	0/0:105:24:105:0,24,360
+Pf3D7_08_v3	549745	.	A	<NON_REF>	.	.	END=549746	GT:DP:GQ:MIN_DP:PL	0/0:101:0:101:0,0,0
+Pf3D7_08_v3	549747	.	T	<NON_REF>	.	.	END=549748	GT:DP:GQ:MIN_DP:PL	0/0:92:24:92:0,24,360
+Pf3D7_08_v3	549749	.	A	<NON_REF>	.	.	END=549750	GT:DP:GQ:MIN_DP:PL	0/0:93:30:92:0,30,450
+Pf3D7_08_v3	549751	.	T	<NON_REF>	.	.	END=549754	GT:DP:GQ:MIN_DP:PL	0/0:80:0:69:0,0,0
+Pf3D7_08_v3	549755	.	A	<NON_REF>	.	.	END=549755	GT:DP:GQ:MIN_DP:PL	0/0:48:30:48:0,30,450
+Pf3D7_08_v3	549756	.	A	<NON_REF>	.	.	END=549762	GT:DP:GQ:MIN_DP:PL	0/0:40:0:33:0,0,0
+Pf3D7_08_v3	549763	.	G	<NON_REF>	.	.	END=549763	GT:DP:GQ:MIN_DP:PL	0/0:32:27:32:0,27,405
+Pf3D7_08_v3	549764	.	G	<NON_REF>	.	.	END=549766	GT:DP:GQ:MIN_DP:PL	0/0:18:0:12:0,0,0
+Pf3D7_08_v3	549767	.	T	<NON_REF>	.	.	END=549767	GT:DP:GQ:MIN_DP:PL	0/0:11:27:11:0,27,405
+Pf3D7_08_v3	549768	.	G	<NON_REF>	.	.	END=549768	GT:DP:GQ:MIN_DP:PL	0/0:11:17:11:0,17,227
+Pf3D7_08_v3	549769	.	A	<NON_REF>	.	.	END=549769	GT:DP:GQ:MIN_DP:PL	0/0:11:16:11:0,16,248
+Pf3D7_08_v3	549770	.	T	<NON_REF>	.	.	END=549786	GT:DP:GQ:MIN_DP:PL	0/0:9:27:9:0,27,230
+Pf3D7_08_v3	549787	.	T	<NON_REF>	.	.	END=549787	GT:DP:GQ:MIN_DP:PL	0/0:7:21:7:0,21,181
+Pf3D7_08_v3	549788	.	T	<NON_REF>	.	.	END=549805	GT:DP:GQ:MIN_DP:PL	0/0:9:27:9:0,27,218
+Pf3D7_08_v3	549806	.	A	<NON_REF>	.	.	END=549820	GT:DP:GQ:MIN_DP:PL	0/0:9:21:7:0,21,176
+Pf3D7_08_v3	549821	.	T	<NON_REF>	.	.	END=549872	GT:DP:GQ:MIN_DP:PL	0/0:5:15:5:0,15,120
+Pf3D7_08_v3	549873	.	A	<NON_REF>	.	.	END=549879	GT:DP:GQ:MIN_DP:PL	0/0:5:9:5:0,9,135
+Pf3D7_08_v3	549924	.	T	<NON_REF>	.	.	END=549924	GT:DP:GQ:MIN_DP:PL	0/0:5:0:5:0,0,78
+Pf3D7_08_v3	549960	.	A	<NON_REF>	.	.	END=549960	GT:DP:GQ:MIN_DP:PL	0/0:54:0:54:0,0,0
+Pf3D7_08_v3	549961	.	T	<NON_REF>	.	.	END=550227	GT:DP:GQ:MIN_DP:PL	0/0:916:99:90:0,120,1800
+Pf3D7_08_v3	550228	.	A	<NON_REF>	.	.	END=550228	GT:DP:GQ:MIN_DP:PL	0/0:710:21:710:0,21,315
+Pf3D7_08_v3	550229	.	T	<NON_REF>	.	.	END=550230	GT:DP:GQ:MIN_DP:PL	0/0:696:12:693:0,12,180
+Pf3D7_08_v3	550231	.	A	<NON_REF>	.	.	END=550231	GT:DP:GQ:MIN_DP:PL	0/0:704:9:704:0,9,135
+Pf3D7_08_v3	550232	.	A	<NON_REF>	.	.	END=550232	GT:DP:GQ:MIN_DP:PL	0/0:704:6:704:0,6,90
+Pf3D7_08_v3	550233	.	A	<NON_REF>	.	.	END=550233	GT:DP:GQ:MIN_DP:PL	0/0:701:3:701:0,3,45
+Pf3D7_08_v3	1373942	.	G	<NON_REF>	.	.	END=1373943	GT:DP:GQ:MIN_DP:PL	0/0:5:6:5:0,6,90
+Pf3D7_08_v3	1373944	.	A	<NON_REF>	.	.	END=1373944	GT:DP:GQ:MIN_DP:PL	0/0:6:0:6:0,0,0
+Pf3D7_08_v3	1373945	.	A	<NON_REF>	.	.	END=1373945	GT:DP:GQ:MIN_DP:PL	0/0:6:6:6:0,6,90
+Pf3D7_08_v3	1373946	.	A	<NON_REF>	.	.	END=1373950	GT:DP:GQ:MIN_DP:PL	0/0:10:0:6:0,0,0
+Pf3D7_08_v3	1373951	.	A	<NON_REF>	.	.	END=1373951	GT:DP:GQ:MIN_DP:PL	0/0:14:12:14:0,12,398
+Pf3D7_08_v3	1373952	.	G	<NON_REF>	.	.	END=1373952	GT:DP:GQ:MIN_DP:PL	0/0:14:0:14:0,0,0
+Pf3D7_08_v3	1373953	.	A	<NON_REF>	.	.	END=1373953	GT:DP:GQ:MIN_DP:PL	0/0:14:21:14:0,21,315
+Pf3D7_08_v3	1373954	.	C	<NON_REF>	.	.	END=1373957	GT:DP:GQ:MIN_DP:PL	0/0:14:0:13:0,0,0
+Pf3D7_08_v3	1373958	.	A	<NON_REF>	.	.	END=1373958	GT:DP:GQ:MIN_DP:PL	0/0:13:30:13:0,30,450
+Pf3D7_08_v3	1373959	.	A	<NON_REF>	.	.	END=1373959	GT:DP:GQ:MIN_DP:PL	0/0:15:0:15:0,0,0
+Pf3D7_08_v3	1373960	.	A	<NON_REF>	.	.	END=1373960	GT:DP:GQ:MIN_DP:PL	0/0:15:30:15:0,30,450
+Pf3D7_08_v3	1373961	.	A	<NON_REF>	.	.	END=1373961	GT:DP:GQ:MIN_DP:PL	0/0:17:0:17:0,0,0
+Pf3D7_08_v3	1373962	.	A	<NON_REF>	.	.	END=1373975	GT:DP:GQ:MIN_DP:PL	0/0:54:99:50:0,111,1327
+Pf3D7_08_v3	1373976	.	A	<NON_REF>	.	.	END=1373976	GT:DP:GQ:MIN_DP:PL	0/0:50:78:50:0,78,1170
+Pf3D7_08_v3	1373977	.	T	<NON_REF>	.	.	END=1373979	GT:DP:GQ:MIN_DP:PL	0/0:52:81:52:0,81,1215
+Pf3D7_08_v3	1373980	.	A	<NON_REF>	.	.	END=1373980	GT:DP:GQ:MIN_DP:PL	0/0:52:78:52:0,78,1170
+Pf3D7_08_v3	1373981	.	T	<NON_REF>	.	.	END=1373985	GT:DP:GQ:MIN_DP:PL	0/0:54:84:52:0,84,1260
+Pf3D7_08_v3	1373986	.	A	ACTGTCTCTTATACACATCTCCG,<NON_REF>	178.6	.	BaseQRankSum=0.000;DP=36;ExcessHet=0.0000;MLEAC=1,0;MLEAF=0.500,0.00;MQRankSum=0.000;RAW_MQandDP=128704,36;ReadPosRankSum=-2.810	GT:AD:DP:GQ:PGT:PID:PL:PS:SB	0|1:21,6,0:27:99:0|1:1373986_A_ACTGTCTCTTATACACATCTCCG:186,0,866,252,885,1136:1373986:10,11,0,6
+Pf3D7_08_v3	1373987	.	A	<NON_REF>	.	.	END=1373987	GT:DP:GQ:MIN_DP:PL	0/0:20:33:20:0,33,535
+Pf3D7_08_v3	1373988	.	A	C,<NON_REF>	178.64	.	DP=36;ExcessHet=0.0000;MLEAC=1,0;MLEAF=0.500,0.00;MQRankSum=0.000;RAW_MQandDP=128704,36	GT:AD:DP:GQ:PGT:PID:PL:PS:SB	0|1:21,6,0:27:99:0|1:1373986_A_ACTGTCTCTTATACACATCTCCG:186,0,866,252,885,1136:1373986:10,11,0,6
+Pf3D7_08_v3	1373989	.	C	<NON_REF>	.	.	END=1373992	GT:DP:GQ:MIN_DP:PL	0/0:21:57:20:0,57,855
+Pf3D7_08_v3	1373993	.	A	<NON_REF>	.	.	END=1373997	GT:DP:GQ:MIN_DP:PL	0/0:22:60:20:0,60,595
+Pf3D7_08_v3	1373998	.	A	<NON_REF>	.	.	END=1374000	GT:DP:GQ:MIN_DP:PL	0/0:20:57:20:0,57,855
+Pf3D7_08_v3	1374001	.	A	<NON_REF>	.	.	END=1374005	GT:DP:GQ:MIN_DP:PL	0/0:23:66:22:0,66,623
+Pf3D7_08_v3	1374006	.	A	<NON_REF>	.	.	END=1374010	GT:DP:GQ:MIN_DP:PL	0/0:25:72:24:0,72,673
+Pf3D7_08_v3	1374011	.	G	<NON_REF>	.	.	END=1374011	GT:DP:GQ:MIN_DP:PL	0/0:23:69:23:0,69,604
+Pf3D7_08_v3	1374012	.	T	<NON_REF>	.	.	END=1374014	GT:DP:GQ:MIN_DP:PL	0/0:24:72:24:0,72,679
+Pf3D7_08_v3	1374015	.	A	T,<NON_REF>	0	.	BaseQRankSum=-1.832;DP=24;ExcessHet=0.0000;MLEAC=0,0;MLEAF=0.00,0.00;MQRankSum=0.000;RAW_MQandDP=86400,24;ReadPosRankSum=-0.375	GT:AD:DP:GQ:PL:SB	0/0:23,1,0:24:62:0,62,652,69,654,661:12,11,0,1
+Pf3D7_08_v3	1374016	.	T	<NON_REF>	.	.	END=1374017	GT:DP:GQ:MIN_DP:PL	0/0:41:0:40:0,0,523
+Pf3D7_08_v3	1374018	.	A	<NON_REF>	.	.	END=1374018	GT:DP:GQ:MIN_DP:PL	0/0:39:49:39:0,49,996
+Pf3D7_08_v3	1374019	.	A	<NON_REF>	.	.	END=1374031	GT:DP:GQ:MIN_DP:PL	0/0:39:0:33:0,0,453
+Pf3D7_08_v3	1374032	.	T	<NON_REF>	.	.	END=1374032	GT:DP:GQ:MIN_DP:PL	0/0:37:26:37:0,26,872
+Pf3D7_08_v3	1374033	.	T	<NON_REF>	.	.	END=1374033	GT:DP:GQ:MIN_DP:PL	0/0:36:48:36:0,48,907
+Pf3D7_08_v3	1374034	.	A	<NON_REF>	.	.	END=1374034	GT:DP:GQ:MIN_DP:PL	0/0:36:0:36:0,0,670
+Pf3D7_08_v3	1374035	.	T	<NON_REF>	.	.	END=1374035	GT:DP:GQ:MIN_DP:PL	0/0:34:45:34:0,45,867
+Pf3D7_08_v3	1374036	.	T	<NON_REF>	.	.	END=1374036	GT:DP:GQ:MIN_DP:PL	0/0:36:17:36:0,17,825
+Pf3D7_08_v3	1374037	.	T	<NON_REF>	.	.	END=1374037	GT:DP:GQ:MIN_DP:PL	0/0:36:78:36:0,78,930
+Pf3D7_08_v3	1374038	.	T	<NON_REF>	.	.	END=1374038	GT:DP:GQ:MIN_DP:PL	0/0:36:26:36:0,26,845
+Pf3D7_08_v3	1374039	.	T	<NON_REF>	.	.	END=1374039	GT:DP:GQ:MIN_DP:PL	0/0:37:22:37:0,22,866
+Pf3D7_08_v3	1374040	.	A	<NON_REF>	.	.	END=1374040	GT:DP:GQ:MIN_DP:PL	0/0:34:34:34:0,34,809
+Pf3D7_08_v3	1374041	.	T	<NON_REF>	.	.	END=1374041	GT:DP:GQ:MIN_DP:PL	0/0:36:27:36:0,27,823
+Pf3D7_08_v3	1374042	.	A	<NON_REF>	.	.	END=1374042	GT:DP:GQ:MIN_DP:PL	0/0:33:30:33:0,30,758
+Pf3D7_08_v3	1374043	.	T	<NON_REF>	.	.	END=1374046	GT:DP:GQ:MIN_DP:PL	0/0:34:63:32:0,63,818
+Pf3D7_08_v3	1374047	.	C	<NON_REF>	.	.	END=1374047	GT:DP:GQ:MIN_DP:PL	0/0:34:99:34:0,99,1485
+Pf3D7_08_v3	1374048	.	A	<NON_REF>	.	.	END=1374048	GT:DP:GQ:MIN_DP:PL	0/0:32:65:32:0,65,851
+Pf3D7_08_v3	1374049	.	T	<NON_REF>	.	.	END=1374050	GT:DP:GQ:MIN_DP:PL	0/0:34:99:34:0,99,1485
+Pf3D7_08_v3	1374051	.	A	<NON_REF>	.	.	END=1374051	GT:DP:GQ:MIN_DP:PL	0/0:34:75:34:0,75,881
+Pf3D7_08_v3	1374052	.	T	<NON_REF>	.	.	END=1374052	GT:DP:GQ:MIN_DP:PL	0/0:34:80:34:0,80,870
+Pf3D7_08_v3	1374053	.	A	<NON_REF>	.	.	END=1374054	GT:DP:GQ:MIN_DP:PL	0/0:32:93:31:0,93,877
+Pf3D7_08_v3	1374055	.	A	<NON_REF>	.	.	END=1374061	GT:DP:GQ:MIN_DP:PL	0/0:35:99:33:0,99,928
+Pf3D7_08_v3	1374062	.	A	<NON_REF>	.	.	END=1374063	GT:DP:GQ:MIN_DP:PL	0/0:34:96:33:0,96,1440
+Pf3D7_08_v3	1374064	.	A	<NON_REF>	.	.	END=1374097	GT:DP:GQ:MIN_DP:PL	0/0:35:99:33:0,99,872
+Pf3D7_08_v3	1374098	.	T	<NON_REF>	.	.	END=1374102	GT:DP:GQ:MIN_DP:PL	0/0:36:90:35:0,90,1350
+Pf3D7_08_v3	1374103	.	A	<NON_REF>	.	.	END=1374103	GT:DP:GQ:MIN_DP:PL	0/0:35:87:35:0,87,1305
+Pf3D7_08_v3	1374104	.	T	<NON_REF>	.	.	END=1374104	GT:DP:GQ:MIN_DP:PL	0/0:37:39:37:0,39,865
+Pf3D7_08_v3	1374105	.	A	<NON_REF>	.	.	END=1374105	GT:DP:GQ:MIN_DP:PL	0/0:37:73:37:0,73,903
+Pf3D7_08_v3	1374106	.	T	<NON_REF>	.	.	END=1374106	GT:DP:GQ:MIN_DP:PL	0/0:37:51:37:0,51,854
+Pf3D7_08_v3	1374107	.	G	<NON_REF>	.	.	END=1374108	GT:DP:GQ:MIN_DP:PL	0/0:39:81:37:0,81,887
+Pf3D7_08_v3	1374109	.	T	<NON_REF>	.	.	END=1374109	GT:DP:GQ:MIN_DP:PL	0/0:38:54:38:0,54,904
+Pf3D7_08_v3	1374110	.	T	<NON_REF>	.	.	END=1374110	GT:DP:GQ:MIN_DP:PL	0/0:38:77:38:0,77,929
+Pf3D7_08_v3	1374111	.	T	<NON_REF>	.	.	END=1374113	GT:DP:GQ:MIN_DP:PL	0/0:37:80:37:0,80,909
+Pf3D7_08_v3	1374114	.	A	<NON_REF>	.	.	END=1374115	GT:DP:GQ:MIN_DP:PL	0/0:37:74:37:0,74,898
+Pf3D7_08_v3	1374116	.	G	<NON_REF>	.	.	END=1374116	GT:DP:GQ:MIN_DP:PL	0/0:33:96:33:0,96,1440
+Pf3D7_08_v3	1374117	.	A	<NON_REF>	.	.	END=1374119	GT:DP:GQ:MIN_DP:PL	0/0:34:66:34:0,66,805
+Pf3D7_08_v3	1374120	.	C	<NON_REF>	.	.	END=1374120	GT:DP:GQ:MIN_DP:PL	0/0:32:58:32:0,58,731
+Pf3D7_08_v3	1374121	.	A	<NON_REF>	.	.	END=1374122	GT:DP:GQ:MIN_DP:PL	0/0:34:72:34:0,72,818
+Pf3D7_08_v3	1374123	.	T	<NON_REF>	.	.	END=1374123	GT:DP:GQ:MIN_DP:PL	0/0:33:93:33:0,93,1395
+Pf3D7_08_v3	1374124	.	A	<NON_REF>	.	.	END=1374125	GT:DP:GQ:MIN_DP:PL	0/0:35:99:34:0,99,1485
+Pf3D7_08_v3	1374126	.	T	<NON_REF>	.	.	END=1374126	GT:DP:GQ:MIN_DP:PL	0/0:32:96:32:0,96,817
+Pf3D7_08_v3	1374127	.	C	<NON_REF>	.	.	END=1374138	GT:DP:GQ:MIN_DP:PL	0/0:34:99:33:0,99,829
+Pf3D7_08_v3	1374139	.	G	<NON_REF>	.	.	END=1374140	GT:DP:GQ:MIN_DP:PL	0/0:33:96:32:0,96,785
+Pf3D7_08_v3	1374141	.	A	<NON_REF>	.	.	END=1374142	GT:DP:GQ:MIN_DP:PL	0/0:33:99:33:0,99,798
+Pf3D7_08_v3	1374143	.	G	<NON_REF>	.	.	END=1374144	GT:DP:GQ:MIN_DP:PL	0/0:32:93:31:0,93,742
+Pf3D7_08_v3	1374145	.	T	<NON_REF>	.	.	END=1374147	GT:DP:GQ:MIN_DP:PL	0/0:33:99:33:0,99,818
+Pf3D7_08_v3	1374148	.	CA	C,CAA,<NON_REF>	63.6	.	BaseQRankSum=-0.667;DP=24;ExcessHet=0.0000;MLEAC=1,0,0;MLEAF=0.500,0.00,0.00;MQRankSum=0.000;RAW_MQandDP=86400,24;ReadPosRankSum=1.578	GT:AD:DP:GQ:PL:SB	0/1:19,5,0,0:24:71:71,0,469,141,482,657,137,483,643,635:8,11,2,3
+Pf3D7_08_v3	1374150	.	A	<NON_REF>	.	.	END=1374160	GT:DP:GQ:MIN_DP:PL	0/0:33:99:33:0,99,815
+Pf3D7_08_v3	1374161	.	C	<NON_REF>	.	.	END=1374161	GT:DP:GQ:MIN_DP:PL	0/0:32:96:32:0,96,787
+Pf3D7_08_v3	1374162	.	A	<NON_REF>	.	.	END=1374164	GT:DP:GQ:MIN_DP:PL	0/0:33:99:33:0,99,828
+Pf3D7_08_v3	1374165	.	T	<NON_REF>	.	.	END=1374168	GT:DP:GQ:MIN_DP:PL	0/0:33:90:31:0,90,744
+Pf3D7_08_v3	1374169	.	T	<NON_REF>	.	.	END=1374169	GT:DP:GQ:MIN_DP:PL	0/0:33:29:33:0,29,708
+Pf3D7_08_v3	1374170	.	T	<NON_REF>	.	.	END=1374179	GT:DP:GQ:MIN_DP:PL	0/0:33:92:31:0,92,748
+Pf3D7_08_v3	1374180	.	A	<NON_REF>	.	.	END=1374183	GT:DP:GQ:MIN_DP:PL	0/0:34:99:33:0,99,823
+Pf3D7_08_v3	1374184	.	C	<NON_REF>	.	.	END=1374184	GT:DP:GQ:MIN_DP:PL	0/0:33:98:33:0,98,798
+Pf3D7_08_v3	1374185	.	T	<NON_REF>	.	.	END=1374186	GT:DP:GQ:MIN_DP:PL	0/0:34:99:34:0,99,1485
+Pf3D7_08_v3	1374187	.	T	<NON_REF>	.	.	END=1374189	GT:DP:GQ:MIN_DP:PL	0/0:34:93:32:0,93,1395
+Pf3D7_08_v3	1374190	.	T	<NON_REF>	.	.	END=1374190	GT:DP:GQ:MIN_DP:PL	0/0:29:87:29:0,87,729
+Pf3D7_08_v3	1374191	.	T	<NON_REF>	.	.	END=1374196	GT:DP:GQ:MIN_DP:PL	0/0:33:92:31:0,92,739
+Pf3D7_08_v3	1374197	.	T	<NON_REF>	.	.	END=1374199	GT:DP:GQ:MIN_DP:PL	0/0:29:81:27:0,81,669
+Pf3D7_08_v3	1374200	.	A	<NON_REF>	.	.	END=1374200	GT:DP:GQ:MIN_DP:PL	0/0:31:93:31:0,93,779
+Pf3D7_08_v3	1374201	.	T	<NON_REF>	.	.	END=1374202	GT:DP:GQ:MIN_DP:PL	0/0:29:87:29:0,87,719
+Pf3D7_08_v3	1374203	.	T	<NON_REF>	.	.	END=1374203	GT:DP:GQ:MIN_DP:PL	0/0:30:63:30:0,63,700
+Pf3D7_08_v3	1374204	.	T	<NON_REF>	.	.	END=1374204	GT:DP:GQ:MIN_DP:PL	0/0:31:0:31:0,0,541
+Pf3D7_08_v3	1374205	.	T	<NON_REF>	.	.	END=1374205	GT:DP:GQ:MIN_DP:PL	0/0:31:25:31:0,25,648
+Pf3D7_08_v3	1374206	.	A	<NON_REF>	.	.	END=1374206	GT:DP:GQ:MIN_DP:PL	0/0:36:0:36:0,0,669
+Pf3D7_08_v3	1374207	.	T	<NON_REF>	.	.	END=1374207	GT:DP:GQ:MIN_DP:PL	0/0:32:14:32:0,14,677
+Pf3D7_08_v3	1374208	.	A	<NON_REF>	.	.	END=1374208	GT:DP:GQ:MIN_DP:PL	0/0:36:1:36:0,1,702
+Pf3D7_08_v3	1374209	.	A	<NON_REF>	.	.	END=1374212	GT:DP:GQ:MIN_DP:PL	0/0:35:0:33:0,0,374
+Pf3D7_08_v3	1374213	.	T	<NON_REF>	.	.	END=1374213	GT:DP:GQ:MIN_DP:PL	0/0:35:24:35:0,24,770
+Pf3D7_08_v3	1374214	.	T	<NON_REF>	.	.	END=1374217	GT:DP:GQ:MIN_DP:PL	0/0:40:0:38:0,0,255
+Pf3D7_08_v3	1374218	.	A	<NON_REF>	.	.	END=1374219	GT:DP:GQ:MIN_DP:PL	0/0:44:75:42:0,75,1125
+Pf3D7_08_v3	1374220	.	C	<NON_REF>	.	.	END=1374224	GT:DP:GQ:MIN_DP:PL	0/0:43:0:42:0,0,0
+Pf3D7_08_v3	1374225	.	A	<NON_REF>	.	.	END=1374225	GT:DP:GQ:MIN_DP:PL	0/0:45:12:45:0,12,1060
+Pf3D7_08_v3	1374226	.	T	<NON_REF>	.	.	END=1374229	GT:DP:GQ:MIN_DP:PL	0/0:45:0:42:0,0,0
+Pf3D7_08_v3	1374230	.	A	<NON_REF>	.	.	END=1374230	GT:DP:GQ:MIN_DP:PL	0/0:46:56:46:0,56,1125
+Pf3D7_08_v3	1374231	.	T	<NON_REF>	.	.	END=1374233	GT:DP:GQ:MIN_DP:PL	0/0:43:0:43:0,0,141
+Pf3D7_08_v3	1374234	.	A	<NON_REF>	.	.	END=1374234	GT:DP:GQ:MIN_DP:PL	0/0:43:40:43:0,40,1017
+Pf3D7_08_v3	1374235	.	T	<NON_REF>	.	.	END=1374237	GT:DP:GQ:MIN_DP:PL	0/0:41:0:40:0,0,148
+Pf3D7_08_v3	1374238	.	A	<NON_REF>	.	.	END=1374238	GT:DP:GQ:MIN_DP:PL	0/0:41:23:41:0,23,999
+Pf3D7_08_v3	1374239	.	A	<NON_REF>	.	.	END=1374239	GT:DP:GQ:MIN_DP:PL	0/0:38:51:38:0,51,920
+Pf3D7_08_v3	1374240	.	T	<NON_REF>	.	.	END=1374244	GT:DP:GQ:MIN_DP:PL	0/0:32:0:27:0,0,92
+Pf3D7_08_v3	1374245	.	T	<NON_REF>	.	.	END=1374254	GT:DP:GQ:MIN_DP:PL	0/0:58:99:54:0,108,1620
+Pf3D7_08_v3	1374255	.	G	<NON_REF>	.	.	END=1374255	GT:DP:GQ:MIN_DP:PL	0/0:49:81:49:0,81,1215
+Pf3D7_08_v3	1374256	.	T	<NON_REF>	.	.	END=1374257	GT:DP:GQ:MIN_DP:PL	0/0:50:63:49:0,63,945
+Pf3D7_08_v3	1374258	.	G	<NON_REF>	.	.	END=1374259	GT:DP:GQ:MIN_DP:PL	0/0:48:54:47:0,54,810
+Pf3D7_10_v3	70852	.	T	<NON_REF>	.	.	END=70853	GT:DP:GQ:MIN_DP:PL	0/0:39:33:39:0,33,495
+Pf3D7_10_v3	70854	.	C	<NON_REF>	.	.	END=70854	GT:DP:GQ:MIN_DP:PL	0/0:38:30:38:0,30,450
+Pf3D7_10_v3	70855	.	T	<NON_REF>	.	.	END=70855	GT:DP:GQ:MIN_DP:PL	0/0:38:27:38:0,27,405
+Pf3D7_10_v3	70856	.	A	<NON_REF>	.	.	END=70860	GT:DP:GQ:MIN_DP:PL	0/0:38:15:38:0,15,225
+Pf3D7_10_v3	70861	.	T	<NON_REF>	.	.	END=70862	GT:DP:GQ:MIN_DP:PL	0/0:36:6:36:0,6,90
+Pf3D7_10_v3	70863	.	C	<NON_REF>	.	.	END=70863	GT:DP:GQ:MIN_DP:PL	0/0:36:3:36:0,3,45
+Pf3D7_12_v3	1308333	.	T	<NON_REF>	.	.	END=1308334	GT:DP:GQ:MIN_DP:PL	0/0:12:33:12:0,33,495
+Pf3D7_12_v3	1308335	.	G	<NON_REF>	.	.	END=1308337	GT:DP:GQ:MIN_DP:PL	0/0:12:30:12:0,30,450
+Pf3D7_12_v3	1308338	.	A	<NON_REF>	.	.	END=1308338	GT:DP:GQ:MIN_DP:PL	0/0:12:27:12:0,27,405
+Pf3D7_12_v3	1308339	.	A	<NON_REF>	.	.	END=1308339	GT:DP:GQ:MIN_DP:PL	0/0:12:24:12:0,24,360
+Pf3D7_12_v3	1308340	.	T	<NON_REF>	.	.	END=1308341	GT:DP:GQ:MIN_DP:PL	0/0:12:21:12:0,21,315
+Pf3D7_12_v3	1308342	.	T	<NON_REF>	.	.	END=1308344	GT:DP:GQ:MIN_DP:PL	0/0:12:18:12:0,18,270
+Pf3D7_12_v3	1308345	.	T	<NON_REF>	.	.	END=1308346	GT:DP:GQ:MIN_DP:PL	0/0:12:15:12:0,15,225
+Pf3D7_12_v3	1308347	.	T	<NON_REF>	.	.	END=1308347	GT:DP:GQ:MIN_DP:PL	0/0:12:6:12:0,6,90
+Pf3D7_12_v3	1308348	.	T	<NON_REF>	.	.	END=1308351	GT:DP:GQ:MIN_DP:PL	0/0:12:3:12:0,3,45
+Pf3D7_12_v3	1308352	.	C	<NON_REF>	.	.	END=1308381	GT:DP:GQ:MIN_DP:PL	0/0:12:0:11:0,0,0
+Pf3D7_12_v3	1308382	.	G	<NON_REF>	.	.	END=1308382	GT:DP:GQ:MIN_DP:PL	0/0:11:3:11:0,3,45
+Pf3D7_12_v3	2092534	.	T	<NON_REF>	.	.	END=2092534	GT:DP:GQ:MIN_DP:PL	0/0:18:2:18:0,2,460
+Pf3D7_12_v3	2092535	.	T	<NON_REF>	.	.	END=2092539	GT:DP:GQ:MIN_DP:PL	0/0:19:0:18:0,0,0
+Pf3D7_12_v3	2092540	.	A	<NON_REF>	.	.	END=2092540	GT:DP:GQ:MIN_DP:PL	0/0:24:18:24:0,18,607
+Pf3D7_12_v3	2092541	.	T	<NON_REF>	.	.	END=2092541	GT:DP:GQ:MIN_DP:PL	0/0:23:0:23:0,0,0
+Pf3D7_12_v3	2092542	.	A	<NON_REF>	.	.	END=2092542	GT:DP:GQ:MIN_DP:PL	0/0:33:71:33:0,71,871
+Pf3D7_12_v3	2092543	.	T	<NON_REF>	.	.	END=2092543	GT:DP:GQ:MIN_DP:PL	0/0:84:0:84:0,0,0
+Pf3D7_12_v3	2092544	.	T	<NON_REF>	.	.	END=2092741	GT:DP:GQ:MIN_DP:PL	0/0:805:99:119:0,120,1800
+Pf3D7_12_v3	2092742	.	A	<NON_REF>	.	.	END=2092743	GT:DP:GQ:MIN_DP:PL	0/0:877:0:872:0,0,12191
+Pf3D7_12_v3	2092744	.	G	<NON_REF>	.	.	END=2092744	GT:DP:GQ:MIN_DP:PL	0/0:879:99:879:0,120,1800
+Pf3D7_12_v3	2092745	.	A	<NON_REF>	.	.	END=2092750	GT:DP:GQ:MIN_DP:PL	0/0:870:0:865:0,0,13971
+Pf3D7_12_v3	2092751	.	A	<NON_REF>	.	.	END=2092752	GT:DP:GQ:MIN_DP:PL	0/0:884:99:881:0,120,1800
+Pf3D7_12_v3	2092753	.	G	<NON_REF>	.	.	END=2092754	GT:DP:GQ:MIN_DP:PL	0/0:867:0:864:0,0,15540
+Pf3D7_12_v3	2092755	.	G	<NON_REF>	.	.	END=2092932	GT:DP:GQ:MIN_DP:PL	0/0:995:99:800:0,120,1800
+Pf3D7_12_v3	2092933	.	A	<NON_REF>	.	.	END=2092933	GT:DP:GQ:MIN_DP:PL	0/0:815:72:815:0,72,1080
+Pf3D7_12_v3	2092934	.	G	<NON_REF>	.	.	END=2092934	GT:DP:GQ:MIN_DP:PL	0/0:802:51:802:0,51,765
+Pf3D7_12_v3	2092935	.	T	<NON_REF>	.	.	END=2092935	GT:DP:GQ:MIN_DP:PL	0/0:774:9:774:0,9,135
+Pf3D7_13_v3	1724933	.	T	<NON_REF>	.	.	END=1724942	GT:DP:GQ:MIN_DP:PL	0/0:8:0:4:0,0,0
+Pf3D7_13_v3	1724943	.	T	<NON_REF>	.	.	END=1724943	GT:DP:GQ:MIN_DP:PL	0/0:10:30:10:0,30,335
+Pf3D7_13_v3	1724944	.	G	<NON_REF>	.	.	END=1724944	GT:DP:GQ:MIN_DP:PL	0/0:17:24:17:0,24,397
+Pf3D7_13_v3	1724945	.	T	<NON_REF>	.	.	END=1724945	GT:DP:GQ:MIN_DP:PL	0/0:17:51:17:0,51,535
+Pf3D7_13_v3	1724946	.	A	<NON_REF>	.	.	END=1724948	GT:DP:GQ:MIN_DP:PL	0/0:22:0:21:0,0,0
+Pf3D7_13_v3	1724949	.	T	<NON_REF>	.	.	END=1724949	GT:DP:GQ:MIN_DP:PL	0/0:26:31:26:0,31,738
+Pf3D7_13_v3	1724950	.	A	<NON_REF>	.	.	END=1724950	GT:DP:GQ:MIN_DP:PL	0/0:25:44:25:0,44,708
+Pf3D7_13_v3	1724951	.	T	<NON_REF>	.	.	END=1724954	GT:DP:GQ:MIN_DP:PL	0/0:28:0:27:0,0,0
+Pf3D7_13_v3	1724955	.	A	<NON_REF>	.	.	END=1724955	GT:DP:GQ:MIN_DP:PL	0/0:29:36:29:0,36,765
+Pf3D7_13_v3	1724956	.	G	<NON_REF>	.	.	END=1724956	GT:DP:GQ:MIN_DP:PL	0/0:31:0:31:0,0,0
+Pf3D7_13_v3	1724957	.	A	<NON_REF>	.	.	END=1724957	GT:DP:GQ:MIN_DP:PL	0/0:35:58:35:0,58,986
+Pf3D7_13_v3	1724958	.	A	<NON_REF>	.	.	END=1724958	GT:DP:GQ:MIN_DP:PL	0/0:88:0:88:0,0,0
+Pf3D7_13_v3	1724959	.	T	<NON_REF>	.	.	END=1724959	GT:DP:GQ:MIN_DP:PL	0/0:150:99:150:0,120,1800
+Pf3D7_13_v3	1724960	.	C	<NON_REF>	.	.	END=1724960	GT:DP:GQ:MIN_DP:PL	0/0:159:88:159:0,88,3277
+Pf3D7_13_v3	1724961	.	T	<NON_REF>	.	.	END=1724962	GT:DP:GQ:MIN_DP:PL	0/0:171:99:165:0,120,1800
+Pf3D7_13_v3	1724963	.	A	<NON_REF>	.	.	END=1724963	GT:DP:GQ:MIN_DP:PL	0/0:176:0:176:0,0,3571
+Pf3D7_13_v3	1724964	.	C	<NON_REF>	.	.	END=1725333	GT:DP:GQ:MIN_DP:PL	0/0:1580:99:218:0,120,1800
+Pf3D7_13_v3	1725334	.	A	<NON_REF>	.	.	END=1725336	GT:DP:GQ:MIN_DP:PL	0/0:1156:0:1145:0,0,15259
+Pf3D7_13_v3	1725337	.	T	<NON_REF>	.	.	END=1725337	GT:DP:GQ:MIN_DP:PL	0/0:1159:99:1159:0,120,1800
+Pf3D7_13_v3	1725338	.	T	<NON_REF>	.	.	END=1725341	GT:DP:GQ:MIN_DP:PL	0/0:1155:0:1129:0,0,16582
+Pf3D7_13_v3	1725342	.	T	<NON_REF>	.	.	END=1725343	GT:DP:GQ:MIN_DP:PL	0/0:1200:99:1196:0,120,1800
+Pf3D7_13_v3	1725344	.	T	<NON_REF>	.	.	END=1725344	GT:DP:GQ:MIN_DP:PL	0/0:1208:0:1208:0,0,21186
+Pf3D7_13_v3	1725345	.	A	<NON_REF>	.	.	END=1725345	GT:DP:GQ:MIN_DP:PL	0/0:1161:99:1161:0,120,1800
+Pf3D7_13_v3	1725346	.	A	<NON_REF>	.	.	END=1725346	GT:DP:GQ:MIN_DP:PL	0/0:1196:0:1196:0,0,23873
+Pf3D7_13_v3	1725347	.	T	<NON_REF>	.	.	END=1725468	GT:DP:GQ:MIN_DP:PL	0/0:1238:99:856:0,120,1800
+Pf3D7_13_v3	1725469	.	A	<NON_REF>	.	.	END=1725475	GT:DP:GQ:MIN_DP:PL	0/0:578:0:556:0,0,0
+Pf3D7_13_v3	1725476	.	T	<NON_REF>	.	.	END=1725476	GT:DP:GQ:MIN_DP:PL	0/0:564:99:564:0,120,1800
+Pf3D7_13_v3	1725477	.	T	<NON_REF>	.	.	END=1725477	GT:DP:GQ:MIN_DP:PL	0/0:559:0:559:0,0,561
+Pf3D7_13_v3	1725478	.	T	<NON_REF>	.	.	END=1725478	GT:DP:GQ:MIN_DP:PL	0/0:561:99:561:0,120,1800
+Pf3D7_13_v3	1725479	.	C	<NON_REF>	.	.	END=1725480	GT:DP:GQ:MIN_DP:PL	0/0:538:0:529:0,0,1553
+Pf3D7_13_v3	1725481	.	A	<NON_REF>	.	.	END=1725481	GT:DP:GQ:MIN_DP:PL	0/0:461:99:461:0,120,1800
+Pf3D7_13_v3	1725482	.	A	<NON_REF>	.	.	END=1725486	GT:DP:GQ:MIN_DP:PL	0/0:405:0:383:0,0,4343
+Pf3D7_13_v3	1725487	.	G	<NON_REF>	.	.	END=1725487	GT:DP:GQ:MIN_DP:PL	0/0:397:99:397:0,120,1800
+Pf3D7_13_v3	1725488	.	C	<NON_REF>	.	.	END=1725488	GT:DP:GQ:MIN_DP:PL	0/0:405:0:405:0,0,7009
+Pf3D7_13_v3	1725489	.	C	<NON_REF>	.	.	END=1725489	GT:DP:GQ:MIN_DP:PL	0/0:403:99:403:0,120,1800
+Pf3D7_13_v3	1725490	.	T	<NON_REF>	.	.	END=1725490	GT:DP:GQ:MIN_DP:PL	0/0:394:0:394:0,0,7222
+Pf3D7_13_v3	1725491	.	T	<NON_REF>	.	.	END=1725652	GT:DP:GQ:MIN_DP:PL	0/0:384:99:342:0,120,1800
+Pf3D7_13_v3	1725653	.	C	<NON_REF>	.	.	END=1725653	GT:DP:GQ:MIN_DP:PL	0/0:432:0:432:0,0,7823
+Pf3D7_13_v3	1725654	.	T	<NON_REF>	.	.	END=1725714	GT:DP:GQ:MIN_DP:PL	0/0:549:99:457:0,120,1800
+Pf3D7_13_v3	1725715	.	A	<NON_REF>	.	.	END=1725716	GT:DP:GQ:MIN_DP:PL	0/0:424:0:421:0,0,5683
+Pf3D7_13_v3	1725717	.	G	<NON_REF>	.	.	END=1725717	GT:DP:GQ:MIN_DP:PL	0/0:436:99:436:0,120,1800
+Pf3D7_13_v3	1725718	.	G	<NON_REF>	.	.	END=1725718	GT:DP:GQ:MIN_DP:PL	0/0:444:0:444:0,0,6029
+Pf3D7_13_v3	1725719	.	C	<NON_REF>	.	.	END=1725720	GT:DP:GQ:MIN_DP:PL	0/0:425:99:407:0,120,1800
+Pf3D7_13_v3	1725721	.	T	<NON_REF>	.	.	END=1725724	GT:DP:GQ:MIN_DP:PL	0/0:444:0:442:0,0,6315
+Pf3D7_13_v3	1725725	.	T	<NON_REF>	.	.	END=1725725	GT:DP:GQ:MIN_DP:PL	0/0:448:99:448:0,120,1800
+Pf3D7_13_v3	1725726	.	T	<NON_REF>	.	.	END=1725729	GT:DP:GQ:MIN_DP:PL	0/0:424:0:412:0,0,6972
+Pf3D7_13_v3	1725730	.	C	<NON_REF>	.	.	END=1725919	GT:DP:GQ:MIN_DP:PL	0/0:532:99:343:0,120,1800
+Pf3D7_13_v3	2840598	.	A	<NON_REF>	.	.	END=2840599	GT:DP:GQ:MIN_DP:PL	0/0:6:18:6:0,18,181
+Pf3D7_13_v3	2840600	.	G	<NON_REF>	.	.	END=2840600	GT:DP:GQ:MIN_DP:PL	0/0:14:25:14:0,25,313
+Pf3D7_13_v3	2840601	.	A	<NON_REF>	.	.	END=2840604	GT:DP:GQ:MIN_DP:PL	0/0:19:0:14:0,0,0
+Pf3D7_13_v3	2840605	.	T	<NON_REF>	.	.	END=2840606	GT:DP:GQ:MIN_DP:PL	0/0:19:57:19:0,57,650
+Pf3D7_13_v3	2840607	.	T	<NON_REF>	.	.	END=2840613	GT:DP:GQ:MIN_DP:PL	0/0:21:0:19:0,0,0
+Pf3D7_13_v3	2840614	.	G	<NON_REF>	.	.	END=2840650	GT:DP:GQ:MIN_DP:PL	0/0:95:99:39:0,117,989
+Pf3D7_13_v3	2840651	.	T	TTA,TTATA,<NON_REF>	2051.02	.	BaseQRankSum=0.342;DP=77;ExcessHet=0.0000;MLEAC=1,1,0;MLEAF=0.500,0.500,0.00;MQRankSum=0.000;RAW_MQandDP=277200,77;ReadPosRankSum=-0.633	GT:AD:DP:GQ:PL:SB	1/2:6,52,11,0:69:99:2068,164,178,1548,0,1746,2015,370,1781,2210:2,4,20,43
+Pf3D7_13_v3	2840652	.	T	<NON_REF>	.	.	END=2840771	GT:DP:GQ:MIN_DP:PL	0/0:113:99:57:0,120,1800
+Pf3D7_13_v3	2840772	.	ATGGTGTGCTCCATCG	A,GTGGTGTGCTCCATCG,<NON_REF>	623.28	.	BaseQRankSum=4.696;DP=58;ExcessHet=0.0000;MLEAC=1,0,0;MLEAF=0.500,0.00,0.00;MQRankSum=0.000;RAW_MQandDP=208800,58;ReadPosRankSum=0.510	GT:AD:DP:GQ:PL:SB	1/1:2,30,0,0:32:6:635,6,0,801,167,2297,800,167,2294,2292:1,1,13,17
+Pf3D7_13_v3	2840787	.	G	*,A,<NON_REF>	0	.	DP=51;ExcessHet=0.0000;MLEAC=2,0,0;MLEAF=1.00,0.00,0.00;RAW_MQandDP=183600,51	GT:AD:DP:GQ:PGT:PID:PL:PS:SB	1|1:0,30,2,0:32:57:0|1:2840787_G_*:724,90,0,773,57,1674,843,137,1280,1244:2840787:0,0,14,18
+Pf3D7_13_v3	2840788	.	T	<NON_REF>	.	.	END=2840790	GT:DP:GQ:MIN_DP:PL	0/0:44:99:44:0,102,1530
+Pf3D7_13_v3	2840791	.	T	<NON_REF>	.	.	END=2840798	GT:DP:GQ:MIN_DP:PL	0/0:39:90:37:0,90,1350
+Pf3D7_13_v3	2840799	.	A	<NON_REF>	.	.	END=2840803	GT:DP:GQ:MIN_DP:PL	0/0:34:72:33:0,72,1080
+Pf3D7_13_v3	2840804	.	G	<NON_REF>	.	.	END=2840813	GT:DP:GQ:MIN_DP:PL	0/0:34:63:33:0,63,945
+Pf3D7_13_v3	2840814	.	A	<NON_REF>	.	.	END=2840814	GT:DP:GQ:MIN_DP:PL	0/0:34:57:34:0,57,855
+Pf3D7_13_v3	2840815	.	T	<NON_REF>	.	.	END=2840815	GT:DP:GQ:MIN_DP:PL	0/0:34:54:34:0,54,810
+Pf3D7_13_v3	2840816	.	C	<NON_REF>	.	.	END=2840818	GT:DP:GQ:MIN_DP:PL	0/0:35:57:35:0,57,855
+Pf3D7_13_v3	2840819	.	G	<NON_REF>	.	.	END=2840822	GT:DP:GQ:MIN_DP:PL	0/0:33:60:30:0,60,900
+Pf3D7_13_v3	2840823	.	G	T,<NON_REF>	119.64	.	BaseQRankSum=-2.697;DP=31;ExcessHet=0.0000;MLEAC=1,0;MLEAF=0.500,0.00;MQRankSum=-3.107;RAW_MQandDP=103022,31;ReadPosRankSum=-0.692	GT:AD:DP:GQ:PGT:PID:PL:PS:SB	0|1:25,5,0:30:99:0|1:2840787_G_*:127,0,1015,203,1030,1233:2840787:10,15,3,2
+Pf3D7_13_v3	2840824	.	G	<NON_REF>	.	.	END=2840825	GT:DP:GQ:MIN_DP:PL	0/0:30:66:30:0,66,990
+Pf3D7_13_v3	2840826	.	A	T,<NON_REF>	122.64	.	BaseQRankSum=-1.146;DP=30;ExcessHet=0.0000;MLEAC=1,0;MLEAF=0.500,0.00;MQRankSum=-3.033;RAW_MQandDP=99422,30;ReadPosRankSum=-1.241	GT:AD:DP:GQ:PGT:PID:PL:PS:SB	0|1:24,5,0:29:99:0|1:2840787_G_*:130,0,973,203,988,1191:2840787:10,14,3,2
+Pf3D7_13_v3	2840827	.	T	C,<NON_REF>	120.64	.	BaseQRankSum=-1.406;DP=31;ExcessHet=0.0000;MLEAC=1,0;MLEAF=0.500,0.00;MQRankSum=-3.107;RAW_MQandDP=103022,31;ReadPosRankSum=-0.989	GT:AD:DP:GQ:PGT:PID:PL:PS:SB	0|1:25,5,0:30:99:0|1:2840787_G_*:128,0,980,203,995,1198:2840787:11,14,3,2
+Pf3D7_13_v3	2840828	.	C	<NON_REF>	.	.	END=2840828	GT:DP:GQ:MIN_DP:PL	0/0:26:51:26:0,51,765
+Pf3D7_13_v3	2840829	.	G	A,<NON_REF>	132.64	.	BaseQRankSum=-0.833;DP=27;ExcessHet=0.0000;MLEAC=1,0;MLEAF=0.500,0.00;MQRankSum=-2.797;RAW_MQandDP=88622,27;ReadPosRankSum=-0.718	GT:AD:DP:GQ:PGT:PID:PL:PS:SB	0|1:21,5,0:26:99:0|1:2840787_G_*:140,0,812,203,827,1030:2840787:9,12,3,2
+Pf3D7_13_v3	2840830	.	T	<NON_REF>	.	.	END=2840830	GT:DP:GQ:MIN_DP:PL	0/0:25:51:25:0,51,765
+Pf3D7_13_v3	2840831	.	C	<NON_REF>	.	.	END=2840831	GT:DP:GQ:MIN_DP:PL	0/0:25:48:25:0,48,720
+Pf3D7_13_v3	2840832	.	G	<NON_REF>	.	.	END=2840832	GT:DP:GQ:MIN_DP:PL	0/0:26:39:26:0,39,585
+Pf3D7_13_v3	2840833	.	T	<NON_REF>	.	.	END=2840835	GT:DP:GQ:MIN_DP:PL	0/0:26:36:25:0,36,540
+Pf3D7_13_v3	2840836	.	T	<NON_REF>	.	.	END=2840836	GT:DP:GQ:MIN_DP:PL	0/0:26:28:26:0,28,557
+Pf3D7_13_v3	2840837	.	G	<NON_REF>	.	.	END=2840837	GT:DP:GQ:MIN_DP:PL	0/0:24:36:24:0,36,540
+Pf3D7_13_v3	2840838	.	T	<NON_REF>	.	.	END=2840843	GT:DP:GQ:MIN_DP:PL	0/0:23:33:22:0,33,495
+Pf3D7_13_v3	2840844	.	A	<NON_REF>	.	.	END=2840844	GT:DP:GQ:MIN_DP:PL	0/0:21:0:21:0,0,419
+Pf3D7_13_v3	2840845	.	T	<NON_REF>	.	.	END=2840845	GT:DP:GQ:MIN_DP:PL	0/0:21:33:21:0,33,495
+Pf3D7_13_v3	2840846	.	C	<NON_REF>	.	.	END=2840846	GT:DP:GQ:MIN_DP:PL	0/0:22:30:22:0,30,450
+Pf3D7_13_v3	2840847	.	A	<NON_REF>	.	.	END=2840848	GT:DP:GQ:MIN_DP:PL	0/0:23:33:22:0,33,495
+Pf3D7_13_v3	2840849	.	G	<NON_REF>	.	.	END=2840849	GT:DP:GQ:MIN_DP:PL	0/0:31:60:31:0,60,900
+Pf3D7_13_v3	2840850	.	G	<NON_REF>	.	.	END=2840850	GT:DP:GQ:MIN_DP:PL	0/0:42:93:42:0,93,1395
+Pf3D7_13_v3	2840851	.	T	<NON_REF>	.	.	END=2840851	GT:DP:GQ:MIN_DP:PL	0/0:38:21:38:0,21,751
+Pf3D7_13_v3	2840852	.	G	<NON_REF>	.	.	END=2840873	GT:DP:GQ:MIN_DP:PL	0/0:49:99:34:0,102,837
+Pf3D7_13_v3	2840874	.	A	<NON_REF>	.	.	END=2840874	GT:DP:GQ:MIN_DP:PL	0/0:72:0:72:0,0,0
+Pf3D7_13_v3	2840875	.	T	<NON_REF>	.	.	END=2840903	GT:DP:GQ:MIN_DP:PL	0/0:159:99:75:0,120,1800
+Pf3D7_13_v3	2840904	.	A	<NON_REF>	.	.	END=2840904	GT:DP:GQ:MIN_DP:PL	0/0:218:0:218:0,0,1336
+Pf3D7_13_v3	2840905	.	T	<NON_REF>	.	.	END=2840933	GT:DP:GQ:MIN_DP:PL	0/0:351:99:222:0,120,1800
+Pf3D7_13_v3	2840934	.	A	<NON_REF>	.	.	END=2840934	GT:DP:GQ:MIN_DP:PL	0/0:417:0:417:0,0,4914
+Pf3D7_13_v3	2840935	.	T	<NON_REF>	.	.	END=2841101	GT:DP:GQ:MIN_DP:PL	0/0:744:99:330:0,120,1800
+Pf3D7_13_v3	2841102	.	A	<NON_REF>	.	.	END=2841102	GT:DP:GQ:MIN_DP:PL	0/0:338:0:338:0,0,6189
+Pf3D7_13_v3	2841103	.	G	<NON_REF>	.	.	END=2841118	GT:DP:GQ:MIN_DP:PL	0/0:288:99:248:0,120,1800
+Pf3D7_13_v3	2841119	.	T	<NON_REF>	.	.	END=2841119	GT:DP:GQ:MIN_DP:PL	0/0:219:97:219:0,97,4370
+Pf3D7_13_v3	2841120	.	A	<NON_REF>	.	.	END=2841120	GT:DP:GQ:MIN_DP:PL	0/0:207:0:207:0,0,3667
+Pf3D7_13_v3	2841121	.	G	<NON_REF>	.	.	END=2841121	GT:DP:GQ:MIN_DP:PL	0/0:218:99:218:0,120,1800
+Pf3D7_13_v3	2841122	.	C	<NON_REF>	.	.	END=2841124	GT:DP:GQ:MIN_DP:PL	0/0:198:0:193:0,0,3309
+Pf3D7_13_v3	2841125	.	C	<NON_REF>	.	.	END=2841125	GT:DP:GQ:MIN_DP:PL	0/0:184:99:184:0,120,1800
+Pf3D7_13_v3	2841126	.	A	<NON_REF>	.	.	END=2841126	GT:DP:GQ:MIN_DP:PL	0/0:189:0:189:0,0,3361
+Pf3D7_13_v3	2841127	.	T	<NON_REF>	.	.	END=2841127	GT:DP:GQ:MIN_DP:PL	0/0:181:99:181:0,120,1800
+Pf3D7_13_v3	2841128	.	G	<NON_REF>	.	.	END=2841129	GT:DP:GQ:MIN_DP:PL	0/0:195:0:195:0,0,0
+Pf3D7_13_v3	2841130	.	T	<NON_REF>	.	.	END=2841130	GT:DP:GQ:MIN_DP:PL	0/0:177:85:177:0,85,3497
+Pf3D7_13_v3	2841131	.	G	<NON_REF>	.	.	END=2841137	GT:DP:GQ:MIN_DP:PL	0/0:168:99:139:0,118,1800
+Pf3D7_13_v3	2841138	.	A	<NON_REF>	.	.	END=2841138	GT:DP:GQ:MIN_DP:PL	0/0:134:0:134:0,0,2597
+Pf3D7_13_v3	2841139	.	G	<NON_REF>	.	.	END=2841139	GT:DP:GQ:MIN_DP:PL	0/0:136:99:136:0,120,1800
+Pf3D7_13_v3	2841140	.	C	<NON_REF>	.	.	END=2841140	GT:DP:GQ:MIN_DP:PL	0/0:133:46:133:0,46,2620
+Pf3D7_13_v3	2841141	.	T	<NON_REF>	.	.	END=2841141	GT:DP:GQ:MIN_DP:PL	0/0:113:19:113:0,19,2164
+Pf3D7_13_v3	2841142	.	G	<NON_REF>	.	.	END=2841142	GT:DP:GQ:MIN_DP:PL	0/0:121:30:121:0,30,2382
+Pf3D7_13_v3	2841143	.	C	<NON_REF>	.	.	END=2841143	GT:DP:GQ:MIN_DP:PL	0/0:119:99:119:0,120,1800
+Pf3D7_13_v3	2841144	.	A	<NON_REF>	.	.	END=2841144	GT:DP:GQ:MIN_DP:PL	0/0:112:0:112:0,0,2128
+Pf3D7_13_v3	2841145	.	T	<NON_REF>	.	.	END=2841145	GT:DP:GQ:MIN_DP:PL	0/0:116:99:116:0,120,1800
+Pf3D7_13_v3	2841146	.	G	<NON_REF>	.	.	END=2841146	GT:DP:GQ:MIN_DP:PL	0/0:115:53:115:0,53,2231
+Pf3D7_13_v3	2841147	.	G	<NON_REF>	.	.	END=2841147	GT:DP:GQ:MIN_DP:PL	0/0:115:49:115:0,49,2199
+Pf3D7_13_v3	2841148	.	T	<NON_REF>	.	.	END=2841148	GT:DP:GQ:MIN_DP:PL	0/0:111:2:111:0,2,2141
+Pf3D7_13_v3	2841149	.	G	<NON_REF>	.	.	END=2841149	GT:DP:GQ:MIN_DP:PL	0/0:109:43:109:0,43,2037
+Pf3D7_13_v3	2841150	.	A	<NON_REF>	.	.	END=2841154	GT:DP:GQ:MIN_DP:PL	0/0:111:99:97:0,120,1800
+Pf3D7_13_v3	2841155	.	T	<NON_REF>	.	.	END=2841155	GT:DP:GQ:MIN_DP:PL	0/0:89:33:89:0,33,1694
+Pf3D7_13_v3	2841156	.	A	<NON_REF>	.	.	END=2841156	GT:DP:GQ:MIN_DP:PL	0/0:96:66:96:0,66,1885
+Pf3D7_13_v3	2841157	.	G	<NON_REF>	.	.	END=2841157	GT:DP:GQ:MIN_DP:PL	0/0:92:99:92:0,120,1800
+Pf3D7_13_v3	2841158	.	C	<NON_REF>	.	.	END=2841158	GT:DP:GQ:MIN_DP:PL	0/0:83:56:83:0,56,1663
+Pf3D7_13_v3	2841159	.	T	<NON_REF>	.	.	END=2841159	GT:DP:GQ:MIN_DP:PL	0/0:78:0:78:0,0,1420
+Pf3D7_13_v3	2841160	.	G	<NON_REF>	.	.	END=2841161	GT:DP:GQ:MIN_DP:PL	0/0:77:99:74:0,99,1609
+Pf3D7_13_v3	2841162	.	A	<NON_REF>	.	.	END=2841162	GT:DP:GQ:MIN_DP:PL	0/0:75:15:75:0,15,1403
+Pf3D7_13_v3	2841163	.	T	<NON_REF>	.	.	END=2841163	GT:DP:GQ:MIN_DP:PL	0/0:71:99:71:0,120,1800
+Pf3D7_13_v3	2841164	.	G	<NON_REF>	.	.	END=2841164	GT:DP:GQ:MIN_DP:PL	0/0:74:37:74:0,37,1451
+Pf3D7_13_v3	2841165	.	G	<NON_REF>	.	.	END=2841165	GT:DP:GQ:MIN_DP:PL	0/0:77:23:77:0,23,1426
+Pf3D7_13_v3	2841166	.	T	<NON_REF>	.	.	END=2841166	GT:DP:GQ:MIN_DP:PL	0/0:69:51:69:0,51,1430
+Pf3D7_13_v3	2841167	.	G	<NON_REF>	.	.	END=2841167	GT:DP:GQ:MIN_DP:PL	0/0:69:49:69:0,49,1305
+Pf3D7_13_v3	2841168	.	A	<NON_REF>	.	.	END=2841169	GT:DP:GQ:MIN_DP:PL	0/0:71:99:71:0,106,1483
+Pf3D7_13_v3	2841170	.	C	<NON_REF>	.	.	END=2841170	GT:DP:GQ:MIN_DP:PL	0/0:70:62:70:0,62,1435
+Pf3D7_13_v3	2841171	.	A	<NON_REF>	.	.	END=2841171	GT:DP:GQ:MIN_DP:PL	0/0:64:82:64:0,82,1398
+Pf3D7_13_v3	2841172	.	T	<NON_REF>	.	.	END=2841172	GT:DP:GQ:MIN_DP:PL	0/0:62:31:62:0,31,1229
+Pf3D7_13_v3	2841173	.	T	<NON_REF>	.	.	END=2841173	GT:DP:GQ:MIN_DP:PL	0/0:58:74:58:0,74,1281
+Pf3D7_13_v3	2841174	.	A	<NON_REF>	.	.	END=2841174	GT:DP:GQ:MIN_DP:PL	0/0:58:0:58:0,0,1093
+Pf3D7_13_v3	2841175	.	G	<NON_REF>	.	.	END=2841175	GT:DP:GQ:MIN_DP:PL	0/0:55:75:55:0,75,1121
+Pf3D7_13_v3	2841176	.	C	<NON_REF>	.	.	END=2841176	GT:DP:GQ:MIN_DP:PL	0/0:52:49:52:0,49,1084
+Pf3D7_13_v3	2841177	.	T	<NON_REF>	.	.	END=2841177	GT:DP:GQ:MIN_DP:PL	0/0:37:0:37:0,0,659
+Pf3D7_13_v3	2841178	.	G	<NON_REF>	.	.	END=2841178	GT:DP:GQ:MIN_DP:PL	0/0:41:7:41:0,7,769
+Pf3D7_13_v3	2841179	.	C	<NON_REF>	.	.	END=2841179	GT:DP:GQ:MIN_DP:PL	0/0:48:81:48:0,81,1215
+Pf3D7_13_v3	2841180	.	A	<NON_REF>	.	.	END=2841180	GT:DP:GQ:MIN_DP:PL	0/0:49:23:49:0,23,1001
+Pf3D7_13_v3	2841181	.	T	<NON_REF>	.	.	END=2841181	GT:DP:GQ:MIN_DP:PL	0/0:42:81:42:0,81,1215
+Pf3D7_13_v3	2841182	.	G	<NON_REF>	.	.	END=2841182	GT:DP:GQ:MIN_DP:PL	0/0:51:49:51:0,49,1010
+Pf3D7_13_v3	2841183	.	A	<NON_REF>	.	.	END=2841183	GT:DP:GQ:MIN_DP:PL	0/0:50:0:50:0,0,0
+Pf3D7_13_v3	2841184	.	T	<NON_REF>	.	.	END=2841184	GT:DP:GQ:MIN_DP:PL	0/0:41:1:41:0,1,813
+Pf3D7_13_v3	2841185	.	G	<NON_REF>	.	.	END=2841185	GT:DP:GQ:MIN_DP:PL	0/0:43:22:43:0,22,800
+Pf3D7_13_v3	2841186	.	A	<NON_REF>	.	.	END=2841188	GT:DP:GQ:MIN_DP:PL	0/0:53:75:47:0,75,1102
+Pf3D7_13_v3	2841189	.	A	<NON_REF>	.	.	END=2841189	GT:DP:GQ:MIN_DP:PL	0/0:53:87:53:0,87,1305
+Pf3D7_13_v3	2841190	.	T	<NON_REF>	.	.	END=2841190	GT:DP:GQ:MIN_DP:PL	0/0:44:71:44:0,71,985
+Pf3D7_13_v3	2841191	.	T	<NON_REF>	.	.	END=2841192	GT:DP:GQ:MIN_DP:PL	0/0:37:0:36:0,0,460
+Pf3D7_13_v3	2841193	.	G	<NON_REF>	.	.	END=2841193	GT:DP:GQ:MIN_DP:PL	0/0:43:78:43:0,78,952
+Pf3D7_13_v3	2841194	.	C	<NON_REF>	.	.	END=2841196	GT:DP:GQ:MIN_DP:PL	0/0:37:0:34:0,0,295
+Pf3D7_13_v3	2841197	.	C	<NON_REF>	.	.	END=2841197	GT:DP:GQ:MIN_DP:PL	0/0:33:75:33:0,75,1125
+Pf3D7_13_v3	2841198	.	A	<NON_REF>	.	.	END=2841198	GT:DP:GQ:MIN_DP:PL	0/0:32:0:32:0,0,329
+Pf3D7_13_v3	2841199	.	T	<NON_REF>	.	.	END=2841199	GT:DP:GQ:MIN_DP:PL	0/0:30:74:30:0,74,771
+Pf3D7_13_v3	2841200	.	G	<NON_REF>	.	.	END=2841203	GT:DP:GQ:MIN_DP:PL	0/0:31:0:29:0,0,313
+Pf3D7_13_v3	2841204	.	A	<NON_REF>	.	.	END=2841204	GT:DP:GQ:MIN_DP:PL	0/0:32:23:32:0,23,635
+Pf3D7_13_v3	2841205	.	G	<NON_REF>	.	.	END=2841208	GT:DP:GQ:MIN_DP:PL	0/0:28:0:25:0,0,313
+Pf3D7_13_v3	2841209	.	T	<NON_REF>	.	.	END=2841209	GT:DP:GQ:MIN_DP:PL	0/0:26:53:26:0,53,603
+Pf3D7_13_v3	2841210	.	A	<NON_REF>	.	.	END=2841211	GT:DP:GQ:MIN_DP:PL	0/0:29:0:28:0,0,396
+Pf3D7_13_v3	2841212	.	C	<NON_REF>	.	.	END=2841212	GT:DP:GQ:MIN_DP:PL	0/0:28:42:28:0,42,602
+Pf3D7_13_v3	2841213	.	T	<NON_REF>	.	.	END=2841214	GT:DP:GQ:MIN_DP:PL	0/0:22:0:20:0,0,229
+Pf3D7_13_v3	2841215	.	C	<NON_REF>	.	.	END=2841215	GT:DP:GQ:MIN_DP:PL	0/0:21:40:21:0,40,468
+Pf3D7_13_v3	2841216	.	A	<NON_REF>	.	.	END=2841216	GT:DP:GQ:MIN_DP:PL	0/0:15:4:15:0,4,261
+Pf3D7_13_v3	2841217	.	T	<NON_REF>	.	.	END=2841217	GT:DP:GQ:MIN_DP:PL	0/0:23:12:23:0,12,428
+Pf3D7_13_v3	2841218	.	G	<NON_REF>	.	.	END=2841218	GT:DP:GQ:MIN_DP:PL	0/0:24:2:24:0,2,395
+Pf3D7_13_v3	2841219	.	G	<NON_REF>	.	.	END=2841219	GT:DP:GQ:MIN_DP:PL	0/0:22:27:22:0,27,435
+Pf3D7_13_v3	2841220	.	T	<NON_REF>	.	.	END=2841220	GT:DP:GQ:MIN_DP:PL	0/0:18:0:18:0,0,314
+Pf3D7_13_v3	2841221	.	G	<NON_REF>	.	.	END=2841221	GT:DP:GQ:MIN_DP:PL	0/0:19:4:19:0,4,351
+Pf3D7_13_v3	2841222	.	A	<NON_REF>	.	.	END=2841222	GT:DP:GQ:MIN_DP:PL	0/0:21:16:21:0,16,401
+Pf3D7_13_v3	2841223	.	G	<NON_REF>	.	.	END=2841223	GT:DP:GQ:MIN_DP:PL	0/0:24:31:24:0,31,447
+Pf3D7_13_v3	2841224	.	C	<NON_REF>	.	.	END=2841225	GT:DP:GQ:MIN_DP:PL	0/0:22:0:20:0,0,372
+Pf3D7_13_v3	2841226	.	T	<NON_REF>	.	.	END=2841226	GT:DP:GQ:MIN_DP:PL	0/0:20:42:20:0,42,449
+Pf3D7_13_v3	2841227	.	T	<NON_REF>	.	.	END=2841227	GT:DP:GQ:MIN_DP:PL	0/0:14:26:14:0,26,331
+Pf3D7_13_v3	2841228	.	A	<NON_REF>	.	.	END=2841228	GT:DP:GQ:MIN_DP:PL	0/0:18:27:18:0,27,360
+Pf3D7_13_v3	2841229	.	G	<NON_REF>	.	.	END=2841229	GT:DP:GQ:MIN_DP:PL	0/0:17:23:17:0,23,341
+Pf3D7_13_v3	2841230	.	C	<NON_REF>	.	.	END=2841230	GT:DP:GQ:MIN_DP:PL	0/0:12:13:12:0,13,260
+Pf3D7_13_v3	2841231	.	T	<NON_REF>	.	.	END=2841231	GT:DP:GQ:MIN_DP:PL	0/0:15:33:15:0,33,332
+Pf3D7_13_v3	2841232	.	G	<NON_REF>	.	.	END=2841233	GT:DP:GQ:MIN_DP:PL	0/0:16:0:15:0,0,258
+Pf3D7_13_v3	2841234	.	A	<NON_REF>	.	.	END=2841234	GT:DP:GQ:MIN_DP:PL	0/0:19:32:19:0,32,443
+Pf3D7_13_v3	2841235	.	T	<NON_REF>	.	.	END=2841235	GT:DP:GQ:MIN_DP:PL	0/0:17:39:17:0,39,379
+Pf3D7_13_v3	2841236	.	G	<NON_REF>	.	.	END=2841236	GT:DP:GQ:MIN_DP:PL	0/0:15:17:15:0,17,293
+Pf3D7_13_v3	2841237	.	G	<NON_REF>	.	.	END=2841237	GT:DP:GQ:MIN_DP:PL	0/0:15:4:15:0,4,268
+Pf3D7_13_v3	2841238	.	T	<NON_REF>	.	.	END=2841238	GT:DP:GQ:MIN_DP:PL	0/0:13:0:13:0,0,264
+Pf3D7_13_v3	2841239	.	G	<NON_REF>	.	.	END=2841239	GT:DP:GQ:MIN_DP:PL	0/0:15:15:15:0,15,293
+Pf3D7_13_v3	2841240	.	A	<NON_REF>	.	.	END=2841240	GT:DP:GQ:MIN_DP:PL	0/0:17:9:17:0,9,317
+Pf3D7_13_v3	2841241	.	G	<NON_REF>	.	.	END=2841241	GT:DP:GQ:MIN_DP:PL	0/0:17:14:17:0,14,319
+Pf3D7_13_v3	2841242	.	C	<NON_REF>	.	.	END=2841242	GT:DP:GQ:MIN_DP:PL	0/0:14:24:14:0,24,360
+Pf3D7_13_v3	2841243	.	A	<NON_REF>	.	.	END=2841243	GT:DP:GQ:MIN_DP:PL	0/0:15:8:15:0,8,314
+Pf3D7_13_v3	2841244	.	T	<NON_REF>	.	.	END=2841244	GT:DP:GQ:MIN_DP:PL	0/0:16:24:16:0,24,360
+Pf3D7_13_v3	2841245	.	T	<NON_REF>	.	.	END=2841246	GT:DP:GQ:MIN_DP:PL	0/0:13:0:12:0,0,150
+Pf3D7_13_v3	2841247	.	G	<NON_REF>	.	.	END=2841247	GT:DP:GQ:MIN_DP:PL	0/0:12:21:12:0,21,315
+Pf3D7_13_v3	2841248	.	C	<NON_REF>	.	.	END=2841250	GT:DP:GQ:MIN_DP:PL	0/0:15:0:9:0,0,108
+Pf3D7_13_v3	2841251	.	C	<NON_REF>	.	.	END=2841251	GT:DP:GQ:MIN_DP:PL	0/0:16:3:16:0,3,45
+Pf3D7_13_v3	2841252	.	A	<NON_REF>	.	.	END=2841252	GT:DP:GQ:MIN_DP:PL	0/0:15:0:15:0,0,247
+Pf3D7_13_v3	2841253	.	T	<NON_REF>	.	.	END=2841253	GT:DP:GQ:MIN_DP:PL	0/0:11:3:11:0,3,45
+Pf3D7_14_v3	1426624	.	G	<NON_REF>	.	.	END=1426624	GT:DP:GQ:MIN_DP:PL	0/0:5:12:5:0,12,180
+Pf3D7_14_v3	1426625	.	A	<NON_REF>	.	.	END=1426628	GT:DP:GQ:MIN_DP:PL	0/0:5:9:4:0,9,135
+Pf3D7_14_v3	1426629	.	A	<NON_REF>	.	.	END=1426632	GT:DP:GQ:MIN_DP:PL	0/0:5:3:3:0,3,45
+Pf3D7_14_v3	1526380	.	A	<NON_REF>	.	.	END=1526380	GT:DP:GQ:MIN_DP:PL	0/0:8:21:8:0,21,315
+Pf3D7_14_v3	1526381	.	A	<NON_REF>	.	.	END=1526381	GT:DP:GQ:MIN_DP:PL	0/0:8:18:8:0,18,270
+Pf3D7_14_v3	1526382	.	T	<NON_REF>	.	.	END=1526387	GT:DP:GQ:MIN_DP:PL	0/0:8:15:8:0,15,225
+Pf3D7_14_v3	1526388	.	T	<NON_REF>	.	.	END=1526391	GT:DP:GQ:MIN_DP:PL	0/0:8:12:7:0,12,180
+Pf3D7_14_v3	1526392	.	T	<NON_REF>	.	.	END=1526395	GT:DP:GQ:MIN_DP:PL	0/0:7:9:7:0,9,135
+Pf3D7_14_v3	1526396	.	A	<NON_REF>	.	.	END=1526398	GT:DP:GQ:MIN_DP:PL	0/0:7:6:7:0,6,90
+Pf3D7_14_v3	1526399	.	G	<NON_REF>	.	.	END=1526399	GT:DP:GQ:MIN_DP:PL	0/0:6:3:6:0,3,45
+Pf3D7_14_v3	1526400	.	T	<NON_REF>	.	.	END=1526405	GT:DP:GQ:MIN_DP:PL	0/0:7:0:7:0,0,0
+Pf3D7_14_v3	1526406	.	G	<NON_REF>	.	.	END=1526406	GT:DP:GQ:MIN_DP:PL	0/0:7:3:7:0,3,45
+Pf_M76611	4219	.	C	<NON_REF>	.	.	END=4221	GT:DP:GQ:MIN_DP:PL	0/0:482:99:443:0,120,1800
+Pf_M76611	4222	.	A	<NON_REF>	.	.	END=4222	GT:DP:GQ:MIN_DP:PL	0/0:489:78:489:0,78,10254
+Pf_M76611	4223	.	T	<NON_REF>	.	.	END=4223	GT:DP:GQ:MIN_DP:PL	0/0:547:99:547:0,120,1800
+Pf_M76611	4224	.	A	<NON_REF>	.	.	END=4224	GT:DP:GQ:MIN_DP:PL	0/0:503:0:503:0,0,10612
+Pf_M76611	4225	.	A	<NON_REF>	.	.	END=4474	GT:DP:GQ:MIN_DP:PL	0/0:1727:99:541:0,120,1800
+Pf_M76611	4475	.	T	<NON_REF>	.	.	END=4482	GT:DP:GQ:MIN_DP:PL	0/0:1039:0:925:0,0,0
+Pf_M76611	4483	.	G	GTGTCTCTTATACACATCTGAC,GCTGTGTCTCTTATACACATCTGAC,<NON_REF>	10154	.	BaseQRankSum=0.613;DP=983;ExcessHet=0.0000;MLEAC=2,0,0;MLEAF=1.00,0.00,0.00;MQRankSum=0.000;RAW_MQandDP=3536425,983;ReadPosRankSum=2.800	GT:AD:DP:GQ:PL:SB	1/1:3,239,4,0:246:99:10168,335,0,11803,2650,36261,12067,2728,25282,23551:2,1,0,243

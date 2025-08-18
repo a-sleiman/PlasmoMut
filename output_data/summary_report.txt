@@ -1,0 +1,22 @@
+Loading input files...
+Label file loaded. You have  4  samples.
+VCF file loaded. 24 total variants.
+Encoding allele patterns by group...
+Encoding complete for 24 variants.
+Filtering variants unique to the 'Fail' group...
+Done. 5 variants retained with ALT alleles in 'Fail' group only.
+19 variants discarded at this step.
+Filtered VCF saved.
+Filtering for missense variants...
+2 missense variants retained.
+3 variants discarded (non-missense).
+Missense variant VCF saved.
+
+ ----------------- Summary Report --------------------
+Total variants in original VCF:         24 
+Variants after Fail-only filtering:     5 ( 20.8 % )
+Variants after missense filtering:      2 ( 8.3 % )
+Total variants lost (in 2 steps):       22 ( 91.7 % )
+Execution time:                         0.8 seconds
+------------------------------------------------------
+Done!
