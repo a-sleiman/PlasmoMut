@@ -15,7 +15,6 @@ To identify mutations exclusively present in *P. falciparum* isolates from treat
 | `bash_pipeline/` | Bash scripts for read mapping & VCF generation |
 | `R_scripts/`   | R scripts for filtering and visualization |
 | `output_data/` | Merged VCFs, filtered candidate variants, plots |
-| `reference_data/` | Necessary data, reference genome, project design, workflow diagrams, notes |
 
 ---
 
