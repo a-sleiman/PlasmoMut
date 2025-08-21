@@ -19,22 +19,6 @@ To identify mutations found exclusively in ACT treatment failure *P. falciparum*
 
 ---
 
-## Repository Structure
-
-```
-PlasmoMut/
-├─ input/
-│  └─ metadata/labels.xlsx
-├─ output/
-│  ├─ vcf/
-│  └─ R/
-├─ Scripts/
-│  ├─ Bash/PlasmoVar.sh
-│  └─ R/PlasmoMutFinder.R
-└─ docs/
-   └─ PlasmoMutFinder_User_Guide.md
-```
-
 ## Workflow
 
 1. **Input Data**
