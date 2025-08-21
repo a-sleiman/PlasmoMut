@@ -2,7 +2,7 @@
 
 # Author: Anthony Sleiman
 # Creation date: 07/08/2025
-# Last modification: 18/08/2025
+# Last modification: 21/08/2025
 
 # ------------------------------ Project Description ---------------------------
 
@@ -29,11 +29,11 @@ library(stringr) # text on plots
 ## ----------------------------- Import Data -----------------------------------
 
 # Import BED (0 based, will be automatically 1 based with import)
-bed_gr <- import("New15Targets.bed")
+bed_gr <- import("C:/Stages/StageESCAPE/PlasmoMut/input/metadata/New15Targets.bed")
 bed_gr_df <- as.data.frame(bed_gr)
 n_amplicon <- nrow(bed_gr_df) # Count amplicon number
 # Load .bam files name
-bam_files <- list.files("bam_files/", pattern="\\.sorted.bam.bam$", full.names=TRUE)
+bam_files <- list.files("C:/Stages/StageESCAPE/PlasmoMut/output/bam/", pattern="\\.bam$", full.names=TRUE)
 # Create empty dataframe to stock results bases
 results <- data.frame(File = character(), 
                       Reads = integer(), 
@@ -127,18 +127,16 @@ summed_df <- summed_df[, -1]
 
 # Merge the only Genes data frame with the previous results data frame
 results <- rbind(results ,summed_df)
-# Remove ".sorted.bam" from all column names
-colnames(results) <- sub("\\.sorted\\.bam$", "", colnames(results))
 
 # Export to TSV
-write.table(results, "results_summary.tsv", sep = "\t", quote = FALSE, row.names = TRUE)
+write.table(results, "C:/Stages/StageESCAPE/PlasmoMut/output/R/plot_results_summary.tsv", sep = "\t", quote = FALSE, row.names = TRUE)
 
 # ############################## Sankey Diagram ################################
 
 ## ----------------------------- Load and Prepare data -------------------------
 
 # Read data from .tsv
-tsv <- read.table("results_summary.tsv", sep = "\t", header = TRUE, row.names = 1)
+tsv <- read.table("C:/Stages/StageESCAPE/PlasmoMut/output/R/plot_results_summary.tsv", sep = "\t", header = TRUE, row.names = 1)
 # Calculate total reads of all Samples
 tsv_sum <- rowSums(tsv)
 
@@ -205,16 +203,16 @@ p <- sankeyNetwork(
 p
 
 # Save Sankey as an HTML file
-saveWidget(p, "sankey_plot.html", selfcontained = TRUE)
+saveWidget(p, "C:/Stages/StageESCAPE/PlasmoMut/output/R/sankey_plot.html", selfcontained = TRUE)
 # Save Sankey as .png
-webshot("sankey_plot.html", "sankey_plot.png", vwidth = 1200, vheight = 800)
+webshot("C:/Stages/StageESCAPE/PlasmoMut/output/R/sankey_plot.html", "C:/Stages/StageESCAPE/PlasmoMut/output/R/sankey_plot.png", vwidth = 1200, vheight = 800)
 
 # ############################## Bar Plot ######################################
 
 ## ----------------------------- Load and Prepare data -------------------------
 
 # Read data from .tsv
-tsv <- read.table("results_summary.tsv", sep = "\t", header = TRUE, row.names = 1)
+tsv <- read.table("C:/Stages/StageESCAPE/PlasmoMut/output/R/plot_results_summary.tsv", sep = "\t", header = TRUE, row.names = 1)
 
 # Prepare bar data
 df_bar <- pivot_longer(
@@ -258,7 +256,7 @@ p1 <- ggplot(bar_data, aes(x = Sample, y = Count_k, fill = Category)) +
 p1
 
 # Save
-ggsave("barplot.jpeg", plot = p1, width = 8, height = 6, dpi = 300)
+ggsave("C:/Stages/StageESCAPE/PlasmoMut/output/R/barplot.jpeg", plot = p1, width = 8, height = 6, dpi = 300)
 
 # ############################## Scatter plot ###################################
 
@@ -297,4 +295,4 @@ p2 <- ggplot(gene_data, aes(x = Count, y = Sample, color = Category)) +
 p2
 
 # Save 
-ggsave("scatterplot.jpeg", plot = p2, width = 8, height = 6, dpi = 300)
+ggsave("C:/Stages/StageESCAPE/PlasmoMut/output/R/scatterplot.jpeg", plot = p2, width = 8, height = 6, dpi = 300)
