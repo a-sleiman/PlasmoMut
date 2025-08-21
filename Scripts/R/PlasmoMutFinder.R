@@ -2,11 +2,11 @@
 
 # Created by: Anthony Sleiman
 # Creation date: 30/07/2025
-# Last modifications: 12/08/2025
+# Last modifications: 21/08/2025
 
 # ------------------------------ Project Description ---------------------------
 
-# R script to identify variants exclusive to treatment failure cases from a VCF
+# R script to identify variants exclusive to ACT treatment failure cases from a VCF
 
 # ------------------------------ Required Libraries ----------------------------
 
@@ -15,11 +15,12 @@
 
 library(VariantAnnotation)
 library(openxlsx)
+library(UpSetR)
 
 # ------------------------------ Load log --------------------------------------
 
 start_time <- Sys.time()
-log_path <- "summary_report.txt"
+log_path <- "C:/Stages/StageESCAPE/PlasmoMut/output/R/summary_report.txt"
 log <- file(log_path, open = "wt")
 sink(log, split = TRUE)
 
@@ -28,12 +29,12 @@ sink(log, split = TRUE)
 cat("Loading input files...\n")
 
 # Load sample classification table
-label <- read.xlsx("input_data/labels.xlsx")
+label <- read.xlsx("C:/Stages/StageESCAPE/PlasmoMut/input/metadata/labels.xlsx")
 
 cat("Label file loaded. You have ", nrow(label), " samples.\n")
 
 # Load merged multi-sample VCF file
-vcf <- readVcf("output_data/bam_files/SNP_filtered.vcf")
+vcf <- readVcf("C:/Stages/StageESCAPE/PlasmoMut/output/vcf/SNP_filtered.vcf")
 nb_raw_vcf <- nrow(vcf)
 cat("VCF file loaded.", nb_raw_vcf, "total variants.\n")
 
@@ -125,7 +126,7 @@ variants_to_keep <- rownames(gt_filtered)
 vcf_filtered <- vcf[rownames(vcf) %in% variants_to_keep, ]
 
 # Write the filtered VCF for downstream analysis
-writeVcf(vcf_filtered, filename = "variants_Fail_uniques.vcf")
+writeVcf(vcf_filtered, filename = "C:/Stages/StageESCAPE/PlasmoMut/output/R/variants_Fail_uniques.vcf")
 
 cat("Filtered VCF saved.\n")
 
@@ -162,7 +163,7 @@ cat(nb_miss_idx, "missense variants retained.\n")
 cat(nb_gt_filtered - nb_miss_idx, "variants discarded (non-missense).\n")
 
 # Save VCF as a new .vcf
-writeVcf(vcf_missense, filename = "missense_variant.vcf")
+writeVcf(vcf_missense, filename = "C:/Stages/StageESCAPE/PlasmoMut/output/R/missense_variant.vcf")
 
 cat("Missense variant VCF saved.\n")
 
@@ -184,13 +185,12 @@ sink()  # stop logging
 
 # ------------------------------ Plot Mutations --------------------------------
 
-### IL RESTE A METTRE VRAIMENT LE NOM DE LA MUTAITON DONC LA POSITION LE GENE ETC.... ON TROUVE CES INFO DANS LE VCF
-
-only_mut <- readVcf("missense_variant.vcf")
+only_mut <- readVcf("C:/Stages/StageESCAPE/PlasmoMut/output/R/missense_variant.vcf")
 only_mut_gt <- geno(only_mut)$GT
 presence_absence <- function(gt) ifelse(gt == "0/0" | gt == "./.", 0, 1)
 binary_matrix <- apply(only_mut_gt, c(1,2), presence_absence)
 binary_df <- as.data.frame(t(binary_matrix))
+png("C:/Stages/StageESCAPE/PlasmoMut/output/R/upset_plot.jpeg", width=2000, height=1500, res=200)
 upset(
   binary_df,
   nsets = ncol(binary_df),      # number of mutations
@@ -198,3 +198,4 @@ upset(
   main.bar.color = "steelblue",  # couleur des intersections
   keep.order = TRUE
 )
+dev.off()

@@ -1,0 +1,82 @@
+##fileformat=VCFv4.2
+##fileDate=20250821
+##SnpEffCmd="SnpEff  -no-downstream -no-upstream Pf3D7v3 /mnt/c/Stages/StageESCAPE/PlasmoMut/output/vcf/applied_recal_GVCF.vcf "
+##SnpEffVersion="4.1l (build 2015-10-03), by Pablo Cingolani"
+##reference=file:///mnt/c/Stages/StageESCAPE/PlasmoMut/input/reference/Pfalciparum.genome.fasta
+##source=ApplyVQSR
+##source.1=SelectVariants
+##source.2=VariantFiltration
+##FILTER=<ID=PASS,Description="All filters passed">
+##FILTER=<ID=FS60,Description="FS > 60.0">
+##FILTER=<ID=LowQual,Description="Low quality">
+##FILTER=<ID=LowQualVQ,Description="VQSLOD <= 0.0">
+##FILTER=<ID=MQ40,Description="MQ < 40.0">
+##FILTER=<ID=MQRankSum-12.5,Description="MQRankSum < -12.5">
+##FILTER=<ID=NotCore,Description="RegionType != 'Core'">
+##FILTER=<ID=QD2,Description="QD < 2.0">
+##FILTER=<ID=QUAL30,Description="QUAL < 30.0">
+##FILTER=<ID=ReadPosRankSum-8,Description="ReadPosRankSum < -8.0">
+##FILTER=<ID=SOR3,Description="SOR > 3.0">
+##FILTER=<ID=VQSRTrancheSNP0.00to99.90,Description="Truth sensitivity tranche level for SNP model at VQS Lod: 40.7443 <= x < 40.7443">
+##FILTER=<ID=VQSRTrancheSNP90.00to100.00+,Description="Truth sensitivity tranche level for SNP model at VQS Lod < -3.357774518610821E12">
+##FILTER=<ID=VQSRTrancheSNP90.00to100.00,Description="Truth sensitivity tranche level for SNP model at VQS Lod: -3.357774518610821E12 <= x < 40.7443">
+##ALT=<ID=NON_REF,Description="Represents any possible alternative allele not already represented at this location by REF and ALT">
+##FORMAT=<ID=GT,Number=1,Type=String,Description="Genotype">
+##FORMAT=<ID=AD,Number=R,Type=Integer,Description="Allelic depths for the ref and alt alleles in the order listed">
+##FORMAT=<ID=DP,Number=1,Type=Integer,Description="Approximate read depth (reads with MQ=255 or with bad mates are filtered)">
+##FORMAT=<ID=GQ,Number=1,Type=Integer,Description="Genotype Quality">
+##FORMAT=<ID=MIN_DP,Number=1,Type=Integer,Description="Minimum DP observed within the GVCF block">
+##FORMAT=<ID=PGT,Number=1,Type=String,Description="Physical phasing haplotype information, describing how the alternate alleles are phased in relation to one another; will always be heterozygous and is not intended to describe called alleles">
+##FORMAT=<ID=PID,Number=1,Type=String,Description="Physical phasing ID information, where each unique ID within a given sample (but not across samples) connects records within a phasing group">
+##FORMAT=<ID=PL,Number=G,Type=Integer,Description="Normalized, Phred-scaled likelihoods for genotypes as defined in the VCF specification">
+##FORMAT=<ID=PS,Number=1,Type=Integer,Description="Phasing set (typically the position of the first variant in the set)">
+##FORMAT=<ID=RGQ,Number=1,Type=Integer,Description="Unconditional reference genotype confidence, encoded as a phred quality -10*log10 p(genotype call is wrong)">
+##FORMAT=<ID=SB,Number=4,Type=Integer,Description="Per-sample component statistics which comprise the Fisher's Exact Test to detect strand bias.">
+##GATKCommandLine=<ID=ApplyVQSR,CommandLine="ApplyVQSR --recal-file /mnt/c/Stages/StageESCAPE/PlasmoMut/output/vcf/recal_GVCF.recal --tranches-file /mnt/c/Stages/StageESCAPE/PlasmoMut/output/vcf/recal_GVCF.tranches --output /mnt/c/Stages/StageESCAPE/PlasmoMut/output/vcf/applied_recal_GVCF.vcf --truth-sensitivity-filter-level 99.0 --mode SNP --variant /mnt/c/Stages/StageESCAPE/PlasmoMut/output/vcf/calling_GVCF.vcf --reference /mnt/c/Stages/StageESCAPE/PlasmoMut/input/reference/Pfalciparum.genome.fasta --use-allele-specific-annotations false --ignore-all-filters false --exclude-filtered false --interval-set-rule UNION --interval-padding 0 --interval-exclusion-padding 0 --interval-merging-rule ALL --read-validation-stringency SILENT --seconds-between-progress-updates 10.0 --disable-sequence-dictionary-validation false --create-output-bam-index true --create-output-bam-md5 false --create-output-variant-index true --create-output-variant-md5 false --max-variants-per-shard 0 --lenient false --add-output-sam-program-record true --add-output-vcf-command-line true --cloud-prefetch-buffer 40 --cloud-index-prefetch-buffer -1 --disable-bam-index-caching false --sites-only-vcf-output false --help false --version false --showHidden false --verbosity INFO --QUIET false --use-jdk-deflater false --use-jdk-inflater false --gcs-max-retries 20 --gcs-project-for-requester-pays  --disable-tool-default-read-filters false",Version="4.3.0.0",Date="August 21, 2025 at 1:51:22 AM EEST">
+##GATKCommandLine=<ID=SelectVariants,CommandLine="SelectVariants --output /mnt/c/Stages/StageESCAPE/PlasmoMut/output/vcf/SNPs.vcf --restrict-alleles-to BIALLELIC --select-type-to-include SNP --variant /mnt/c/Stages/StageESCAPE/PlasmoMut/output/vcf/barcodecoreregions.vcf --reference /mnt/c/Stages/StageESCAPE/PlasmoMut/input/reference/Pfalciparum.genome.fasta --invertSelect false --exclude-non-variants false --exclude-filtered false --preserve-alleles false --remove-unused-alternates false --keep-original-ac false --keep-original-dp false --mendelian-violation false --invert-mendelian-violation false --mendelian-violation-qual-threshold 0.0 --select-random-fraction 0.0 --remove-fraction-genotypes 0.0 --fully-decode false --max-indel-size 2147483647 --min-indel-size 0 --max-filtered-genotypes 2147483647 --min-filtered-genotypes 0 --max-fraction-filtered-genotypes 1.0 --min-fraction-filtered-genotypes 0.0 --max-nocall-number 2147483647 --max-nocall-fraction 1.0 --set-filtered-gt-to-nocall false --allow-nonoverlapping-command-line-samples false --suppress-reference-path false --fail-on-unsorted-genotype false --genomicsdb-max-alternate-alleles 50 --call-genotypes false --genomicsdb-use-bcf-codec false --genomicsdb-shared-posixfs-optimizations false --genomicsdb-use-gcs-hdfs-connector false --interval-set-rule UNION --interval-padding 0 --interval-exclusion-padding 0 --interval-merging-rule ALL --read-validation-stringency SILENT --seconds-between-progress-updates 10.0 --disable-sequence-dictionary-validation false --create-output-bam-index true --create-output-bam-md5 false --create-output-variant-index true --create-output-variant-md5 false --max-variants-per-shard 0 --lenient false --add-output-sam-program-record true --add-output-vcf-command-line true --cloud-prefetch-buffer 40 --cloud-index-prefetch-buffer -1 --disable-bam-index-caching false --sites-only-vcf-output false --help false --version false --showHidden false --verbosity INFO --QUIET false --use-jdk-deflater false --use-jdk-inflater false --gcs-max-retries 20 --gcs-project-for-requester-pays  --disable-tool-default-read-filters false",Version="4.3.0.0",Date="August 21, 2025 at 1:51:38 AM EEST">
+##GATKCommandLine=<ID=VariantFiltration,CommandLine="VariantFiltration --output /mnt/c/Stages/StageESCAPE/PlasmoMut/output/vcf/SNP_filtered.vcf --filter-expression VQSLOD <= 0.0 --filter-expression RegionType != 'Core' --filter-expression QD < 2.0 --filter-expression QUAL < 30.0 --filter-expression SOR > 3.0 --filter-expression FS > 60.0 --filter-expression MQ < 40.0 --filter-expression MQRankSum < -12.5 --filter-expression ReadPosRankSum < -8.0 --filter-name LowQualVQ --filter-name NotCore --filter-name QD2 --filter-name QUAL30 --filter-name SOR3 --filter-name FS60 --filter-name MQ40 --filter-name MQRankSum-12.5 --filter-name ReadPosRankSum-8 --variant /mnt/c/Stages/StageESCAPE/PlasmoMut/output/vcf/SNPs.vcf --reference /mnt/c/Stages/StageESCAPE/PlasmoMut/input/reference/Pfalciparum.genome.fasta --cluster-size 3 --cluster-window-size 0 --mask-extension 0 --mask-name Mask --filter-not-in-mask false --missing-values-evaluate-as-failing false --invalidate-previous-filters false --invert-filter-expression false --invert-genotype-filter-expression false --set-filtered-genotype-to-no-call false --apply-allele-specific-filters false --interval-set-rule UNION --interval-padding 0 --interval-exclusion-padding 0 --interval-merging-rule ALL --read-validation-stringency SILENT --seconds-between-progress-updates 10.0 --disable-sequence-dictionary-validation false --create-output-bam-index true --create-output-bam-md5 false --create-output-variant-index true --create-output-variant-md5 false --max-variants-per-shard 0 --lenient false --add-output-sam-program-record true --add-output-vcf-command-line true --cloud-prefetch-buffer 40 --cloud-index-prefetch-buffer -1 --disable-bam-index-caching false --sites-only-vcf-output false --help false --version false --showHidden false --verbosity INFO --QUIET false --use-jdk-deflater false --use-jdk-inflater false --gcs-max-retries 20 --gcs-project-for-requester-pays  --disable-tool-default-read-filters false",Version="4.3.0.0",Date="August 21, 2025 at 1:51:41 AM EEST">
+##INFO=<ID=AC,Number=A,Type=Integer,Description="Allele count in genotypes, for each ALT allele, in the same order as listed">
+##INFO=<ID=AF,Number=A,Type=Float,Description="Allele Frequency, for each ALT allele, in the same order as listed">
+##INFO=<ID=AN,Number=1,Type=Integer,Description="Total number of alleles in called genotypes">
+##INFO=<ID=ANN,Number=.,Type=String,Description="Functional annotations: 'Allele | Annotation | Annotation_Impact | Gene_Name | Gene_ID | Feature_Type | Feature_ID | Transcript_BioType | Rank | HGVS.c | HGVS.p | cDNA.pos / cDNA.length | CDS.pos / CDS.length | AA.pos / AA.length | Distance | ERRORS / WARNINGS / INFO'">
+##INFO=<ID=BaseQRankSum,Number=1,Type=Float,Description="Z-score from Wilcoxon rank sum test of Alt Vs. Ref base qualities">
+##INFO=<ID=DP,Number=1,Type=Integer,Description="Approximate read depth; some reads may have been filtered">
+##INFO=<ID=END,Number=1,Type=Integer,Description="Stop position of the interval">
+##INFO=<ID=ExcessHet,Number=1,Type=Float,Description="Phred-scaled p-value for exact test of excess heterozygosity">
+##INFO=<ID=FS,Number=1,Type=Float,Description="Phred-scaled p-value using Fisher's exact test to detect strand bias">
+##INFO=<ID=GlobalBarcode,Number=1,Type=Integer,Description="'Global Barcode SNP from Neafsey et al 2008'">
+##INFO=<ID=InbreedingCoeff,Number=1,Type=Float,Description="Inbreeding coefficient as estimated from the genotype likelihoods per-sample when compared against the Hardy-Weinberg expectation">
+##INFO=<ID=LOF,Number=.,Type=String,Description="Predicted loss of function effects for this variant. Format: 'Gene_Name | Gene_ID | Number_of_transcripts_in_gene | Percent_of_transcripts_affected'">
+##INFO=<ID=MLEAC,Number=A,Type=Integer,Description="Maximum likelihood expectation (MLE) for the allele counts (not necessarily the same as the AC), for each ALT allele, in the same order as listed">
+##INFO=<ID=MLEAF,Number=A,Type=Float,Description="Maximum likelihood expectation (MLE) for the allele frequency (not necessarily the same as the AF), for each ALT allele, in the same order as listed">
+##INFO=<ID=MQ,Number=1,Type=Float,Description="RMS Mapping Quality">
+##INFO=<ID=MQRankSum,Number=1,Type=Float,Description="Z-score From Wilcoxon rank sum test of Alt vs. Ref read mapping qualities">
+##INFO=<ID=NEGATIVE_TRAIN_SITE,Number=0,Type=Flag,Description="This variant was used to build the negative training set of bad variants">
+##INFO=<ID=NMD,Number=.,Type=String,Description="Predicted nonsense mediated decay effects for this variant. Format: 'Gene_Name | Gene_ID | Number_of_transcripts_in_gene | Percent_of_transcripts_affected'">
+##INFO=<ID=POSITIVE_TRAIN_SITE,Number=0,Type=Flag,Description="This variant was used to build the positive training set of good variants">
+##INFO=<ID=QD,Number=1,Type=Float,Description="Variant Confidence/Quality by Depth">
+##INFO=<ID=RAW_MQandDP,Number=2,Type=Integer,Description="Raw data (sum of squared MQ and total depth) for improved RMS Mapping Quality calculation. Incompatible with deprecated RAW_MQ formulation.">
+##INFO=<ID=ReadPosRankSum,Number=1,Type=Float,Description="Z-score from Wilcoxon rank sum test of Alt vs. Ref read position bias">
+##INFO=<ID=RegionType,Number=1,Type=String,Description="The type of genome region within which the variant is found. SubtelomericRepeat: repetitive regions at the ends of the chromosomes. SubtelomericHypervariable: subtelomeric region of poor conservation between the 3D7 reference genome and other samples. InternalHypervariable: chromosome-internal region of poor conservation between the 3D7 reference genome and other samples. Centromere: start and end coordinates of the centromere genome annotation. Core: everything else.">
+##INFO=<ID=SOR,Number=1,Type=Float,Description="Symmetric Odds Ratio of 2x2 contingency table to detect strand bias">
+##INFO=<ID=VQSLOD,Number=1,Type=Float,Description="Log odds of being a true variant versus being false under the trained gaussian mixture model">
+##INFO=<ID=culprit,Number=1,Type=String,Description="The annotation which was the worst performing in the Gaussian mixture model, likely the reason why the variant was filtered out">
+##contig=<ID=Pf3D7_01_v3,length=640851,assembly=Pfalciparum.genome.fasta>
+##contig=<ID=Pf3D7_02_v3,length=947102,assembly=Pfalciparum.genome.fasta>
+##contig=<ID=Pf3D7_03_v3,length=1067971,assembly=Pfalciparum.genome.fasta>
+##contig=<ID=Pf3D7_04_v3,length=1200490,assembly=Pfalciparum.genome.fasta>
+##contig=<ID=Pf3D7_05_v3,length=1343557,assembly=Pfalciparum.genome.fasta>
+##contig=<ID=Pf3D7_06_v3,length=1418242,assembly=Pfalciparum.genome.fasta>
+##contig=<ID=Pf3D7_07_v3,length=1445207,assembly=Pfalciparum.genome.fasta>
+##contig=<ID=Pf3D7_08_v3,length=1472805,assembly=Pfalciparum.genome.fasta>
+##contig=<ID=Pf3D7_09_v3,length=1541735,assembly=Pfalciparum.genome.fasta>
+##contig=<ID=Pf3D7_10_v3,length=1687656,assembly=Pfalciparum.genome.fasta>
+##contig=<ID=Pf3D7_11_v3,length=2038340,assembly=Pfalciparum.genome.fasta>
+##contig=<ID=Pf3D7_12_v3,length=2271494,assembly=Pfalciparum.genome.fasta>
+##contig=<ID=Pf3D7_13_v3,length=2925236,assembly=Pfalciparum.genome.fasta>
+##contig=<ID=Pf3D7_14_v3,length=3291936,assembly=Pfalciparum.genome.fasta>
+##contig=<ID=Pf3D7_API_v3,length=34250,assembly=Pfalciparum.genome.fasta>
+##contig=<ID=Pf_M76611,length=5967,assembly=Pfalciparum.genome.fasta>
+#CHROM	POS	ID	REF	ALT	QUAL	FILTER	INFO	FORMAT	112313321571_S193_L001	112313321776_S1_L001	112313332883_S331_L001	112313357426_S2_L001
+Pf3D7_13_v3	2840826	Pf3D7_13_v3:2840826_A/T	A	T	121.91	LowQualVQ;NotCore;VQSRTrancheSNP90.00to100.00	AC=1;AF=0.25;AN=4;ANN=T|missense_variant|MODERATE|HRPIII|PF3D7_1372200|transcript|PF3D7_1372200.1|Coding|2/2|c.729T>A|p.Asp243Glu|729/828|729/828|243/275||;BaseQRankSum=-1.146;DP=43;ExcessHet=0;FS=1.992;MLEAC=1;MLEAF=0.25;MQ=57.57;MQRankSum=-3.033;QD=4.2;ReadPosRankSum=-1.241;RegionType=SubtelomericHypervariable;SOR=0.84;VQSLOD=-897300000;culprit=FS	GT:AD:DP:GQ:PGT:PID:PL:PS	./.:0,0:.:.:.:.:.,.,.:.	0/0:13,0:13:39:.:.:0,39,305:.	./.:0,0:.:.:.:.:.,.,.:.	0|1:24,5:29:99:0|1:2840787_G_*:130,0,973:2840787
+Pf3D7_13_v3	2840827	Pf3D7_13_v3:2840827_T/C	T	C	119.91	LowQualVQ;NotCore;VQSRTrancheSNP90.00to100.00	AC=1;AF=0.25;AN=4;ANN=C|missense_variant|MODERATE|HRPIII|PF3D7_1372200|transcript|PF3D7_1372200.1|Coding|2/2|c.728A>G|p.Asp243Gly|728/828|728/828|243/275||;BaseQRankSum=-1.406;DP=45;ExcessHet=0;FS=1.922;MLEAC=1;MLEAF=0.25;MQ=57.65;MQRankSum=-3.107;QD=4;ReadPosRankSum=-0.989;RegionType=SubtelomericHypervariable;SOR=0.883;VQSLOD=-835100000;culprit=FS	GT:AD:DP:GQ:PGT:PID:PL:PS	./.:0,0:.:.:.:.:.,.,.:.	0/0:14,0:14:42:.:.:0,42,346:.	./.:0,0:.:.:.:.:.,.,.:.	0|1:25,5:30:99:0|1:2840787_G_*:128,0,980:2840787
